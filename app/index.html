@@ -1,5 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>To-do</title></head>
-<body><main><h1>To-do</h1><p>An OpenWiz fleet is building this app.</p></main></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-do</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <main class="todo-app">
+    <h1 class="todo-title">To-do</h1>
+
+    <form class="todo-form">
+      <label class="todo-form-label" for="todo-new">New task</label>
+      <input class="todo-form-input" id="todo-new" name="text" type="text" autocomplete="off">
+      <button class="todo-form-add" type="submit">Add</button>
+    </form>
+
+    <div class="todo-tasks"><!-- renderTasks(tasks) goes here --></div>
+  </main>
+</body>
 </html>
