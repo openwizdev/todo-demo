@@ -5,5 +5,5 @@ A to-do app built end to end by an [OpenWiz](https://github.com/openwizdev/OpenW
 **Live app:** https://openwizdev.github.io/todo-demo/
 
 - `app/`: the app, plain HTML, CSS and JavaScript. Every merge to `main` deploys it to GitHub Pages.
-- `tests/`: `npm test` (Node 24, no dependencies).
+- `tests/`: `npm test` (Node 24, no dependencies); CI runs it on every pull request.
 - `docs/agents/`: the fleet's settings. `.claude/`: the installed skills.
