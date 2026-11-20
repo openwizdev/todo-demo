@@ -1,0 +1,10 @@
+# #2218 green run with the repaired released(): TEST_ONLY='OB7a:*' sh skills/launch-fleet/scripts/test.sh
+ok   OB7a: a newer manual hold keeps an approved contract hold held
+ok   OB7a: a wake offers no release under a newer manual hold
+ok   OB7a: a person's ticket keeps a newer manual hold
+ok   OB7a: a newer live hold keeps an approved contract hold held
+ok   OB7a: a newer plain hold instruction keeps an approved contract hold held
+ok   OB7a: a manual hold older than the approval stays unresolved
+ok   OB7a: a manual hold ended before the held label went on does not block
+ok   every gh call was one of fleet.sh's reads
+7 cases, 0 failed

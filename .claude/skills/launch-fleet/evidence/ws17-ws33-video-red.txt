@@ -1,0 +1,10 @@
+FAIL steer: a video with WS33's new wording gets the notice (WS33): unexpected output:
+    --- <tmp>/case-1/want.txt	<time>
+    +++ <tmp>/case-1/out	<time>
+    @@ -1,2 +1 @@
+    -look #10: comments on the video steer nothing until the identity separation of OpenWiz #1402 is verified; the owner steers through the orchestrator
+     start #13: W3: widget page (spec #10)
+ok   steer: a help comment repeating WS33's new cue is no video, so no notice (WS33)
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 2 cases ran, not 1: is "steer:*WS33*" a case's name?
+2 cases, 2 failed

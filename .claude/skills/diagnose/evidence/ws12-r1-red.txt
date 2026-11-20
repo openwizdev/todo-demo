@@ -1,0 +1,21 @@
+# WS12 R1 red run: python3 -I skills/diagnose/scripts/test_loop.py Clean.test_a_leftover_outside_the_current_directory_is_named, before the fix
+F
+======================================================================
+FAIL: test_a_leftover_outside_the_current_directory_is_named (__main__.Clean.test_a_leftover_outside_the_current_directory_is_named)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 121, in test_a_leftover_outside_the_current_directory_is_named
+    self.assertEqual((r.returncode, r.stdout), (1, 'left: 1 [DEBUG-a4f2] in tests/repro.py:1\n'))
+AssertionError: Tuples differ: (0, 'clean: no [DEBUG-a4f2] left\n') != (1, 'left: 1 [DEBUG-a4f2] in tests/repro.py:1\n')
+
+First differing element 0:
+0
+1
+
+- (0, 'clean: no [DEBUG-a4f2] left\n')
++ (1, 'left: 1 [DEBUG-a4f2] in tests/repro.py:1\n')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.037s
+
+FAILED (failures=1)

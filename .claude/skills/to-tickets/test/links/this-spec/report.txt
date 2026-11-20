@@ -1,0 +1,1 @@
+pass spec #1313: tickets 10, links 8, real 8, file 0, unlabelled 0, refusals 0

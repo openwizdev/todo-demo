@@ -1,0 +1,31 @@
+# FF2 R2 green (decision: fix once more), after the fix: python3 -I skills/launch-fleet/scripts/test-route.py
+# The same proof as ff2-r2-http2-red.txt: real GitHub CLI 2.100.0, a local Node HTTPS stand-in over HTTP/2 and HTTP/1.1, GH_DEBUG=api, DEBUG=api, GODEBUG=http2debug=2 and SYNTHETIC_FUTURE_TRACE=1 in the caller; the POST, PATCH, list and delete as documented. Synthetic address only.
+test_a_handle_resolves_to_its_spec_s_loop_id (__main__.Loop.test_a_handle_resolves_to_its_spec_s_loop_id) ... ok
+test_a_malformed_spec_number_is_refused (__main__.Loop.test_a_malformed_spec_number_is_refused) ... ok
+test_a_missing_handle_prints_nothing_and_exits_cleanly (__main__.Loop.test_a_missing_handle_prints_nothing_and_exits_cleanly) ... ok
+test_a_partial_or_failed_read_is_never_a_quiet_nothing (__main__.Refs.test_a_partial_or_failed_read_is_never_a_quiet_nothing) ... ok
+test_a_satellite_pull_request_names_the_project_ticket_it_closes (__main__.Refs.test_a_satellite_pull_request_names_the_project_ticket_it_closes) ... ok
+test_bad_arguments_are_refused_before_any_read (__main__.Refs.test_bad_arguments_are_refused_before_any_read) ... ok
+test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing (__main__.Refs.test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing) ... ok
+test_only_the_project_s_tickets_are_named_once_each_in_order (__main__.Refs.test_only_the_project_s_tickets_are_named_once_each_in_order) ... ok
+test_the_project_s_own_numbers_pass_through_unread (__main__.Refs.test_the_project_s_own_numbers_pass_through_unread) ... ok
+test_the_webhook_address_never_touches_a_file_or_an_argument (__main__.Setup.test_the_webhook_address_never_touches_a_file_or_an_argument) ... ok
+test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) ... /usr/lib/python3.11/unittest/case.py:657: ResourceWarning: unclosed file <_io.TextIOWrapper name=4 encoding='UTF-8'>
+  function, args, kwargs = self._cleanups.pop()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.11/unittest/case.py:657: ResourceWarning: unclosed file <_io.TextIOWrapper name=3 encoding='UTF-8'>
+  function, args, kwargs = self._cleanups.pop()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_a_failed_lookup_or_wake_is_a_failure (__main__.Tick.test_a_failed_lookup_or_wake_is_a_failure) ... ok
+test_a_group_with_no_project_ticket_ends_quietly (__main__.Tick.test_a_group_with_no_project_ticket_ends_quietly) ... ok
+test_a_missing_handle_is_reported_privately_and_writes_nothing (__main__.Tick.test_a_missing_handle_is_reported_privately_and_writes_nothing) ... ok
+test_a_satellite_message_runs_its_spec_s_loop (__main__.Tick.test_a_satellite_message_runs_its_spec_s_loop) ... ok
+test_the_project_s_own_numbers_go_straight_to_wake (__main__.Tick.test_the_project_s_own_numbers_go_straight_to_wake) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in N s
+
+OK
+# Mutations, each restored after, each fails SetupUnderTracing: KEEP passing GODEBUG (8 failures); a deny-list of GH_DEBUG, DEBUG and GODEBUG instead of KEEP (8, the unknown setting reaches gh); the list without route.py gh (2); no PATCH command (1); the POST without route.py gh (2).
+# Repeated: the whole file 5 runs, all OK.

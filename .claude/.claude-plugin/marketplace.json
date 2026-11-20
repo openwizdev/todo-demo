@@ -1,0 +1,13 @@
+{
+  "name": "wizskills",
+  "owner": {
+    "name": "OpenWiz"
+  },
+  "plugins": [
+    {
+      "name": "openwiz",
+      "source": "./",
+      "description": "OpenWiz's skills."
+    }
+  ]
+}

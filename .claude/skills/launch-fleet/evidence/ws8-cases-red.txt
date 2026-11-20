@@ -1,0 +1,6 @@
+# WS8 (#1181) red: the full test.sh run at a11849b after main's merge; the re-check skill_has case moved to test-brief.py but CASES still said 817.
+# TEST_JOBS=4 sh skills/launch-fleet/scripts/test.sh (tail)
+FAIL every case ran: 816 cases ran, not 817
+4 workers
+816 cases, 1 failed
+exit=1

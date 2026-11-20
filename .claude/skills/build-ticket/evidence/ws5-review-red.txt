@@ -1,0 +1,235 @@
+$ python3 -I skills/build-ticket/scripts/test_ticket.py -v   # review R1-R5 cases against ticket.py at e88fcf3
+test_author_sets_the_users_noreply_identity (__main__.Author.test_author_sets_the_users_noreply_identity) ... ok
+test_read_keeps_repository_binding_and_annotated_lists (__main__.Read.test_read_keeps_repository_binding_and_annotated_lists) ... FAIL
+test_read_lists_owned_paths_and_readiness (__main__.Read.test_read_lists_owned_paths_and_readiness) ... FAIL
+test_read_refuses_a_ticket_not_released_to_agents (__main__.Read.test_read_refuses_a_ticket_not_released_to_agents) ... ok
+test_read_refuses_an_open_blocker (__main__.Read.test_read_refuses_an_open_blocker) ... ok
+test_read_refuses_incomplete_blocker_data (__main__.Read.test_read_refuses_incomplete_blocker_data) ... FAIL
+test_read_requires_completed_blockers_and_the_fleet_start (__main__.Read.test_read_requires_completed_blockers_and_the_fleet_start) ... FAIL
+test_read_without_owned_paths_refuses (__main__.Read.test_read_without_owned_paths_refuses) ... ok
+test_unreadable_ticket_exits_2 (__main__.Read.test_unreadable_ticket_exits_2) ... ok
+test_post_receipt_ignores_a_copy_by_anyone_else (__main__.Receipt.test_post_receipt_ignores_a_copy_by_anyone_else) ... FAIL
+test_post_receipt_reads_back_after_a_timed_out_post (__main__.Receipt.test_post_receipt_reads_back_after_a_timed_out_post) ... FAIL
+test_post_receipt_reports_a_refused_write (__main__.Receipt.test_post_receipt_reports_a_refused_write) ... ok
+test_post_receipt_survives_a_lost_response_and_never_posts_twice (__main__.Receipt.test_post_receipt_survives_a_lost_response_and_never_posts_twice) ... ok
+test_post_receipt_without_a_read_back_is_unknown (__main__.Receipt.test_post_receipt_without_a_read_back_is_unknown) ... FAIL
+test_push_after_an_unrecorded_earlier_push_stays_unknown (__main__.Receipt.test_push_after_an_unrecorded_earlier_push_stays_unknown) ... FAIL
+test_push_receipt_records_only_the_first_success (__main__.Receipt.test_push_receipt_records_only_the_first_success) ... ok
+test_push_refuses_a_receipt_inside_the_checkout (__main__.Receipt.test_push_refuses_a_receipt_inside_the_checkout) ... ok
+test_records_binds_a_decision_to_its_parked_finding_and_head (__main__.Records.test_records_binds_a_decision_to_its_parked_finding_and_head) ... FAIL
+test_records_marks_a_verdict_on_an_older_head (__main__.Records.test_records_marks_a_verdict_on_an_older_head) ... FAIL
+test_records_reads_authors_only_from_the_identity_table (__main__.Records.test_records_reads_authors_only_from_the_identity_table) ... FAIL
+test_records_reads_only_a_full_verdict_header (__main__.Records.test_records_reads_only_a_full_verdict_header) ... FAIL
+test_records_reads_trusted_ticket_answers (__main__.Records.test_records_reads_trusted_ticket_answers) ... FAIL
+test_records_trusts_only_record_authors (__main__.Records.test_records_trusts_only_record_authors) ... FAIL
+test_records_unreadable_comments_exit_2 (__main__.Records.test_records_unreadable_comments_exit_2) ... ok
+test_scope_accepts_annotated_and_hand_resolved_paths (__main__.Scope.test_scope_accepts_annotated_and_hand_resolved_paths) ... FAIL
+test_scope_applies_owned_paths_only_in_their_repository (__main__.Scope.test_scope_applies_owned_paths_only_in_their_repository) ... FAIL
+test_scope_flags_every_unowned_side (__main__.Scope.test_scope_flags_every_unowned_side) ... ok
+test_scope_passes_owned_and_named_supporting_edits_only (__main__.Scope.test_scope_passes_owned_and_named_supporting_edits_only) ... ok
+test_scope_refuses_an_unknown_base (__main__.Scope.test_scope_refuses_an_unknown_base) ... ok
+
+======================================================================
+FAIL: test_read_keeps_repository_binding_and_annotated_lists (__main__.Read.test_read_keeps_repository_binding_and_annotated_lists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 168, in test_read_keeps_repository_binding_and_annotated_lists
+    self.assertIn('owned: tools/ in example/other', lines)
+AssertionError: 'owned: tools/ in example/other' not found in ['ticket #41: Export refuses an existing destination', 'state: OPEN; labels: ready-for-agent', 'spec: #40', 'owned: src/export/', 'owned: docs/export.md (shared with #43: its own section)', 'owned: tools/', 'owned, not a path: the pin and its readers (shared: only what changes): `pin.lock`; `tests/checks/skills.rs`, each where the lookup changes', 'relies on: `docs/guide.md`', 'blocks: #44 OPEN', 'ready: yes']
+
+======================================================================
+FAIL: test_read_lists_owned_paths_and_readiness (__main__.Read.test_read_lists_owned_paths_and_readiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 150, in test_read_lists_owned_paths_and_readiness
+    self.assertIn('owned: src/export/ in example/project', lines)
+AssertionError: 'owned: src/export/ in example/project' not found in ['ticket #41: Export refuses an existing destination', 'state: OPEN; labels: ready-for-agent', 'spec: #40', 'owned: src/export/', 'owned: docs/export.md (shared with #43: its own section)', 'owned, not a path: its suite in `example/project`', 'relies on: `docs/guide.md`', 'blocks: #44 OPEN', 'ready: yes']
+
+======================================================================
+FAIL: test_read_refuses_incomplete_blocker_data (__main__.Read.test_read_refuses_incomplete_blocker_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 200, in test_read_refuses_incomplete_blocker_data
+    self.assertEqual((code, out), (2, ''), broken)
+AssertionError: Tuples differ: (0, 'ticket #41: Export refuses an existin[248 chars]s\n') != (2, '')
+
+First differing element 0:
+0
+2
+
++ (2, '')
+- (0,
+-  'ticket #41: Export refuses an existing destination\n'
+-  'state: OPEN; labels: ready-for-agent\n'
+-  'spec: #40\n'
+-  'owned: src/export/\n'
+-  'owned: docs/export.md (shared with #43: its own section)\n'
+-  'owned, not a path: its suite in `example/project`\n'
+-  'relies on: `docs/guide.md`\n'
+-  'blocks: #44 OPEN\n'
+-  'ready: yes\n') : {}
+
+======================================================================
+FAIL: test_read_requires_completed_blockers_and_the_fleet_start (__main__.Read.test_read_requires_completed_blockers_and_the_fleet_start)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 185, in test_read_requires_completed_blockers_and_the_fleet_start
+    self.assertEqual((code, last(out)), (1, 'ready: no: #39 was closed as NOT_PLANNED'))
+AssertionError: Tuples differ: (0, 'ready: yes') != (1, 'ready: no: #39 was closed as NOT_PLANNED')
+
+First differing element 0:
+0
+1
+
+- (0, 'ready: yes')
++ (1, 'ready: no: #39 was closed as NOT_PLANNED')
+
+======================================================================
+FAIL: test_post_receipt_ignores_a_copy_by_anyone_else (__main__.Receipt.test_post_receipt_ignores_a_copy_by_anyone_else)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 421, in test_post_receipt_ignores_a_copy_by_anyone_else
+    self.assertIn('receipt posted: comment 9001', out)
+AssertionError: 'receipt posted: comment 9001' not found in 'receipt reused: comment 1\n'
+
+======================================================================
+FAIL: test_post_receipt_reads_back_after_a_timed_out_post (__main__.Receipt.test_post_receipt_reads_back_after_a_timed_out_post)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 433, in test_post_receipt_reads_back_after_a_timed_out_post
+    self.assertEqual(code, 0, out + err)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "skills/build-ticket/scripts/ticket.py", line 335, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "skills/build-ticket/scripts/ticket.py", line 324, in main
+    return cmd_post_receipt(argv[1], int(argv[2]), argv[3])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "skills/build-ticket/scripts/ticket.py", line 287, in cmd_post_receipt
+    subprocess.run(['gh', 'api', '--method', 'POST', f'repos/{repo}/issues/{pr}/comments',
+  File "/usr/lib/python3.11/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1207, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 2060, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.11/subprocess.py", line 1251, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['gh', 'api', '--method', 'POST', 'repos/example/project/issues/7/comments', '-f', 'body=First successful push: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa at 2026-01-01T00:00:00Z\n']' timed out after 120 seconds
+
+
+======================================================================
+FAIL: test_post_receipt_without_a_read_back_is_unknown (__main__.Receipt.test_post_receipt_without_a_read_back_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 441, in test_post_receipt_without_a_read_back_is_unknown
+    self.assertEqual(code, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_push_after_an_unrecorded_earlier_push_stays_unknown (__main__.Receipt.test_push_after_an_unrecorded_earlier_push_stays_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 394, in test_push_after_an_unrecorded_earlier_push_stays_unknown
+    self.assertFalse(receipt.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_records_binds_a_decision_to_its_parked_finding_and_head (__main__.Records.test_records_binds_a_decision_to_its_parked_finding_and_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 325, in test_records_binds_a_decision_to_its_parked_finding_and_head
+    self.assertTrue(line.endswith(expected), (decision, line))
+AssertionError: False is not true : ('fix once more: R2 at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. Why: x', 'decision: comment 2 by owner-1: **Orchestrator decision:** fix once more: R2 at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. Why: x')
+
+======================================================================
+FAIL: test_records_marks_a_verdict_on_an_older_head (__main__.Records.test_records_marks_a_verdict_on_an_older_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 309, in test_records_marks_a_verdict_on_an_older_head
+    self.assertIn(f'verdict: comment 1 by example[bot]: APPROVE at {OLD}, current head: no ({HEAD})',
+AssertionError: 'verdict: comment 1 by example[bot]: APPROVE at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, current head: no (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)' not found in ['authors: example[bot], owner-1', 'verdict: comment 1 by example[bot] at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, current head: no (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)', 'next: Next: none open.', 'ignored: 0 comment(s) not by a record author']
+
+======================================================================
+FAIL: test_records_reads_authors_only_from_the_identity_table (__main__.Records.test_records_reads_authors_only_from_the_identity_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 350, in test_records_reads_authors_only_from_the_identity_table
+    self.assertEqual((code, out), (2, ''), text)
+AssertionError: Tuples differ: (0, 'authors: stranger\nverdict: comment 1[132 chars]r\n') != (2, '')
+
+First differing element 0:
+0
+2
+
++ (2, '')
+- (0,
+-  'authors: stranger\n'
+-  'verdict: comment 1 by stranger at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, '
+-  'current head: yes\n'
+-  'next: none\n'
+-  'ignored: 0 comment(s) not by a record author\n') : # Fleet
+
+## Examples
+
+| Record authors | `stranger` |
+
+## GitHub identity
+
+None.
+
+
+======================================================================
+FAIL: test_records_reads_only_a_full_verdict_header (__main__.Records.test_records_reads_only_a_full_verdict_header)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 302, in test_records_reads_only_a_full_verdict_header
+    self.assertIn(f'verdict: comment 1 by example[bot]: APPROVE at {HEAD}, current head: yes',
+AssertionError: 'verdict: comment 1 by example[bot]: APPROVE at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, current head: yes' not found in ['authors: example[bot], owner-1', 'verdict: comment 2 by owner-1 at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, current head: no (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)', 'next: none', 'ignored: 0 comment(s) not by a record author']
+
+======================================================================
+FAIL: test_records_reads_trusted_ticket_answers (__main__.Records.test_records_reads_trusted_ticket_answers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 332, in test_records_reads_trusted_ticket_answers
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 :   ticket.py read REPO N                     the ticket's owned paths, links and readiness
+  ticket.py scope REPO N [--base REF] [--supporting PATH]...
+                                            every changed path: owned, supporting or OUT
+  ticket.py records REPO PR [--fleet-ref REF]
+                                            the newest record-author verdict and decision
+  ticket.py author                          set git's author to the GitHub user's noreply
+  ticket.py push RECEIPT -- PUSH-COMMAND... run the push; keep the first success's receipt
+  ticket.py post-receipt REPO PR RECEIPT    post the receipt once, read back
+
+
+======================================================================
+FAIL: test_records_trusts_only_record_authors (__main__.Records.test_records_trusts_only_record_authors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 291, in test_records_trusts_only_record_authors
+    self.assertIn(f'verdict: comment 1 by example[bot]: CHANGES at {HEAD}, current head: yes', lines)
+AssertionError: 'verdict: comment 1 by example[bot]: CHANGES at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, current head: yes' not found in ['authors: example[bot], owner-1', 'verdict: comment 1 by example[bot] at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, current head: yes', 'next: Next: the builder fixes R1.', 'ignored: 2 comment(s) not by a record author']
+
+======================================================================
+FAIL: test_scope_accepts_annotated_and_hand_resolved_paths (__main__.Scope.test_scope_accepts_annotated_and_hand_resolved_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 266, in test_scope_accepts_annotated_and_hand_resolved_paths
+    self.assertIn('owned, check the bullet: pin.lock', out.splitlines())
+AssertionError: 'owned, check the bullet: pin.lock' not found in ['OUT: pin.lock', 'OUT: tools/eval/provenance.json', 'scope: 2 path(s) outside the owned paths: ask first']
+
+======================================================================
+FAIL: test_scope_applies_owned_paths_only_in_their_repository (__main__.Scope.test_scope_applies_owned_paths_only_in_their_repository)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 253, in test_scope_applies_owned_paths_only_in_their_repository
+    self.assertEqual(code, 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 29 tests in 123.424s
+
+FAILED (failures=16)

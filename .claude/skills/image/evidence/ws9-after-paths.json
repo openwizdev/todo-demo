@@ -1,0 +1,8 @@
+{
+  "commit": "d8616bdadc223367dc2a8f2d6860347c3f381930",
+  "workflows": {
+    "image.capture": [
+      "skills/image/SKILL.md"
+    ]
+  }
+}

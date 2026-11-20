@@ -1,0 +1,53 @@
+FFF
+======================================================================
+FAIL: test_builder_answer_and_batch_keep_exact_words_private (__main__.PublicTrackerInstructions.test_builder_answer_and_batch_keep_exact_words_private)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/triage/test/test_public_records.py", line 33, in test_builder_answer_and_batch_keep_exact_words_private
+    self.assertNotIn("post their exact words on the ticket", answer)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'post their exact words on the ticket' unexpectedly found in '\nA builder that is stuck writes its question on its ticket and adds `needs-info` (`build-ticket`). It waits for the answer.\n\n1. **Read** the question, its ticket, the ticket\'s spec, the grill behind the spec, the glossary, the ADRs, `docs/agents/`, and the code it asks about.\n2. **If one of those settles it,** answer on the ticket: the answer, and where it comes from. Remove `needs-info`, and tell the builder in one line that its answer is on the ticket.\n3. **If it needs a decision** none of them settles (a design choice, a change to the plan, anything live), ask the user (see "Tell the user") with your recommendation, and say on the ticket that it is with them. When they answer, post their exact words on the ticket, remove `needs-info`, and tell the builder.\n4. **A file outside its owned paths:** add the file to the ticket\'s owned paths only when no other open ticket owns it, and record the new paths, and why, in a comment on the ticket. When another open ticket owns it, ask the user.\n\nDone when the ticket\'s newest comment is yours, with the answer or saying it is with the user, and `needs-info` is gone once it is answered.\n\n'
+
+======================================================================
+FAIL: test_standalone_approval_template_has_decision_and_private_pointer (__main__.PublicTrackerInstructions.test_standalone_approval_template_has_decision_and_private_pointer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/triage/test/test_public_records.py", line 21, in test_standalone_approval_template_has_decision_and_private_pointer
+    self.assertNotRegex(template, r'["“”]', "public approval quotes exact words")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex matched: '"' matches '["“”]' in '**Approved on its own by <user>, <YYYY-MM-DD>:** "<their exact words>"`, with a link to the brief they approved, its owned paths and what it relies on.' : public approval quotes exact words
+
+======================================================================
+FAIL: test_wayfind_claim_is_released_by_its_comment_id (__main__.PublicTrackerInstructions.test_wayfind_claim_is_released_by_its_comment_id)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/triage/test/test_public_records.py", line 42, in test_wayfind_claim_is_released_by_its_comment_id
+    self.assertEqual(commands, [
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+        'gh issue comment <question> --body "wayfind: claimed"',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'gh issue comment <question> --body "wayfind: released <claim comment id>"',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ])
+    ^^
+AssertionError: Lists differ: ['gh [44 chars]aimed by <your thread>"', 'gh issue comment <q[49 chars]d>"'] != ['gh [44 chars]aimed"', 'gh issue comment <question> --body "[34 chars]d>"']
+
+First differing element 0:
+'gh issue comment <question> --body "wayfind: claimed by <your thread>"'
+'gh issue comment <question> --body "wayfind: claimed"'
+
+- ['gh issue comment <question> --body "wayfind: claimed by <your thread>"',
+?                                                       -----------------
+
++ ['gh issue comment <question> --body "wayfind: claimed"',
+-  'gh issue comment <question> --body "wayfind: released by <your thread>"']
+?                                                         --- ^ ^^^ ^^^^
+
++  'gh issue comment <question> --body "wayfind: released <claim comment id>"']
+?                                                          ^^^^^^^ ^^^^ ^^
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+FAILED (failures=3)

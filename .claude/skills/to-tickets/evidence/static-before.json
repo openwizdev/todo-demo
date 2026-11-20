@@ -1,0 +1,29 @@
+{
+  "commit": "89fc285ce551f341b8d308732bcd8d4467ace353",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "plan-graph.spec-confirmation": {
+      "fragments": {
+        "skills/plan-graph/SKILL.md": 13237,
+        "contracts/open-development.v1.md": 10781,
+        "contracts/decisions.v1.md": 6113,
+        "contracts/decisions.v1.schema.json": 3817
+      },
+      "loaded_path_tokens": 33948
+    },
+    "plan-graph.approval": {
+      "fragments": {
+        "skills/plan-graph/SKILL.md": 13237,
+        "contracts/open-development.v1.md": 10781,
+        "contracts/plan-links.v1.md": 4245,
+        "contracts/decisions.v1.md": 6113,
+        "contracts/decisions.v1.schema.json": 3817
+      },
+      "loaded_path_tokens": 38193
+    }
+  }
+}

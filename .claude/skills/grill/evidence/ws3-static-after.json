@@ -1,0 +1,19 @@
+{
+  "commit": "332f9cf4eca3c24def77ef44d8a23069bfb20c39",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "grill.new": {
+      "fragments": {
+        "skills/grill/SKILL.md": 1220,
+        "skills/grill/assets/grill.md": 146,
+        "skills/grill/references/records.md": 909,
+        "contracts/open-development.v1.md": 10781
+      },
+      "loaded_path_tokens": 13056
+    }
+  }
+}

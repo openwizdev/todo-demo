@@ -1,0 +1,16 @@
+{
+  "commit": "d8616bdadc223367dc2a8f2d6860347c3f381930",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "hill-climb.select": {
+      "fragments": {
+        "skills/hill-climb/SKILL.md": 2900
+      },
+      "loaded_path_tokens": 2900
+    }
+  }
+}

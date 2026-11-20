@@ -1,0 +1,22 @@
+# FF2 #1332 green after review R1-R3: the same test-route.py. Synthetic values only.
+$ python3 -I skills/launch-fleet/scripts/test-route.py -v
+test_a_handle_resolves_to_its_spec_s_loop_id (__main__.Loop.test_a_handle_resolves_to_its_spec_s_loop_id) ... ok
+test_a_malformed_spec_number_is_refused (__main__.Loop.test_a_malformed_spec_number_is_refused) ... ok
+test_a_missing_handle_prints_nothing_and_exits_cleanly (__main__.Loop.test_a_missing_handle_prints_nothing_and_exits_cleanly) ... ok
+test_a_partial_or_failed_read_is_never_a_quiet_nothing (__main__.Refs.test_a_partial_or_failed_read_is_never_a_quiet_nothing) ... ok
+test_a_satellite_pull_request_names_the_project_ticket_it_closes (__main__.Refs.test_a_satellite_pull_request_names_the_project_ticket_it_closes) ... ok
+test_bad_arguments_are_refused_before_any_read (__main__.Refs.test_bad_arguments_are_refused_before_any_read) ... ok
+test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing (__main__.Refs.test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing) ... ok
+test_only_the_project_s_tickets_are_named_once_each_in_order (__main__.Refs.test_only_the_project_s_tickets_are_named_once_each_in_order) ... ok
+test_the_project_s_own_numbers_pass_through_unread (__main__.Refs.test_the_project_s_own_numbers_pass_through_unread) ... ok
+test_the_webhook_address_never_touches_a_file_or_an_argument (__main__.Setup.test_the_webhook_address_never_touches_a_file_or_an_argument) ... ok
+test_a_failed_lookup_or_wake_is_a_failure (__main__.Tick.test_a_failed_lookup_or_wake_is_a_failure) ... ok
+test_a_group_with_no_project_ticket_ends_quietly (__main__.Tick.test_a_group_with_no_project_ticket_ends_quietly) ... ok
+test_a_missing_handle_is_reported_privately_and_writes_nothing (__main__.Tick.test_a_missing_handle_is_reported_privately_and_writes_nothing) ... ok
+test_a_satellite_message_runs_its_spec_s_loop (__main__.Tick.test_a_satellite_message_runs_its_spec_s_loop) ... ok
+test_the_project_s_own_numbers_go_straight_to_wake (__main__.Tick.test_the_project_s_own_numbers_go_straight_to_wake) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in Xs
+
+OK

@@ -1,0 +1,2 @@
+pass spec #9000: tickets 3, links 2, real 1, file 1, unlabelled 0, refusals 0
+file link: #9003 blocked by #8002: synthetic/shared.md

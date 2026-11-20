@@ -1,0 +1,48 @@
+$ python3 -I test-grants.py; python3 -I test-inbox.py  (before the #641 fix)
+ERROR: test_a_later_refusal_does_not_erase_prior_transport_uncertainty (__main__.AuditProof.test_a_later_refusal_does_not_erase_prior_transport_uncertainty)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_audit_covers_refusal_uncertainty_and_invalid_grant (__main__.AuditProof.test_audit_covers_refusal_uncertainty_and_invalid_grant)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_audit_retains_later_uncertain_transport_and_lifecycle_events (__main__.AuditProof.test_audit_retains_later_uncertain_transport_and_lifecycle_events)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_duplicate_ticket_revision_sequence_refuses_the_audit (__main__.AuditProof.test_duplicate_ticket_revision_sequence_refuses_the_audit)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_missing_assessment_and_backwards_cutoff_do_not_advance (__main__.AuditProof.test_missing_assessment_and_backwards_cutoff_do_not_advance)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_only_the_factory_records_confer_anything (__main__.AuditProof.test_only_the_factory_records_confer_anything) (author='synthetic-outsider')
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_only_the_factory_records_confer_anything (__main__.AuditProof.test_only_the_factory_records_confer_anything) (author=None)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_only_the_factory_records_confer_anything (__main__.AuditProof.test_only_the_factory_records_confer_anything)
+ValueError: incomplete comment metadata
+ERROR: test_pagination_and_failure_do_not_lose_records (__main__.AuditProof.test_pagination_and_failure_do_not_lose_records)
+TypeError: collect() got an unexpected keyword argument 'authors'
+ERROR: test_persist_report_before_cursor_and_idempotent_replay (__main__.AuditProof.test_persist_report_before_cursor_and_idempotent_replay)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_record_authors_come_from_the_fleet_settings (__main__.AuditProof.test_record_authors_come_from_the_fleet_settings)
+AttributeError: module 'grants' has no attribute 'record_authors'
+ERROR: test_revocation_is_audited_after_the_original_grant_cursor (__main__.AuditProof.test_revocation_is_audited_after_the_original_grant_cursor)
+TypeError: audit() got an unexpected keyword argument 'authors'
+ERROR: test_source_metadata_edited_records_and_ambiguity (__main__.AuditProof.test_source_metadata_edited_records_and_ambiguity) (edit={'repository': 'other/ops'})
+TypeError: collect() got an unexpected keyword argument 'authors'
+ERROR: test_source_metadata_edited_records_and_ambiguity (__main__.AuditProof.test_source_metadata_edited_records_and_ambiguity) (edit={'subject': {'kind': 'issue', 'number': 9002}})
+TypeError: collect() got an unexpected keyword argument 'authors'
+ERROR: test_source_metadata_edited_records_and_ambiguity (__main__.AuditProof.test_source_metadata_edited_records_and_ambiguity) (edit={'updated_at': 99})
+TypeError: collect() got an unexpected keyword argument 'authors'
+ERROR: test_source_metadata_edited_records_and_ambiguity (__main__.AuditProof.test_source_metadata_edited_records_and_ambiguity) (edit={'created_at': 99})
+TypeError: collect() got an unexpected keyword argument 'authors'
+ERROR: test_source_metadata_edited_records_and_ambiguity (__main__.AuditProof.test_source_metadata_edited_records_and_ambiguity)
+TypeError: collect() got an unexpected keyword argument 'authors'
+Ran 23 tests in 0.164s
+FAILED (errors=17)
+FAIL: test_only_the_factory_records_and_verdicts_count (__main__.Recheck.test_only_the_factory_records_and_verdicts_count) (author='synthetic-outsider')
+AssertionError: Tuples differ: ('record', {'schema': 'openwiz.ops-dispatch[901 chars]89'}) != ('none', 'no verdict')
+FAIL: test_only_the_factory_records_and_verdicts_count (__main__.Recheck.test_only_the_factory_records_and_verdicts_count) (author=None)
+AssertionError: Tuples differ: ('record', {'schema': 'openwiz.ops-dispatch[901 chars]89'}) != ('none', 'no verdict')
+FAIL: test_only_the_factory_records_and_verdicts_count (__main__.Recheck.test_only_the_factory_records_and_verdicts_count)
+AssertionError: Tuples differ: ('record', {'schema': 'openwiz.ops-dispatch.v[899 chars]89'}) != ('refused', 'ambiguous reviewer')
+Ran 27 tests in 0.027s
+FAILED (failures=3)
+
+$ the outsider grant through the reader before #641 (its row cannot carry an author)
+outsider grant 9012 by synthetic-outsider -> decisions ['granted', 'refused'] (want uncertain, refused)

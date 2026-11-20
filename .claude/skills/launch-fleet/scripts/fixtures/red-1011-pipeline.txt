@@ -1,0 +1,4 @@
+FAIL REST parallel: a slow reader leaves other readers working: fake gh: a slow reader blocked the next independent read
+fleet.sh: can't read the issues outside specs
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

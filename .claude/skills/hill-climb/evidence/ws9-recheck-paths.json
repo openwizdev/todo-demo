@@ -1,0 +1,8 @@
+{
+  "commit": "4d11f0aeac7dd2f05dc175982d5c404064297eee",
+  "workflows": {
+    "hill-climb.select": [
+      "skills/hill-climb/SKILL.md"
+    ]
+  }
+}

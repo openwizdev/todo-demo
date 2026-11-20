@@ -1,0 +1,23 @@
+{
+  "commit": "0e9a3b80e94bbdc3c14c245ed310a60b0eb26c49",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "handoff.resume": {
+      "fragments": {
+        "skills/handoff/SKILL.md": 1244
+      },
+      "loaded_path_tokens": 1244
+    },
+    "handoff.update": {
+      "fragments": {
+        "skills/handoff/SKILL.md": 1244,
+        "skills/handoff/page.md": 363
+      },
+      "loaded_path_tokens": 1607
+    }
+  }
+}

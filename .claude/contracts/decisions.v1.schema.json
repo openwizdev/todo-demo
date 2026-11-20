@@ -1,0 +1,707 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:openwiz:schema:decisions:v1",
+  "title": "openwiz.decisions.v1",
+  "description": "Contract only. See decisions.v1.md for provenance, cross-record rules and action guards. Fixtures prove no live behavior.",
+  "$ref": "#/$defs/document",
+  "$defs": {
+    "unknown": {
+      "type": "object",
+      "required": [
+        "unknown"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "unknown": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "gap": {
+      "type": "object",
+      "required": [
+        "kind",
+        "detail"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "untested_version",
+            "command_failed",
+            "timed_out",
+            "budget_exhausted",
+            "malformed",
+            "missing_field",
+            "wrong_type",
+            "not_found",
+            "truncated",
+            "unsupported"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "coverage": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "gaps"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "const": "complete"
+            },
+            "gaps": {
+              "const": []
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "gaps"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "const": "partial"
+            },
+            "gaps": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/gap"
+              },
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "freshness": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "snapshot_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "enum": [
+                "fresh",
+                "stale"
+              ]
+            },
+            "snapshot_at": {
+              "type": "object",
+              "required": [
+                "known"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "known": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "snapshot_at"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "const": "unknown"
+            },
+            "snapshot_at": {
+              "$ref": "#/$defs/unknown"
+            }
+          }
+        }
+      ]
+    },
+    "document": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/record"
+        },
+        {
+          "$ref": "#/$defs/response"
+        }
+      ]
+    },
+    "record": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/grill_round"
+        },
+        {
+          "$ref": "#/$defs/grill_confirmation"
+        },
+        {
+          "$ref": "#/$defs/spec_confirmation"
+        },
+        {
+          "$ref": "#/$defs/plan_approval"
+        }
+      ]
+    },
+    "grill_round": {
+      "type": "object",
+      "required": [
+        "schema",
+        "id",
+        "status",
+        "fingerprint",
+        "risk",
+        "kind",
+        "grill_file",
+        "round",
+        "questions",
+        "answered"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.decisions.v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "superseded"
+          ]
+        },
+        "fingerprint": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[0-9a-f]*$"
+        },
+        "risk": {
+          "description": "For grill_round, independently verify the first physical line immediately under its saved Round heading at the grill PR head: Risk: ordinary|live|release|publish (one exact value). Absent, misplaced, malformed or unknown means currentness unknown and answering disabled. See decisions.v1.md.",
+          "enum": [
+            "ordinary",
+            "live",
+            "release",
+            "publish",
+            "unknown"
+          ]
+        },
+        "kind": {
+          "const": "grill_round"
+        },
+        "grill_file": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^docs/grills/[A-Za-z0-9][A-Za-z0-9_.-]*[.]md$"
+        },
+        "round": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question"
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "answered": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": [
+        "id",
+        "decides",
+        "context",
+        "recommendation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decides": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommendation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "grill_confirmation": {
+      "type": "object",
+      "required": [
+        "schema",
+        "id",
+        "status",
+        "fingerprint",
+        "risk",
+        "kind",
+        "grill_file",
+        "summary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.decisions.v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "superseded"
+          ]
+        },
+        "fingerprint": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[0-9a-f]*$"
+        },
+        "risk": {
+          "description": "For grill_confirmation, independently verify the first physical line immediately under the latest saved Summary or corrected-summary heading at the grill PR head: Risk: ordinary|live|release|publish (one exact value). Absent, misplaced, malformed or unknown means currentness unknown and answering disabled. See decisions.v1.md.",
+          "enum": [
+            "ordinary",
+            "live",
+            "release",
+            "publish",
+            "unknown"
+          ]
+        },
+        "kind": {
+          "const": "grill_confirmation"
+        },
+        "grill_file": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^docs/grills/[A-Za-z0-9][A-Za-z0-9_.-]*[.]md$"
+        },
+        "summary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^\\u000A\\u000D]*$"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        }
+      }
+    },
+    "spec_confirmation": {
+      "type": "object",
+      "required": [
+        "schema",
+        "id",
+        "status",
+        "fingerprint",
+        "risk",
+        "kind",
+        "spec",
+        "summary",
+        "headline",
+        "tickets",
+        "graph"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.decisions.v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "superseded"
+          ]
+        },
+        "fingerprint": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[0-9a-f]*$"
+        },
+        "risk": {
+          "enum": [
+            "ordinary",
+            "live",
+            "release",
+            "publish",
+            "unknown"
+          ]
+        },
+        "kind": {
+          "const": "spec_confirmation"
+        },
+        "spec": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "summary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^\\u000A\\u000D]*$"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tickets": {
+          "const": []
+        },
+        "graph": {
+          "const": []
+        }
+      }
+    },
+    "plan_approval": {
+      "type": "object",
+      "required": [
+        "schema",
+        "id",
+        "status",
+        "fingerprint",
+        "risk",
+        "kind",
+        "spec",
+        "summary",
+        "headline",
+        "tickets",
+        "graph"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.decisions.v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "superseded"
+          ]
+        },
+        "fingerprint": {
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64,
+          "pattern": "^[0-9a-f]*$"
+        },
+        "risk": {
+          "enum": [
+            "ordinary",
+            "live",
+            "release",
+            "publish",
+            "unknown"
+          ]
+        },
+        "kind": {
+          "const": "plan_approval"
+        },
+        "spec": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "summary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^\\u000A\\u000D]*$"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/approval_ticket"
+          }
+        },
+        "graph": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/edge"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "approval_ticket": {
+      "type": "object",
+      "required": [
+        "number",
+        "title",
+        "blockers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "blocker",
+        "ticket"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "blocker": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ticket": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "response": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "snapshot_at",
+        "coverage",
+        "freshness",
+        "orchestrator",
+        "items"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.decisions.v1"
+        },
+        "kind": {
+          "const": "response"
+        },
+        "snapshot_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "freshness": {
+          "$ref": "#/$defs/freshness"
+        },
+        "orchestrator": {
+          "$ref": "#/$defs/orchestrator"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        }
+      }
+    },
+    "orchestrator": {
+      "type": "object",
+      "required": [
+        "coverage",
+        "freshness",
+        "target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "freshness": {
+          "$ref": "#/$defs/freshness"
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "known"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "known": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9_][A-Za-z0-9_-]*$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "$ref": "#/$defs/unknown"
+            }
+          ]
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "comment_id",
+        "subject",
+        "created_at",
+        "updated_at",
+        "current",
+        "request"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "comment_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subject": {
+          "$ref": "#/$defs/subject"
+        },
+        "created_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "updated_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "current": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "known"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "known": {
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "$ref": "#/$defs/unknown"
+            }
+          ]
+        },
+        "request": {
+          "$ref": "#/$defs/record",
+          "properties": {
+            "status": {
+              "const": "open"
+            }
+          }
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "repository",
+        "kind",
+        "number"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "issue",
+            "pull_request"
+          ]
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-][A-Za-z0-9_.-]*$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+test_the_video_post_invites_comment_steering_only_while_it_is_on (__main__.SteeringWording.test_the_video_post_invites_comment_steering_only_while_it_is_on) ... FAIL
+
+======================================================================
+FAIL: test_the_video_post_invites_comment_steering_only_while_it_is_on (__main__.SteeringWording.test_the_video_post_invites_comment_steering_only_while_it_is_on)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/to-spec/test/test_video.py", line 273, in test_the_video_post_invites_comment_steering_only_while_it_is_on
+    self.assertFalse(invites, 'the video post invites comment steering while it is off')
+AssertionError: True is not false : the video post invites comment steering while it is off
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

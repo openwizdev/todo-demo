@@ -1,0 +1,3 @@
+pass spec #9000: tickets 7, links 4, real 2, file 2, unlabelled 0, refusals 0
+file link: #9003 blocked by #9002: .github/workflows/ci.yml
+file link: #9004 blocked by #9002: docs/agents/fleet.md, STATUS.md

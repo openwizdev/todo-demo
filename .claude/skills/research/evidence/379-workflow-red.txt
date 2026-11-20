@@ -1,0 +1,22 @@
+   Compiling openwiz-tests v0.0.1-dev (<checkout>/tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.06s
+     Running checks/main.rs (target/debug/deps/checks-dc901f0b3d444c02)
+
+running 1 test
+test skills::research_workflow_checks_github_around_dispatch ... FAILED
+
+failures:
+
+---- skills::research_workflow_checks_github_around_dispatch stdout ----
+
+thread 'skills::research_workflow_checks_github_around_dispatch' (6371) panicked at tests/checks/skills.rs:2056:10:
+snapshot
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    skills::research_workflow_checks_github_around_dispatch
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 68 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p openwiz-tests --test checks`

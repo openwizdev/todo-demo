@@ -1,0 +1,3 @@
+interface:
+  display_name: "Where Are We"
+  short_description: "Read factory status and recommend one next move"

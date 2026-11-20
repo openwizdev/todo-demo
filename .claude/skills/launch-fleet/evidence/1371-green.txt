@@ -1,0 +1,21 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py -v
+test_a_broken_setting_or_driver_starts_nothing (__main__.Host.test_a_broken_setting_or_driver_starts_nothing) ... ok
+test_a_driver_refusal_or_an_unreadable_answer_saves_no_run (__main__.Host.test_a_driver_refusal_or_an_unreadable_answer_saves_no_run) ... ok
+test_a_ticket_never_gets_a_second_run (__main__.Host.test_a_ticket_never_gets_a_second_run) ... ok
+test_changing_the_setting_switches_the_driver_and_each_run_keeps_its_own (__main__.Host.test_changing_the_setting_switches_the_driver_and_each_run_keeps_its_own) ... ok
+test_no_run_or_no_setting_leaves_the_room_cli_route (__main__.Host.test_no_run_or_no_setting_leaves_the_room_cli_route) ... ok
+test_start_goes_through_the_chosen_driver_and_saves_its_run (__main__.Host.test_start_goes_through_the_chosen_driver_and_saves_its_run) ... ok
+test_starts_at_once_keep_every_run (__main__.Host.test_starts_at_once_keep_every_run) ... ok
+test_unwritable_run_state_starts_nothing_and_a_lost_save_keeps_the_run (__main__.Host.test_unwritable_run_state_starts_nothing_and_a_lost_save_keeps_the_run) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.439s
+
+OK
+
+$ python3 -I skills/launch-fleet/scripts/test-records.py Fleet.test_builder_with_a_driver_run_is_told_through_its_driver
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.791s
+
+OK

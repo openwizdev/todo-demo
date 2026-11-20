@@ -1,0 +1,26 @@
+$ python3 -I -m unittest discover -s skills/image/tests -k unrounded -v
+test_threshold_compares_the_unrounded_ratio (test_contrast.Contrast.test_threshold_compares_the_unrounded_ratio) ... FAIL
+
+======================================================================
+FAIL: test_threshold_compares_the_unrounded_ratio (test_contrast.Contrast.test_threshold_compares_the_unrounded_ratio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 44, in test_threshold_compares_the_unrounded_ratio
+    self.assertEqual((result.returncode, result.stdout), (1, '4.50:1 fail (needs 4.5:1)\n'))
+AssertionError: Tuples differ: (0, '4.50:1 pass (needs 4.5:1)\n') != (1, '4.50:1 fail (needs 4.5:1)\n')
+
+First differing element 0:
+0
+1
+
+- (0, '4.50:1 pass (needs 4.5:1)\n')
+?  ^          ^ ^^
+
++ (1, '4.50:1 fail (needs 4.5:1)\n')
+?  ^          ^ ^^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (failures=1)

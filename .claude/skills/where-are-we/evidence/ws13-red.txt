@@ -1,0 +1,47 @@
+$ python3 -I skills/where-are-we/test/test_read_github.py
+.........FFFFF
+======================================================================
+FAIL: test_an_unread_run_state_is_unconfirmed_not_empty (__main__.ReadRuns.test_an_unread_run_state_is_unconfirmed_not_empty) [failed read]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 292, in test_an_unread_run_state_is_unconfirmed_not_empty
+    self.assertEqual(data.get('queued'), {'state': 'unconfirmed', 'reason': reason})
+AssertionError: None != {'state': 'unconfirmed', 'reason': 'gh exited 7'}
+
+======================================================================
+FAIL: test_an_unread_run_state_is_unconfirmed_not_empty (__main__.ReadRuns.test_an_unread_run_state_is_unconfirmed_not_empty) [list pages]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 292, in test_an_unread_run_state_is_unconfirmed_not_empty
+    self.assertEqual(data.get('queued'), {'state': 'unconfirmed', 'reason': reason})
+AssertionError: None != {'state': 'unconfirmed', 'reason': 'invalid paginated JSON'}
+
+======================================================================
+FAIL: test_an_unread_run_state_is_unconfirmed_not_empty (__main__.ReadRuns.test_an_unread_run_state_is_unconfirmed_not_empty) [no runs key]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 292, in test_an_unread_run_state_is_unconfirmed_not_empty
+    self.assertEqual(data.get('queued'), {'state': 'unconfirmed', 'reason': reason})
+AssertionError: None != {'state': 'unconfirmed', 'reason': 'invalid paginated JSON'}
+
+======================================================================
+FAIL: test_an_unread_run_state_is_unconfirmed_not_empty (__main__.ReadRuns.test_an_unread_run_state_is_unconfirmed_not_empty) [bad record]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 292, in test_an_unread_run_state_is_unconfirmed_not_empty
+    self.assertEqual(data.get('queued'), {'state': 'unconfirmed', 'reason': reason})
+AssertionError: None != {'state': 'unconfirmed', 'reason': 'invalid source record'}
+
+======================================================================
+FAIL: test_runs_reads_every_page_of_both_states (__main__.ReadRuns.test_runs_reads_every_page_of_both_states)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 271, in test_runs_reads_every_page_of_both_states
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : 
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.449s
+
+FAILED (failures=5)
+exit 1

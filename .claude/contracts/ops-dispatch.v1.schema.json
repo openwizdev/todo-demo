@@ -1,0 +1,797 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "openwiz.ops-dispatch.v1",
+  "description": "OB1 records and claim/refusal conformance only. No external effect is enabled. Context and history checks in the Markdown contract are mandatory. Duplicate wire keys and non-integer number spelling need a strict reader.",
+  "oneOf": [
+    {"$ref": "#/$defs/envelope"},
+    {"$ref": "#/$defs/grant"},
+    {"$ref": "#/$defs/intent"},
+    {"$ref": "#/$defs/claim"},
+    {"$ref": "#/$defs/admission"},
+    {"$ref": "#/$defs/transport"},
+    {"$ref": "#/$defs/ack"},
+    {"$ref": "#/$defs/completion"},
+    {"$ref": "#/$defs/on1"},
+    {"$ref": "#/$defs/audit"},
+    {"$ref": "#/$defs/result"},
+    {"$ref": "#/$defs/snapshot"}
+  ],
+  "$defs": {
+    "approval": {
+      "type": "object",
+      "required": ["revision", "fingerprint", "comment"],
+      "additionalProperties": false,
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "comment": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "required": ["kind", "number"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"type": "string", "enum": ["issue", "pull_request"]},
+        "number": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "rule": {
+      "type": "object",
+      "required": ["name", "revision", "comment"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "enum": ["approved-envelope", "narrow-grant", "dispatch", "inbox", "on1", "audit"]},
+        "revision": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "comment": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidence_class", "source", "digest"],
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {"type": "string", "enum": ["fixture", "observation", "review"]},
+        "source": {"type": "string", "minLength": 1, "maxLength": 512},
+        "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+      }
+    },
+    "path": {
+      "type": "object",
+      "required": ["path", "purpose", "criterion", "shared_section", "owner_ticket"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string", "pattern": "^[A-Za-z0-9_./-]+$(?![\\s\\S])"},
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 512},
+        "criterion": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "shared_section": {"oneOf": [{"type": "string", "minLength": 1, "maxLength": 512}, {"type": "null"}]},
+        "owner_ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "material": {
+      "type": "object",
+      "required": ["intent_digest", "evidence_digest", "ownership_digest", "purpose_digest", "rule_digest"],
+      "additionalProperties": false,
+      "properties": {
+        "intent_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "evidence_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "ownership_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "purpose_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "rule_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+      }
+    },
+    "cursor": {
+      "type": "object",
+      "required": ["created_at", "comment"],
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "comment": {"type": "integer", "minimum": 0, "maximum": 9007199254740991}
+      }
+    },
+    "envelope": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "paths",
+        "supporting",
+        "material",
+        "protected"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "envelope"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "paths": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/path"}},
+        "supporting": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/path"}},
+        "material": {"$ref": "#/$defs/material"},
+        "protected": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": ["contracts", "interfaces", "dependencies", "workflows", "live", "spending", "self_authorization"]
+          }
+        }
+      }
+    },
+    "grant": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "grant_id",
+        "envelope_id",
+        "paths",
+        "material",
+        "status",
+        "reason",
+        "supersedes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "grant"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "grant_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "envelope_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "paths": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/path"}},
+        "material": {"$ref": "#/$defs/material"},
+        "status": {"type": "string", "enum": ["granted", "refused", "uncertain", "revoked", "completed", "replaced"]},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 512},
+        "supersedes": {"oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]}
+      }
+    },
+    "intent": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "action",
+        "destination",
+        "assignment",
+        "prior_verdict",
+        "head",
+        "sequence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "intent"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "action": {
+          "type": "string",
+          "enum": ["builder_start", "review_start", "delivery", "hold_release", "merge", "grant", "audit"]
+        },
+        "destination": {"type": "string", "enum": ["builder", "reviewer", "ops", "orchestrator"]},
+        "assignment": {"oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]},
+        "prior_verdict": {"oneOf": [{"type": "integer", "minimum": 1, "maximum": 9007199254740991}, {"type": "null"}]},
+        "head": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"}, {"type": "null"}]},
+        "sequence": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "scope",
+        "generation",
+        "previous_generation",
+        "owner",
+        "intent_id",
+        "ref"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "claim"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "scope": {"type": "string", "enum": ["generation", "operation"]},
+        "generation": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "previous_generation": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "owner": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "intent_id": {"oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]},
+        "ref": {"type": "string", "minLength": 1, "maxLength": 512}
+      }
+    },
+    "admission": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "claim_id",
+        "generation",
+        "ref",
+        "record_commit",
+        "state"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "admission"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "claim_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "generation": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ref": {"type": "string", "minLength": 1, "maxLength": 512},
+        "record_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+        "state": {"type": "string", "enum": ["admitted", "duplicate", "stale", "refused", "reconcile", "uncertain"]}
+      }
+    },
+    "transport": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "intent_id",
+        "generation",
+        "state",
+        "attempt",
+        "receipt_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "transport"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "intent_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "generation": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "state": {"type": "string", "enum": ["not_attempted", "accepted", "refused", "uncertain"]},
+        "attempt": {"const": 1},
+        "receipt_digest": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]}
+      }
+    },
+    "ack": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "intent_id",
+        "recipient",
+        "assignment",
+        "sequence",
+        "checked_head",
+        "checks_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "ack"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "intent_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "recipient": {"type": "string", "enum": ["builder", "reviewer", "ops", "orchestrator"]},
+        "assignment": {"oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]},
+        "sequence": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "checked_head": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"}, {"type": "null"}]},
+        "checks_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+      }
+    },
+    "completion": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "intent_id",
+        "generation",
+        "state",
+        "superseded_by",
+        "result_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "completion"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "intent_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "generation": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "state": {
+          "type": "string",
+          "enum": ["completed", "superseded", "uncertain", "reconciled_not_executed", "disabled", "refused"]
+        },
+        "superseded_by": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]},
+        "result_digest": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]}
+      }
+    },
+    "on1": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "producer",
+        "consumers",
+        "cutoff",
+        "hold",
+        "other_gates",
+        "competing_claims",
+        "revision_record",
+        "verification"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "on1"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "producer": {
+          "type": "object",
+          "required": ["ticket", "approval", "merge", "delta_digest"],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+            "approval": {"$ref": "#/$defs/approval"},
+            "merge": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+            "delta_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+          }
+        },
+        "consumers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["ticket", "approval", "scope_digest", "paths_digest", "grants", "relies_digest", "links_digest"],
+            "additionalProperties": false,
+            "properties": {
+              "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+              "approval": {"$ref": "#/$defs/approval"},
+              "scope_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "paths_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "grants": {
+                "type": "array",
+                "minItems": 0,
+                "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}
+              },
+              "relies_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "links_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+            }
+          }
+        },
+        "cutoff": {
+          "type": "object",
+          "required": ["start", "end", "inclusive", "complete", "changes"],
+          "additionalProperties": false,
+          "properties": {
+            "start": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+            "end": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+            "inclusive": {"type": "boolean"},
+            "complete": {"type": "boolean"},
+            "changes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["commit", "path", "previous_path", "producer_ticket", "consumer_tickets"],
+                "additionalProperties": false,
+                "properties": {
+                  "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+                  "path": {"type": "string", "pattern": "^[A-Za-z0-9_./-]+$(?![\\s\\S])"},
+                  "previous_path": {"oneOf": [{"type": "string", "minLength": 1, "maxLength": 512}, {"type": "null"}]},
+                  "producer_ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+                  "consumer_tickets": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "hold": {
+          "type": "object",
+          "required": ["comment", "kind", "owner_rule", "history_digest"],
+          "additionalProperties": false,
+          "properties": {
+            "comment": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+            "kind": {"const": "contract"},
+            "owner_rule": {"const": "on1"},
+            "history_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+          }
+        },
+        "other_gates": {"type": "array", "minItems": 0, "items": {"type": "string", "minLength": 1, "maxLength": 512}},
+        "competing_claims": {
+          "type": "array",
+          "minItems": 0,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}
+        },
+        "revision_record": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "verification": {
+          "type": "object",
+          "required": ["before_digest", "after_digest", "labels_digest", "history_complete"],
+          "additionalProperties": false,
+          "properties": {
+            "before_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+            "after_digest": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]},
+            "labels_digest": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]},
+            "history_complete": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "id",
+        "repository",
+        "spec",
+        "ticket",
+        "subject",
+        "operation_key",
+        "created_at",
+        "approval",
+        "rule",
+        "evidence",
+        "start",
+        "end",
+        "complete",
+        "entries"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "audit"},
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "subject": {"$ref": "#/$defs/subject"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "created_at": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "rule": {"$ref": "#/$defs/rule"},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "start": {"$ref": "#/$defs/cursor"},
+        "end": {"$ref": "#/$defs/cursor"},
+        "complete": {"type": "boolean"},
+        "entries": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "required": ["operation_key", "decision", "grant_id", "final_diff_digest", "remediation"],
+            "additionalProperties": false,
+            "properties": {
+              "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "decision": {
+                "type": "string",
+                "enum": ["granted", "refused", "uncertain", "revoked", "completed", "replaced"]
+              },
+              "grant_id": {
+                "oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]
+              },
+              "final_diff_digest": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}, {"type": "null"}]},
+              "remediation": {"type": "string", "enum": ["none", "revoke_and_hold", "escalate"]}
+            }
+          }
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": ["schema", "kind", "operation_key", "intent_id", "state", "reason", "next", "effects"],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "result"},
+        "operation_key": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "intent_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80},
+        "state": {
+          "type": "string",
+          "enum": [
+            "recorded",
+            "duplicate",
+            "disabled",
+            "refused",
+            "reconcile",
+            "acknowledged",
+            "complete",
+            "superseded",
+            "deferred"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "unfenced_effect",
+            "stale_claim",
+            "incomplete_read",
+            "stale_binding",
+            "uncertain_outcome",
+            "already_complete",
+            "superseded",
+            "out_of_order",
+            "paused_or_revoked",
+            "record_only"
+          ]
+        },
+        "next": {"const": "end"},
+        "effects": {"const": []}
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "repository",
+        "spec",
+        "ticket",
+        "approval",
+        "head",
+        "generation",
+        "owner",
+        "complete",
+        "uncertain_keys",
+        "paused",
+        "revoked",
+        "holds",
+        "gates",
+        "cutoff",
+        "history_digest",
+        "next_sequence",
+        "recipient_verified",
+        "material",
+        "intents",
+        "rule",
+        "consumers",
+        "cutoff_changes",
+        "producer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {"const": "openwiz.ops-dispatch.v1"},
+        "kind": {"const": "snapshot"},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$(?![\\s\\S])"},
+        "spec": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "approval": {"$ref": "#/$defs/approval"},
+        "head": {"oneOf": [{"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"}, {"type": "null"}]},
+        "generation": {"type": "integer", "minimum": 0, "maximum": 9007199254740991},
+        "owner": {"oneOf": [{"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}, {"type": "null"}]},
+        "complete": {"type": "boolean"},
+        "uncertain_keys": {"type": "array", "minItems": 0, "items": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}},
+        "paused": {"type": "boolean"},
+        "revoked": {"type": "boolean"},
+        "holds": {
+          "type": "array",
+          "minItems": 0,
+          "items": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+        },
+        "gates": {"type": "array", "minItems": 0, "items": {"type": "string", "minLength": 1, "maxLength": 512}},
+        "cutoff": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+        "history_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+        "next_sequence": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "recipient_verified": {"type": "boolean"},
+        "material": {"$ref": "#/$defs/material"},
+        "intents": {"type": "array", "minItems": 0, "items": {"$ref": "#/$defs/intent"}},
+        "rule": {"$ref": "#/$defs/rule"},
+        "consumers": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "required": ["ticket", "approval", "scope_digest", "paths_digest", "grants", "relies_digest", "links_digest"],
+            "additionalProperties": false,
+            "properties": {
+              "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+              "approval": {"$ref": "#/$defs/approval"},
+              "scope_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "paths_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "grants": {
+                "type": "array",
+                "minItems": 0,
+                "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$(?![\\s\\S])", "maxLength": 80}
+              },
+              "relies_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"},
+              "links_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+            }
+          }
+        },
+        "cutoff_changes": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "required": ["commit", "path", "previous_path", "producer_ticket", "consumer_tickets"],
+            "additionalProperties": false,
+            "properties": {
+              "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+              "path": {"type": "string", "pattern": "^[A-Za-z0-9_./-]+$(?![\\s\\S])"},
+              "previous_path": {"oneOf": [{"type": "string", "minLength": 1, "maxLength": 512}, {"type": "null"}]},
+              "producer_ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+              "consumer_tickets": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+              }
+            }
+          }
+        },
+        "producer": {
+          "type": "object",
+          "required": ["ticket", "approval", "merge", "delta_digest"],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+            "approval": {"$ref": "#/$defs/approval"},
+            "merge": {"type": "string", "pattern": "^[0-9a-f]{40}$(?![\\s\\S])"},
+            "delta_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"}
+          }
+        }
+      }
+    }
+  }
+}

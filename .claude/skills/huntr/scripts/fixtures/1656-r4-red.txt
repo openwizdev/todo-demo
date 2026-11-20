@@ -1,0 +1,8 @@
+# WS23 review R4 red run (#1656, planner's call) at 1798f50; synthetic fake gh, no network.
+# node --test --test-name-pattern='^W[23] ' controller.test.mjs (cwd check/fixtures/huntr-project)
+✖ W2 an unreadable wake retries instead of recording, and a dispatch with nothing running finishes at once (2.737179ms)
+✖ W3 two controllers: after a new claim, the old controller's unreadable wake dispatches no queued slice (622.297505ms)
+ℹ pass 0
+ℹ fail 2
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Exit 3 \(unreadable\): file nothing and dispatch no queued slice this wake; collect reports \(step 3\), then end the t
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Exit 3 \(unreadable\): file nothing and dispatch no queued slice this wake;/. Input:

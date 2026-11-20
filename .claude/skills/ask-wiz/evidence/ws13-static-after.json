@@ -1,0 +1,17 @@
+{
+  "commit": "0e9a3b80e94bbdc3c14c245ed310a60b0eb26c49",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "ask-wiz.route": {
+      "fragments": {
+        "skills/ask-wiz/SKILL.md": 1274,
+        "skills/grill/SKILL.md": 1227
+      },
+      "loaded_path_tokens": 2501
+    }
+  }
+}

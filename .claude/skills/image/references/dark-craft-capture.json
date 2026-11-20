@@ -1,0 +1,120 @@
+{
+  "url": "http://127.0.0.1:8640/dark-craft.html",
+  "readySelector": "[data-ready=\"true\"]",
+  "deviceScaleFactor": 1,
+  "reducedMotion": true,
+  "focusEmulation": true,
+  "captures": [
+    {
+      "file": "dark-craft-phone.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "page": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 1177
+      },
+      "focusVisible": true
+    },
+    {
+      "file": "dark-craft-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "page": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 900
+      },
+      "focusVisible": true
+    }
+  ],
+  "resolvedStyles": [
+    {
+      "selector": "main",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(237, 242, 247)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": ".panel",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgb(27, 34, 43)",
+      "border": "rgb(57, 72, 88)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": ".overlay",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgb(40, 51, 65)",
+      "border": "rgb(113, 131, 153)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": "h2",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(237, 242, 247)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": ".panel .muted",
+      "foreground": "rgb(170, 183, 196)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(170, 183, 196)",
+      "outline": "rgb(170, 183, 196)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": ".overlay .muted",
+      "foreground": "rgb(170, 183, 196)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(170, 183, 196)",
+      "outline": "rgb(170, 183, 196)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": ".attention",
+      "foreground": "rgb(229, 189, 104)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(229, 189, 104)",
+      "outline": "rgb(229, 189, 104)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": "#details",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgb(27, 34, 43)",
+      "border": "rgb(113, 131, 153)",
+      "outline": "rgb(155, 199, 255)",
+      "outlineStyle": "solid",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "selector": "#project",
+      "foreground": "rgb(237, 242, 247)",
+      "background": "rgb(27, 34, 43)",
+      "border": "rgb(113, 131, 153)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "font": "system-ui, sans-serif"
+    }
+  ]
+}

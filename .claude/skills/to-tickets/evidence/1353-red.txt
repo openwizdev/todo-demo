@@ -1,0 +1,209 @@
+$ python3 -I skills/to-tickets/scripts/test_check_approval.py MachineApproval.test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work PreferCut
+test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work (__main__.MachineApproval.test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work) ... FAIL
+test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) ... 
+  test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': [{'id': 'A', 'title': 'Synthetic A', 'size': 'S', 'state': 'waiting', 'role': 'builder'}, {'id': 'B', 'title': 'Synthetic B', 'size': 'S', 'state': 'waiting', 'role': 'builder'}], 'links': [{'blocker': 'A', 'ticket': 'B', 'kind': 'real', 'reason': 'Synthetic behaviour'}, {'blocker': 'B', 'ticket': 'A', 'kind': 'real', 'reason': 'Synthetic behaviour'}]}) ... FAIL
+  test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': [{'id': 'A', 'title': 'Synthetic A', 'size': 'S', 'state': 'waiting', 'role': 'builder'}], 'links': [{'blocker': 'Z', 'ticket': 'A', 'kind': 'real', 'reason': 'Synthetic behaviour'}]}) ... FAIL
+  test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': 'A'}) ... FAIL
+test_the_chain_counts_open_outside_blockers_and_never_merged_work (__main__.PreferCut.test_the_chain_counts_open_outside_blockers_and_never_merged_work) ... FAIL
+test_the_shorter_chain_wins_then_the_wider_graph (__main__.PreferCut.test_the_shorter_chain_wins_then_the_wider_graph) ... FAIL
+
+======================================================================
+FAIL: test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work (__main__.MachineApproval.test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 809, in test_the_critical_chain_counts_open_outside_blockers_and_never_merged_work
+    self.assertEqual(chain(tickets), "width: chain 5, widest 2")
+AssertionError: 'width: chain 4, widest 3' != 'width: chain 5, widest 2'
+- width: chain 4, widest 3
+?              ^         ^
++ width: chain 5, widest 2
+?              ^         ^
+
+
+======================================================================
+FAIL: test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': [{'id': 'A', 'title': 'Synthetic A', 'size': 'S', 'state': 'waiting', 'role': 'builder'}, {'id': 'B', 'title': 'Synthetic B', 'size': 'S', 'state': 'waiting', 'role': 'builder'}], 'links': [{'blocker': 'A', 'ticket': 'B', 'kind': 'real', 'reason': 'Synthetic behaviour'}, {'blocker': 'B', 'ticket': 'A', 'kind': 'real', 'reason': 'Synthetic behaviour'}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 880, in test_an_unusable_cut_is_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, 'prefer a.json: keep the first\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'prefer a.json: keep the first\n')
++ (2, '')
+
+======================================================================
+FAIL: test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': [{'id': 'A', 'title': 'Synthetic A', 'size': 'S', 'state': 'waiting', 'role': 'builder'}], 'links': [{'blocker': 'Z', 'ticket': 'A', 'kind': 'real', 'reason': 'Synthetic behaviour'}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 880, in test_an_unusable_cut_is_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, 'prefer a.json: keep the first\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'prefer a.json: keep the first\n')
++ (2, '')
+
+======================================================================
+FAIL: test_an_unusable_cut_is_refused (__main__.PreferCut.test_an_unusable_cut_is_refused) (bad={'tickets': 'A'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 880, in test_an_unusable_cut_is_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, 'prefer a.json: keep the first\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'prefer a.json: keep the first\n')
++ (2, '')
+
+======================================================================
+FAIL: test_the_chain_counts_open_outside_blockers_and_never_merged_work (__main__.PreferCut.test_the_chain_counts_open_outside_blockers_and_never_merged_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 868, in test_the_chain_counts_open_outside_blockers_and_never_merged_work
+    self.assertEqual(out.stdout, "cut a.json: chain 3, widest 1\ncut b.json: chain 2, widest 2\n"
+AssertionError: 'prefer a.json: keep the first\n' != 'cut a.json: chain 3, widest 1\ncut b.json[60 chars]in\n'
+- prefer a.json: keep the first
++ cut a.json: chain 3, widest 1
++ cut b.json: chain 2, widest 2
++ prefer b.json: the shorter critical chain
+
+
+======================================================================
+FAIL: test_the_shorter_chain_wins_then_the_wider_graph (__main__.PreferCut.test_the_shorter_chain_wins_then_the_wider_graph)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/scripts/test_check_approval.py", line 849, in test_the_shorter_chain_wins_then_the_wider_graph
+    self.assertEqual(out.stdout, "cut a.json: chain 4, widest 1\ncut b.json: chain 2, widest 3\n"
+AssertionError: 'prefer a.json: keep the first\n' != 'cut a.json: chain 4, widest 1\ncut b.json[60 chars]in\n'
+- prefer a.json: keep the first
++ cut a.json: chain 4, widest 1
++ cut b.json: chain 2, widest 3
++ prefer b.json: the shorter critical chain
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.181s
+
+FAILED (failures=6)
+$ python3 -I skills/to-tickets/test/test_lead_time.py
+test_asked_specs_the_collector_could_not_read_stay_unknown (__main__.LeadTime.test_asked_specs_the_collector_could_not_read_stay_unknown) ... FAIL
+test_each_spec_gets_its_lead_time_or_why_it_is_unknown (__main__.LeadTime.test_each_spec_gets_its_lead_time_or_why_it_is_unknown) ... FAIL
+test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) ... 
+  test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.collector.v1', 'repository': 's") ... FAIL
+  test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.collector.v1', 'repository': 's") ... FAIL
+  test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.v2', 'repository': 'synthetic-o") ... FAIL
+  test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad='{') ... FAIL
+  test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad='[]') ... FAIL
+
+======================================================================
+FAIL: test_asked_specs_the_collector_could_not_read_stay_unknown (__main__.LeadTime.test_asked_specs_the_collector_could_not_read_stay_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 85, in test_asked_specs_the_collector_could_not_read_stay_unknown
+    self.assertEqual([r["spec"] for r in report["specs"]], [4001, 4999])
+AssertionError: Lists differ: [] != [4001, 4999]
+
+Second list contains 2 additional elements.
+First extra element 0:
+4001
+
+- []
++ [4001, 4999]
+
+======================================================================
+FAIL: test_each_spec_gets_its_lead_time_or_why_it_is_unknown (__main__.LeadTime.test_each_spec_gets_its_lead_time_or_why_it_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 65, in test_each_spec_gets_its_lead_time_or_why_it_is_unknown
+    self.assertEqual(report.get("flow"), "partial")
+AssertionError: None != 'partial'
+
+======================================================================
+FAIL: test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.collector.v1', 'repository': 's")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 102, in test_facts_that_disagree_or_cannot_be_read_are_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, '{"specs": []}\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '{"specs": []}\n')
++ (2, '')
+
+======================================================================
+FAIL: test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.collector.v1', 'repository': 's")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 102, in test_facts_that_disagree_or_cannot_be_read_are_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, '{"specs": []}\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '{"specs": []}\n')
++ (2, '')
+
+======================================================================
+FAIL: test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad="{'schema': 'openwiz.war-room.v2', 'repository': 'synthetic-o")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 102, in test_facts_that_disagree_or_cannot_be_read_are_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, '{"specs": []}\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '{"specs": []}\n')
++ (2, '')
+
+======================================================================
+FAIL: test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad='{')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 102, in test_facts_that_disagree_or_cannot_be_read_are_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, '{"specs": []}\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '{"specs": []}\n')
++ (2, '')
+
+======================================================================
+FAIL: test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) (bad='[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/to-tickets/test/test_lead_time.py", line 102, in test_facts_that_disagree_or_cannot_be_read_are_refused
+    self.assertEqual((out.returncode, out.stdout), (2, ""))
+AssertionError: Tuples differ: (0, '{"specs": []}\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '{"specs": []}\n')
++ (2, '')
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.060s
+
+FAILED (failures=7)

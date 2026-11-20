@@ -1,0 +1,33 @@
+test_ambiguous_absent_response_never_issues_second_post (__main__.Records.test_ambiguous_absent_response_never_issues_second_post) ... ok
+test_cold_restart_reuses_post_after_lost_response (__main__.Records.test_cold_restart_reuses_post_after_lost_response) ... ok
+test_context_extracts_only_exact_payload_and_one_question (__main__.Records.test_context_extracts_only_exact_payload_and_one_question) ... ok
+test_corrected_summary_cannot_accept_previous_fingerprint (__main__.Records.test_corrected_summary_cannot_accept_previous_fingerprint) ... ok
+test_new_round_binds_saved_wording_and_risk (__main__.Records.test_new_round_binds_saved_wording_and_risk) ... ok
+test_park_keeps_pending_request_but_refuses_answers (__main__.Records.test_park_keeps_pending_request_but_refuses_answers) ... FAIL
+test_partial_progress_requires_saved_settled_ids_and_preserves_comment (__main__.Records.test_partial_progress_requires_saved_settled_ids_and_preserves_comment) ... ok
+test_restart_reports_progress_without_resetting_answers (__main__.Records.test_restart_reports_progress_without_resetting_answers) ... FAIL
+test_simplified_question_keeps_id_and_context_with_a_new_request (__main__.Records.test_simplified_question_keeps_id_and_context_with_a_new_request) ... ok
+test_stale_round_and_cross_subject_answer_are_refused (__main__.Records.test_stale_round_and_cross_subject_answer_are_refused) ... ok
+test_unknown_privacy_writes_nothing (__main__.Records.test_unknown_privacy_writes_nothing) ... ok
+test_unknown_saved_risk_never_accepts_an_answer (__main__.Records.test_unknown_saved_risk_never_accepts_an_answer) ... ok
+
+======================================================================
+FAIL: test_park_keeps_pending_request_but_refuses_answers (__main__.Records.test_park_keeps_pending_request_but_refuses_answers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 241, in test_park_keeps_pending_request_but_refuses_answers
+    self.assertEqual(self.call("match", self.contextual(record, b"yes"),
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_restart_reports_progress_without_resetting_answers (__main__.Records.test_restart_reports_progress_without_resetting_answers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 224, in test_restart_reports_progress_without_resetting_answers
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b'refused: existing request differs; inspect before continuing\n'
+
+----------------------------------------------------------------------
+Ran 12 tests in 5.690s
+
+FAILED (failures=2)

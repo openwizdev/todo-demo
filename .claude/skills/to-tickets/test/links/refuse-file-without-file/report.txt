@@ -1,0 +1,2 @@
+refused spec #9000: tickets 4, links 3, real 0, file 1, unlabelled 2, refusals 2
+file link: #9004 blocked by #9001: synthetic/a.md

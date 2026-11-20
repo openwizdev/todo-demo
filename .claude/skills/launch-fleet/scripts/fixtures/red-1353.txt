@@ -1,0 +1,201 @@
+$ python3 -I skills/launch-fleet/scripts/test-post.py SelfGrant
+FFFFFFFFFFFFF
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (kind='model')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 178, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', REPO, 12, kind, 'a stronger fixer round'), (1, why))
+AssertionError: Tuples differ: (0, '') != (1, 'refused: a model or effort change is never a self-grant; ask Jake')
+
+First differing element 0:
+0
+1
+
+- (0, '')
++ (1, 'refused: a model or effort change is never a self-grant; ask Jake')
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (kind='effort')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 178, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', REPO, 12, kind, 'a stronger fixer round'), (1, why))
+AssertionError: Tuples differ: (0, '') != (1, 'refused: a model or effort change is never a self-grant; ask Jake')
+
+First differing element 0:
+0
+1
+
+- (0, '')
++ (1, 'refused: a model or effort change is never a self-grant; ask Jake')
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (kind='contract')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 178, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', REPO, 12, kind, 'a stronger fixer round'), (1, why))
+AssertionError: Tuples differ: (0, '') != (1, 'refused: not a self-grant kind; ask the orchestrator')
+
+First differing element 0:
+0
+1
+
+- (0, '')
++ (1, 'refused: not a self-grant kind; ask the orchestrator')
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (kind='spend')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 178, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', REPO, 12, kind, 'a stronger fixer round'), (1, why))
+AssertionError: Tuples differ: (0, '') != (1, 'refused: not a self-grant kind; ask the orchestrator')
+
+First differing element 0:
+0
+1
+
+- (0, '')
++ (1, 'refused: not a self-grant kind; ask the orchestrator')
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (args=('synthetic-owner/synthetic-repo', 12, 'spec-change', 'no spec named'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 182, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', *args)[0], 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (args=('synthetic-owner/synthetic-repo', 12, 'read-route', ''))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 182, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', *args)[0], 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (args=('synthetic-owner/synthetic-repo', 12, 'read-route', 'two\nlines'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 182, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', *args)[0], 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_a_model_or_effort_change_or_any_other_ask_is_refused (__main__.SelfGrant.test_a_model_or_effort_change_or_any_other_ask_is_refused) (args=('synthetic-owner/synthetic-repo', 12, 'read-route', 'x', '--spec', 12))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 182, in test_a_model_or_effort_change_or_any_other_ask_is_refused
+    self.assertEqual(w.run('self-grant.py', *args)[0], 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_a_spec_change_not_read_back_records_no_grant (__main__.SelfGrant.test_a_spec_change_not_read_back_records_no_grant)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 190, in test_a_spec_change_not_read_back_records_no_grant
+    self.assertEqual(code, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_each_kind_is_recorded_with_its_reason (__main__.SelfGrant.test_each_kind_is_recorded_with_its_reason) (kind='supporting-edit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 162, in test_each_kind_is_recorded_with_its_reason
+    self.assertEqual(w.bodies(12)[-1:], [body])
+AssertionError: Lists differ: [] != ['launch-fleet: granted supporting edit: t[46 chars]est']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'launch-fleet: granted supporting edit: two lines in check/run.py, which runs the new test'
+
+- []
++ ['launch-fleet: granted supporting edit: two lines in check/run.py, which runs '
++  'the new test']
+
+======================================================================
+FAIL: test_each_kind_is_recorded_with_its_reason (__main__.SelfGrant.test_each_kind_is_recorded_with_its_reason) (kind='dependency-wiring')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 162, in test_each_kind_is_recorded_with_its_reason
+    self.assertEqual(w.bodies(12)[-1:], [body])
+AssertionError: Lists differ: [] != ['launch-fleet: granted dependency wiring:[47 chars]ile']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'launch-fleet: granted dependency wiring: the spec-approved pinned parser in the build file'
+
+- []
++ ['launch-fleet: granted dependency wiring: the spec-approved pinned parser in '
++  'the build file']
+
+======================================================================
+FAIL: test_each_kind_is_recorded_with_its_reason (__main__.SelfGrant.test_each_kind_is_recorded_with_its_reason) (kind='read-route')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 162, in test_each_kind_is_recorded_with_its_reason
+    self.assertEqual(w.bodies(12)[-1:], [body])
+AssertionError: Lists differ: [] != ['launch-fleet: granted read route: the issue timeline, under the API rules']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'launch-fleet: granted read route: the issue timeline, under the API rules'
+
+- []
++ ['launch-fleet: granted read route: the issue timeline, under the API rules']
+
+======================================================================
+FAIL: test_each_kind_is_recorded_with_its_reason (__main__.SelfGrant.test_each_kind_is_recorded_with_its_reason)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<tree>/skills/launch-fleet/scripts/test-post.py", line 165, in test_each_kind_is_recorded_with_its_reason
+    self.assertEqual(w.bodies(3), ['launch-fleet: spec changed for #12: the proof table names the after bench'])
+AssertionError: Lists differ: [] != ['launch-fleet: spec changed for #12: the proof table names the after bench']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'launch-fleet: spec changed for #12: the proof table names the after bench'
+
+- []
++ ['launch-fleet: spec changed for #12: the proof table names the after bench']
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.115s
+
+FAILED (failures=13)
+$ TEST_ONLY='F[46]:*' sh skills/launch-fleet/scripts/test.sh
+FAIL F4: a self-grant record answers the question: unexpected output:
+    --- <tmp>/case-1/want.txt	2026-11-20 00:07:56.662846177 +0000
+    +++ <tmp>/case-1/out	2026-11-20 00:07:56.647846123 +0000
+    @@ -0,0 +1 @@
+    +needs-info #12: a question for the orchestrator
+FAIL F6: a ticket whose only open link is context starts: unexpected output:
+    --- <tmp>/case-2/want.txt	2026-11-20 00:08:13.502906353 +0000
+    +++ <tmp>/case-2/out	2026-11-20 00:08:13.471906242 +0000
+    @@ -1,4 +1,3 @@
+     #41 G1: gadget reader
+    -#42 G2: gadget writer
+     #45 G5: gadget import
+     #55 G11: gadget filter
+ok   F6: an open hard blocker still holds a start
+ok   F6: a blocker with no link line is hard
+FAIL F6: a path colliding with a running ticket holds a start: unexpected output:
+    --- <tmp>/case-5/want.txt	2026-11-20 00:08:44.167016386 +0000
+    +++ <tmp>/case-5/out	2026-11-20 00:08:44.134016268 +0000
+    @@ -1,2 +1,3 @@
+    +#41 G1: gadget reader
+     #45 G5: gadget import
+     #55 G11: gadget filter
+ok   F6: shared or other-repository paths do not collide
+FAIL F6: of two colliding ready tickets the lower starts first: unexpected output:
+    --- <tmp>/case-7/want.txt	2026-11-20 00:09:04.332088693 +0000
+    +++ <tmp>/case-7/out	2026-11-20 00:09:04.306088599 +0000
+    @@ -1,2 +1,3 @@
+     #41 G1: gadget reader
+     #45 G5: gadget import
+    +#55 G11: gadget filter
+ok   every gh call was one of fleet.sh's reads
+7 cases, 4 failed

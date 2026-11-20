@@ -1,0 +1,14 @@
+FAIL KN13 R1: edited the same second as the label on an issue approved on its own: refused: unexpected output:
+    --- /tmp/<run>/case-1/want.txt	
+    +++ /tmp/<run>/case-1/out	
+    @@ -1 +1 @@
+    -look #70: start refused: the ticket was edited at 2026-11-01T09:00:00Z, the same second ready-for-agent was added, so which came first can't be read; a maintainer must add it again
+    +start #70: Fix the broken link in the widget docs (approved on its own)
+FAIL KN13 R1: a claim on an issue edited the same second as its label withdraws: unexpected output:
+    --- /tmp/<run>/case-2/want.txt	
+    +++ /tmp/<run>/case-2/out	
+    @@ -1 +1 @@
+    -withdraw #70: start refused: the ticket was edited at 2026-11-01T09:00:00Z, the same second ready-for-agent was added, so which came first can't be read; a maintainer must add it again
+    +go #70
+ok   every gh call was one of fleet.sh's reads
+2 cases, 2 failed

@@ -1,0 +1,1 @@
+pass board: tickets 8, links 2, real 2, file 0, unlabelled 0, refusals 0

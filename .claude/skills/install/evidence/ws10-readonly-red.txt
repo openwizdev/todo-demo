@@ -1,0 +1,16 @@
+F.
+======================================================================
+FAIL: test_a_fresh_session_resumes_at_the_first_unfinished_step (__main__.Resume.test_a_fresh_session_resumes_at_the_first_unfinished_step)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_first_fleet.py", line 1025, in test_a_fresh_session_resumes_at_the_first_unfinished_step
+    self.assertEqual(self.next(j).splitlines()[0], 'Next: %s.' % expected, turn['step'])
+                     ^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_first_fleet.py", line 1010, in next
+    self.assertEqual(lock.exists(), locked, 'next opens nothing for writing, not even a lock')
+AssertionError: True != False : next opens nothing for writing, not even a lock
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.373s
+
+FAILED (failures=1)

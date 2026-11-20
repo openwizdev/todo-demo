@@ -1,0 +1,45 @@
+## Mutation 1: machine_head loosened to a header prefix
+ok   machine: a valid machine plan approval starts its fleet
+ok   machine: a spec with no approval starts nothing
+FAIL machine: a header that is not the exact machine record approves nothing: unexpected output:
+FAIL machine: a record without its grill confirmation approves nothing: unexpected output:
+ok   machine: an outsider's machine record approves nothing
+ok   machine: a plan changed since its machine approval starts nothing
+ok   every gh call was one of fleet.sh's reads
+6 cases, 2 failed
+## Mutation 2: bold, quote, VERDICT and Orchestrator lines read as steers
+ok   steer: a stop on the video holds the fleet and asks to record it
+ok   steer: a recorded stop still holds the fleet
+ok   steer: a reset asks a re-cut and holds the fleet
+ok   steer: a recorded reset still holds until the new video
+ok   steer: a new video ends the hold
+ok   steer: anything else is a steer the fleet reads, and the fleet goes on
+ok   steer: a steer already read is not asked again
+ok   steer: a stop before the video steers nothing
+ok   steer: an outsider's stop holds nothing
+FAIL steer: the fleet's own bold records are no steer: unexpected output:
+ok   every gh call was one of fleet.sh's reads
+10 cases, 1 failed
+## Mutation 3 (review R4): the machine revision text is not hashed against the fingerprint
+FAIL machine: revision text that is not the plan its fingerprint names approves nothing (R4): unexpected output:
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed
+## Mutation 4 (review R2): App logins read as the owner
+FAIL steer: the factory App's note is no owner steer (R2): unexpected output:
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed
+## Mutation 5 (re-check R2): a video posted from the owner's login still turns steering on
+FAIL steer: under the shared login an agent's note steers nothing, and steering off is noted (R2): unexpected output:
+FAIL steer: under the shared login the owner's stop steers nothing either (R2): unexpected output:
+FAIL steer: under the shared login steering off is noted only once (R2): unexpected output:
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 3 cases ran, not 1: is "steer: under the shared login*" a case's name?
+3 cases, 4 failed
+## Mutation 6 (re-check R2): steering is off even when the video was posted by the App
+FAIL steer: a stop on the video holds the fleet and asks to record it: unexpected output:
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed
+## Mutation 7 (WS33): any comment ending in a cue counts as the video
+FAIL steer: a help comment repeating WS33's new cue is no video, so no notice (WS33): unexpected output:
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

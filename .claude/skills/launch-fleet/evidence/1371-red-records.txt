@@ -1,0 +1,17 @@
+$ python3 -I skills/launch-fleet/scripts/test-records.py Fleet.test_builder_with_a_driver_run_is_told_through_its_driver   # before records.py reads driver runs
+F
+======================================================================
+FAIL: test_builder_with_a_driver_run_is_told_through_its_driver (__main__.Fleet.test_builder_with_a_driver_run_is_told_through_its_driver)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-records.py", line 84, in test_builder_with_a_driver_run_is_told_through_its_driver
+    self.assertEqual(self.run_fleet('wake', '12'), f'CI failed #31 for #12 at {SHA}: tell its builder, thread run:12\n')
+AssertionError: 'look #12: no thread matches builder:12\n' != 'CI failed #31 for #12 at 3131313131313131[55 chars]12\n'
+- look #12: no thread matches builder:12
++ CI failed #31 for #12 at 3131313131313131313131313131313131313131: tell its builder, thread run:12
+
+
+----------------------------------------------------------------------
+Ran 1 test in 2.586s
+
+FAILED (failures=1)

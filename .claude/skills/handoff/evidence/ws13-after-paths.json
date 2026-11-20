@@ -1,0 +1,12 @@
+{
+  "commit": "0e9a3b80e94bbdc3c14c245ed310a60b0eb26c49",
+  "workflows": {
+    "handoff.resume": [
+      "skills/handoff/SKILL.md"
+    ],
+    "handoff.update": [
+      "skills/handoff/SKILL.md",
+      "skills/handoff/page.md"
+    ]
+  }
+}

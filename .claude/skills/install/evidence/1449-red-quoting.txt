@@ -1,0 +1,72 @@
+.....F......FF....
+======================================================================
+FAIL: test_clean_setup_prints_one_all_clear_line (__main__.Doctor.test_clean_setup_prints_one_all_clear_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 165, in test_clean_setup_prints_one_all_clear_line
+    self.assertEqual(self.lines(self.s.run(), 0),
+AssertionError: Lists differ: ['Doc[46 chars]rness, driver and skills.'] != ['Doc[46 chars]rness listed (its sign-in is not provable yet)[17 chars]ls.']
+
+First differing element 0:
+'Doct[45 chars]rness, driver and skills.'
+'Doct[45 chars]rness listed (its sign-in is not provable yet)[16 chars]lls.'
+
+- ['Doctor: all clear: labels, App, record author, harness, driver and skills.']
+?                                                         ^^ ^ ^^^^^ ^^^^ ^^^^ -
+
++ ['Doctor: all clear: labels, App, record author, harness listed (its sign-in '
+?                                                         ^^^^^^ ^^ ^^^^^^ ^ ^^
+
++  'is not provable yet), driver and skills.']
+
+======================================================================
+FAIL: test_no_driver_is_said_on_the_all_clear_line (__main__.Doctor.test_no_driver_is_said_on_the_all_clear_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 171, in test_no_driver_is_said_on_the_all_clear_line
+    self.assertEqual(self.lines(self.s.run(driver=False), 0),
+AssertionError: Lists differ: ['Doc[47 chars]ness and skills; no driver given.'] != ['Doc[47 chars]ness listed (its sign-in is not provable yet) [25 chars]en.']
+
+First differing element 0:
+'Doct[46 chars]ness and skills; no driver given.'
+'Doct[46 chars]ness listed (its sign-in is not provable yet) [24 chars]ven.'
+
+- ['Doctor: all clear: labels, App, record author, harness and skills; no driver '
+?                                                          ^ ^^^^ ----- --------
+
++ ['Doctor: all clear: labels, App, record author, harness listed (its sign-in '
+?                                                          ^^^^^^^^^^^^^^^ ^
+
+-  'given.']
++  'is not provable yet) and skills; no driver given.']
+
+======================================================================
+FAIL: test_printed_label_fix_runs_as_printed (__main__.Doctor.test_printed_label_fix_runs_as_printed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 192, in test_printed_label_fix_runs_as_printed
+    self.assertEqual(self.s.gh_calls()[-1], ['label', 'create', odd, '--repo', REPO])
+AssertionError: Lists differ: ['label', 'create', 'needs', 'info', 'expanded', 'x', '--repo[31 chars]epo'] != ['label', 'create', "needs info $HOME 'x'", '--repo', 'synthe[21 chars]epo']
+
+First differing element 2:
+'needs'
+"needs info $HOME 'x'"
+
+First list contains 3 additional elements.
+First extra element 5:
+'x'
+
+  ['label',
+   'create',
++  "needs info $HOME 'x'",
+-  'needs',
+-  'info',
+-  'expanded',
+-  'x',
+   '--repo',
+   'synthetic-owner/synthetic-repo']
+
+----------------------------------------------------------------------
+Ran 18 tests in 5.610s
+
+FAILED (failures=3)

@@ -1,0 +1,22 @@
+# GI1 (#2543) green run: sh skills/launch-fleet/scripts/test.sh (full launch-fleet suite, 4 workers), synthetic fixtures only.
+
+ok   GI1: an unchanged spec reads no GraphQL and prints what a full read prints
+ok   GI1: a line due with time comes due from saved facts
+ok   GI1: a full read 30 minutes old is read again
+ok   GI1: a changed ticket gets a full read
+ok   GI1: a changed label event gets a full read
+ok   GI1: a pull request's new head gets a full read
+ok   GI1: a changed check gets a full read
+ok   GI1: a new review verdict gets a full read
+ok   GI1: a newly linked pull request gets a full read
+ok   GI1: a merge to main gets a full read
+ok   GI1: another account gets a full read
+ok   GI1: a lost cache gets a full read
+ok   GI1: a damaged cache gets a full read
+ok   GI1: an unreadable cache gets a full read
+ok   GI1: another request's cache gets a full read
+ok   GI1: damaged probe answers get a full read
+GI1 points per unchanged check on a 12-ticket spec: before 4 (a warm full read), after 0 (fleet.sh: used 0 GitHub points in 78 questions, 78 unchanged; no GraphQL read)
+ok   every gh call was one of fleet.sh's reads
+721 cases, 0 failed
+

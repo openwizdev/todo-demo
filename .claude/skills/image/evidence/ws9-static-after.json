@@ -1,0 +1,16 @@
+{
+  "commit": "d8616bdadc223367dc2a8f2d6860347c3f381930",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "image.capture": {
+      "fragments": {
+        "skills/image/SKILL.md": 1770
+      },
+      "loaded_path_tokens": 1770
+    }
+  }
+}

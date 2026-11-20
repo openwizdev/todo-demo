@@ -1,0 +1,71 @@
+test_link_is_ready_to_insert_in_spec (__main__.SpecVideo.test_link_is_ready_to_insert_in_spec) ... FAIL
+test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) ...
+  test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='file:///tmp/video.mp4') ... FAIL
+  test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://user:secret@example.com/video.mp4') ... FAIL
+  test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://example.com/clip)\n[extra](https://example.org') ... FAIL
+  test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://example.com:bad/video.mp4') ... FAIL
+  test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https:///video.mp4') ... FAIL
+test_render_keeps_both_narrated_scenes_in_order (__main__.SpecVideo.test_render_keeps_both_narrated_scenes_in_order) ... FAIL
+
+======================================================================
+FAIL: test_link_is_ready_to_insert_in_spec (__main__.SpecVideo.test_link_is_ready_to_insert_in_spec)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 22, in test_link_is_ready_to_insert_in_spec
+    self.assertEqual(result.stdout,
+AssertionError: '' != '[Watch the narrated spec](https://example.com/videos/synthetic.mp4?lang=en)\n'
++ [Watch the narrated spec](https://example.com/videos/synthetic.mp4?lang=en)
+
+
+======================================================================
+FAIL: test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='file:///tmp/video.mp4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 31, in test_link_refuses_unsafe_or_ambiguous_destinations
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://user:secret@example.com/video.mp4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 31, in test_link_refuses_unsafe_or_ambiguous_destinations
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://example.com/clip)\n[extra](https://example.org')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 31, in test_link_refuses_unsafe_or_ambiguous_destinations
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https://example.com:bad/video.mp4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 31, in test_link_refuses_unsafe_or_ambiguous_destinations
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) (url='https:///video.mp4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 31, in test_link_refuses_unsafe_or_ambiguous_destinations
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_render_keeps_both_narrated_scenes_in_order (__main__.SpecVideo.test_render_keeps_both_narrated_scenes_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 53, in test_render_keeps_both_narrated_scenes_in_order
+    self.assertTrue(video.is_file(), 'render did not produce a narrated preview')
+AssertionError: False is not true : render did not produce a narrated preview
+
+----------------------------------------------------------------------
+Ran 3 tests
+
+FAILED (failures=7)

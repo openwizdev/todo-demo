@@ -1,0 +1,8 @@
+{
+  "commit": "0e9a3b80e94bbdc3c14c245ed310a60b0eb26c49",
+  "workflows": {
+    "where-are-we.status": [
+      "skills/where-are-we/SKILL.md"
+    ]
+  }
+}

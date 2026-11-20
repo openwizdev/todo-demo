@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Test-only Cloudroom API bridge; screenshots and evaluations use real Chromium."""
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+NODE = r"""
+import { chromium } from 'playwright-core';
+import { createInterface } from 'node:readline';
+let browser, context, active;
+const tabs = new Map();
+let nextTab = 0;
+async function call(r) {
+  if (r.kind === 'new_tab') {
+    browser ??= await chromium.launch({ executablePath: process.env.OPENWIZ_CHROMIUM ?? '/usr/bin/chromium' });
+    context ??= await browser.newContext();
+    const page = await context.newPage();
+    const session = await context.newCDPSession(page);
+    const id = ++nextTab;
+    tabs.set(id, { page, session });
+    return id;
+  }
+  if (r.kind === 'activate_tab') {
+    active = tabs.get(r.tab);
+    await active.page.bringToFront();
+    return null;
+  }
+  if (r.kind === 'close_tab') {
+    await tabs.get(r.tab).page.close();
+    tabs.delete(r.tab);
+    active = null;
+    return null;
+  }
+  if (r.kind === 'cdp') return active.session.send(r.method, r.params);
+  try {
+    if (r.kind === 'wait_for_load') await active.page.waitForLoadState('load', { timeout: r.timeout * 1000 });
+    else if (r.kind === 'wait_for_element') await active.page.locator(r.selector).waitFor({
+      state: r.visible ? 'visible' : 'attached', timeout: r.timeout * 1000,
+    });
+    else throw new Error(`Unknown bridge operation: ${r.kind}`);
+    return true;
+  } catch (error) {
+    if (error.name === 'TimeoutError') return false;
+    throw error;
+  }
+}
+try {
+  for await (const line of createInterface({ input: process.stdin })) {
+    try { console.log(JSON.stringify({ result: await call(JSON.parse(line)) })); }
+    catch (error) { console.log(JSON.stringify({ error: String(error) })); }
+  }
+} finally { await browser?.close(); }
+"""
+
+
+def node_folder():
+    """Where Node finds playwright-core: the working directory (the consuming
+    project), or the first folder one or two levels below it that installed
+    it, as a project keeps its browser test tools beside its web app."""
+    here = Path.cwd()
+    for folder in [here, *sorted(here.glob('*/')), *sorted(here.glob('*/*/'))]:
+        if (folder / 'node_modules' / 'playwright-core' / 'package.json').is_file():
+            return folder
+    return here
+
+
+def run(program):
+    worker = None
+
+    def rpc(kind, **params):
+        nonlocal worker
+        if worker is None:
+            worker = subprocess.Popen(
+                ['node', '--input-type=module', '-e', NODE],
+                cwd=node_folder(),
+                stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        worker.stdin.write(json.dumps({'kind': kind, **params}) + '\n')
+        worker.stdin.flush()
+        line = worker.stdout.readline()
+        if not line:
+            raise RuntimeError('Chromium bridge worker exited without a response')
+        reply = json.loads(line)
+        if 'error' in reply:
+            raise RuntimeError(reply['error'])
+        return reply['result']
+
+    def cdp(method, _response_timeout=None, **params):
+        return rpc('cdp', method=method, params=params)
+
+    try:
+        exec(program, {
+            'cdp': cdp,
+            'new_tab': lambda: rpc('new_tab'),
+            'activate_tab': lambda tab: rpc('activate_tab', tab=tab),
+            'close_tab': lambda tab: rpc('close_tab', tab=tab),
+            'wait_for_load': lambda timeout: rpc('wait_for_load', timeout=timeout),
+            'wait_for_element': lambda selector, timeout, visible: rpc(
+                'wait_for_element', selector=selector, timeout=timeout, visible=visible),
+        })
+    finally:
+        if worker is not None:
+            worker.stdin.close()
+            try:
+                worker.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                worker.kill()
+                worker.wait()
+            worker.stdout.close()
+            if worker.returncode:
+                raise RuntimeError(f'Chromium bridge worker failed: {worker.returncode}')
+
+
+if __name__ == '__main__':
+    run(sys.stdin.read())

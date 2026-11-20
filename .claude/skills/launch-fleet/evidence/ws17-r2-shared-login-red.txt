@@ -1,0 +1,36 @@
+ok   steer: a stop on the video holds the fleet and asks to record it
+ok   steer: a recorded stop still holds the fleet
+ok   steer: a reset asks a re-cut and holds the fleet
+ok   steer: a recorded reset still holds until the new video
+ok   steer: a new video ends the hold
+ok   steer: anything else is a steer the fleet reads, and the fleet goes on
+ok   steer: a steer already read is not asked again
+ok   steer: a stop before the video steers nothing
+ok   steer: an outsider's stop holds nothing
+ok   steer: the factory App's note is no owner steer (R2)
+ok   steer: a help comment repeating the cue is no new video and keeps the stop (R3)
+ok   steer: the fleet's own bold records are no steer
+FAIL steer: under the shared login an agent's note steers nothing, and steering off is noted (R2): unexpected output:
+    --- <tmp>/case-13/want.txt	<time>
+    +++ <tmp>/case-13/out	<time>
+    @@ -1,2 +1 @@
+    -look #10: comments on the video steer nothing while agents post from the same login as the owner, until the OpenWiz App identity (OpenWiz #1402) is in use; the owner steers through the orchestrator
+    -start #13: W3: widget page (spec #10)
+    +re-cut #10: the owner said reset on the video in comment 1003; re-cut the plan and make a new video
+FAIL steer: under the shared login the owner's stop steers nothing either (R2): unexpected output:
+    --- <tmp>/case-14/want.txt	<time>
+    +++ <tmp>/case-14/out	<time>
+    @@ -1,2 +1 @@
+    -look #10: comments on the video steer nothing while agents post from the same login as the owner, until the OpenWiz App identity (OpenWiz #1402) is in use; the owner steers through the orchestrator
+    -start #13: W3: widget page (spec #10)
+    +hold #10: the owner said stop on the video in comment 1003; nothing under the spec starts until a new video
+FAIL steer: under the shared login steering off is noted only once (R2): unexpected output:
+    --- <tmp>/case-15/want.txt	<time>
+    +++ <tmp>/case-15/out	<time>
+    @@ -1 +1,2 @@
+    -start #13: W3: widget page (spec #10)
+    +steer #10: the owner steered on the video in comment 1003; read it and act on it
+    +re-cut #10: the owner said reset on the video in comment 1005; re-cut the plan and make a new video
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 15 cases ran, not 1: is "steer:*" a case's name?
+15 cases, 4 failed

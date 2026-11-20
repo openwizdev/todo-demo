@@ -1,0 +1,22 @@
+approve: relies: #1184: Relies on: file does not exist at its full path; use --planned only for a blocked contract
+approve: sizes: #1181 needs exactly one `Size: S`, `M` or `L`
+approve: sizes: #1183 needs exactly one `Size: S`, `M` or `L`
+approve: sizes: #1184 needs exactly one `Size: S`, `M` or `L`
+approve: sizes: #1185 needs exactly one `Size: S`, `M` or `L`
+approve: sizes: #1187 needs exactly one `Size: S`, `M` or `L`
+approve: width: the arrow #1174 -> #1181 is implied by another chain; drop it
+approve: width: the arrow #1174 -> #1182 is implied by another chain; drop it
+approve: width: the arrow #1174 -> #1183 is implied by another chain; drop it
+approve: width: the arrow #1174 -> #1184 is implied by another chain; drop it
+approve: width: the arrow #1174 -> #1185 is implied by another chain; drop it
+approve: width: the arrow #1174 -> #1186 is implied by another chain; drop it
+approve: width: the arrow #1181 -> #1187 is implied by another chain; drop it
+approve: width: the arrow #1338 -> #1187 is implied by another chain; drop it
+approve: width: the arrow #1339 -> #1187 is implied by another chain; drop it
+approve: owned paths: #1181: a bullet names no exact path: "its suite and scripts in `openwizdev/WizSkills`"
+approve: owned paths: #1183: a bullet names no exact path: "their suites and scripts"
+approve: owned paths: #1184: a bullet names no exact path: "their suites and scripts"
+approve: owned paths: #1185: a bullet names no exact path: "their suites and scripts"
+approve: owned paths: #1187: a bullet names no exact path: "the changelog, version and release files in `openwizdev/WizSkills`"
+approve: owned paths: #1339 and #1348 can run at once and both own `skills/to-spec/` / `skills/*/SKILL.md`
+approve: owned paths: #1339 and #1348 can run at once and both own `skills/to-tickets/` / `skills/*/SKILL.md`

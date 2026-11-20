@@ -1,0 +1,12 @@
+{
+  "commit": "784eb494ddf9f69e8f8e0bb362620580076d3238",
+  "workflows": {
+    "diagnose.reproduce": [
+      "skills/diagnose/SKILL.md"
+    ],
+    "huntr.intake": [
+      "skills/huntr/SKILL.md",
+      "skills/diagnose/SKILL.md"
+    ]
+  }
+}

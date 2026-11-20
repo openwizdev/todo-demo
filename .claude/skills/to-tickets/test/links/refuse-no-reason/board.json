@@ -1,0 +1,13 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "measures",
+  "open_approved": 4,
+  "can_start": 1,
+  "startable_percent": 25,
+  "file_links": 0,
+  "unlabelled_links": 3,
+  "ready_stock": 1,
+  "builders_running": 0,
+  "fed_ratio": null,
+  "low_stock": false
+}

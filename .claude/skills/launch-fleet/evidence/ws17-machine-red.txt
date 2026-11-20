@@ -1,0 +1,16 @@
+FAIL machine: a valid machine plan approval starts its fleet: unexpected output:
+    --- <tmp>/case-1/want.txt	<time>
+    +++ <tmp>/case-1/out	<time>
+    @@ -1 +0,0 @@
+    -start #13: W3: widget page (spec #10)
+ok   machine: a spec with no approval starts nothing
+ok   machine: a header that is not the exact machine record approves nothing
+ok   machine: a record without its grill confirmation approves nothing
+ok   machine: an outsider's machine record approves nothing
+FAIL machine: a plan changed since its machine approval starts nothing: unexpected output:
+    --- <tmp>/case-6/want.txt	<time>
+    +++ <tmp>/case-6/out	<time>
+    @@ -1 +0,0 @@
+    -re-approve #10: changed since revision 1 (fingerprint now e9f6f2a713ac)
+ok   every gh call was one of fleet.sh's reads
+6 cases, 2 failed

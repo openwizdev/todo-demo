@@ -1,0 +1,23 @@
+{
+  "commit": "fcfe7f5fa5d0a01e625ae95402fa42cab4de5d34",
+  "workflows": {
+    "plan-graph.spec-confirmation": [
+      "skills/to-spec/SKILL.md",
+      "skills/to-spec/spec.md",
+      "skills/to-spec/video.md",
+      "skills/to-tickets/records.md",
+      "contracts/open-development.v1.md",
+      "contracts/decisions.v1.md",
+      "contracts/decisions.v1.schema.json"
+    ],
+    "plan-graph.approval": [
+      "skills/to-tickets/SKILL.md",
+      "skills/to-tickets/tickets.md",
+      "contracts/plan-links.v1.md",
+      "skills/to-tickets/records.md",
+      "contracts/open-development.v1.md",
+      "contracts/decisions.v1.md",
+      "contracts/decisions.v1.schema.json"
+    ]
+  }
+}

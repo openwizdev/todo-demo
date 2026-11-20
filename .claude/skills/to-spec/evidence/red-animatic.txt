@@ -1,0 +1,37 @@
+test_a_graph_a_bench_or_build_order_broken_is_refused_before_rendering (__main__.SpecVideo.test_a_graph_a_bench_or_build_order_broken_is_refused_before_rendering) ... ok
+test_build_renders_each_frame_with_its_voice_in_order (__main__.SpecVideo.test_build_renders_each_frame_with_its_voice_in_order) ... FAIL
+test_link_is_ready_to_insert_in_spec (__main__.SpecVideo.test_link_is_ready_to_insert_in_spec) ... FAIL
+test_link_refuses_unsafe_or_ambiguous_destinations (__main__.SpecVideo.test_link_refuses_unsafe_or_ambiguous_destinations) ... ok
+test_the_synthetic_grill_storyboard_passes_in_build_order (__main__.SpecVideo.test_the_synthetic_grill_storyboard_passes_in_build_order) ... FAIL
+
+======================================================================
+FAIL: test_build_renders_each_frame_with_its_voice_in_order (__main__.SpecVideo.test_build_renders_each_frame_with_its_voice_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 121, in test_build_renders_each_frame_with_its_voice_in_order
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : animatic: not built
+
+
+======================================================================
+FAIL: test_link_is_ready_to_insert_in_spec (__main__.SpecVideo.test_link_is_ready_to_insert_in_spec)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 50, in test_link_is_ready_to_insert_in_spec
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : animatic: not built
+
+
+======================================================================
+FAIL: test_the_synthetic_grill_storyboard_passes_in_build_order (__main__.SpecVideo.test_the_synthetic_grill_storyboard_passes_in_build_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-spec/test/test_video.py", line 67, in test_the_synthetic_grill_storyboard_passes_in_build_order
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : animatic: not built
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.828s
+
+FAILED (failures=3)

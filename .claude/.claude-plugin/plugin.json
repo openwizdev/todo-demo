@@ -1,0 +1,29 @@
+{
+  "name": "openwiz",
+  "version": "0.2.0",
+  "description": "OpenWiz's skills: plan, build, review and run work with a fleet of coding agents.",
+  "author": {
+    "name": "OpenWiz"
+  },
+  "repository": "https://github.com/openwizdev/WizSkills",
+  "skills": [
+    "./skills/ask-wiz",
+    "./skills/build-ticket",
+    "./skills/diagnose",
+    "./skills/grill",
+    "./skills/handoff",
+    "./skills/hill-climb",
+    "./skills/huntr",
+    "./skills/image",
+    "./skills/install",
+    "./skills/launch-fleet",
+    "./skills/research",
+    "./skills/review-ticket",
+    "./skills/setup",
+    "./skills/to-spec",
+    "./skills/to-tickets",
+    "./skills/triage",
+    "./skills/wayfind",
+    "./skills/where-are-we"
+  ]
+}

@@ -1,0 +1,28 @@
+Command: node --test --test-name-pattern "HT speed proof refuses blank" skills/huntr/scripts/gate.test.mjs
+
+Exit: 1 (before the fix; excerpt below)
+
+✔ HT speed proof refuses blank Machine "" (68.396297ms)
+✖ HT speed proof refuses blank Machine "  " (122.364479ms)
+✖ HT speed proof refuses blank Machine "\t " (121.383059ms)
+✖ HT speed proof refuses blank Machine "  " (124.58378ms)
+✔ HT speed proof refuses blank Before "" (67.831599ms)
+✖ HT speed proof refuses blank Before "  " (127.893942ms)
+✖ HT speed proof refuses blank Before "\t " (121.124002ms)
+✖ HT speed proof refuses blank Before "  " (118.64686ms)
+✔ HT speed proof refuses blank After "" (64.998484ms)
+✖ HT speed proof refuses blank After "  " (127.300588ms)
+✖ HT speed proof refuses blank After "\t " (128.341972ms)
+✖ HT speed proof refuses blank After "  " (126.442451ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 3
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1387.823559
+✖ HT speed proof refuses blank Machine "  " (122.364479ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 2

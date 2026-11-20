@@ -1,0 +1,130 @@
+# FF2 #1332 red: test-route.py before route.py exists (WizSkills main dc48e73). Synthetic values only.
+# The two refusal cases pass vacuously here (a missing script also exits 2); the seven route cases fail.
+$ python3 -I skills/launch-fleet/scripts/test-route.py
+F.FFF.FFF
+======================================================================
+FAIL: test_a_handle_resolves_to_its_spec_s_loop_id (__main__.Loop.test_a_handle_resolves_to_its_spec_s_loop_id)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 138, in test_a_handle_resolves_to_its_spec_s_loop_id
+    self.assertEqual(w.run('loop', path, '10'), (0, self.ID + '\n', ''))
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '0f1e2d3c-synthetic-loop\n', '')
+
+First differing element 0:
+2
+0
+
++ (0, '0f1e2d3c-synthetic-loop\n', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n')
+
+======================================================================
+FAIL: test_a_missing_handle_prints_nothing_and_exits_cleanly (__main__.Loop.test_a_missing_handle_prints_nothing_and_exits_cleanly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 156, in test_a_missing_handle_prints_nothing_and_exits_cleanly
+    self.assertEqual(w.run('loop', path, '10'), (0, '', ''), name)
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '', '')
+
+First differing element 0:
+2
+0
+
++ (0, '', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n') : no file
+
+======================================================================
+FAIL: test_a_partial_or_failed_read_is_never_a_quiet_nothing (__main__.Refs.test_a_partial_or_failed_read_is_never_a_quiet_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 119, in test_a_partial_or_failed_read_is_never_a_quiet_nothing
+    self.assertIn(reason, err)
+AssertionError: 'more than one page' not found in "/usr/bin/python3: can't open file 'skills/launch-fleet/scripts/route.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_a_satellite_pull_request_names_the_project_ticket_it_closes (__main__.Refs.test_a_satellite_pull_request_names_the_project_ticket_it_closes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 91, in test_a_satellite_pull_request_names_the_project_ticket_it_closes
+    self.assertEqual(w.run('refs', SAT, '29'), (0, '1183\n', ''))
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '1183\n', '')
+
+First differing element 0:
+2
+0
+
++ (0, '1183\n', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n')
+
+======================================================================
+FAIL: test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing (__main__.Refs.test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 104, in test_issues_unknown_numbers_and_unlinked_pull_requests_name_nothing
+    self.assertEqual(w.run('refs', SAT, '5', '6', '404'), (0, '', ''))
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '', '')
+
+First differing element 0:
+2
+0
+
++ (0, '', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n')
+
+======================================================================
+FAIL: test_only_the_project_s_tickets_are_named_once_each_in_order (__main__.Refs.test_only_the_project_s_tickets_are_named_once_each_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 98, in test_only_the_project_s_tickets_are_named_once_each_in_order
+    self.assertEqual(w.run('refs', SAT, '8', '7', '8'), (0, '12 40\n', ''))
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '12 40\n', '')
+
+First differing element 0:
+2
+0
+
++ (0, '12 40\n', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n')
+
+======================================================================
+FAIL: test_the_project_s_own_numbers_pass_through_unread (__main__.Refs.test_the_project_s_own_numbers_pass_through_unread)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-route.py", line 109, in test_the_project_s_own_numbers_pass_through_unread
+    self.assertEqual(w.run('refs', HOME, '31', '12', '31'), (0, '12 31\n', ''))
+AssertionError: Tuples differ: (2, '', "/usr/bin/python3: can't open file[91 chars]y\n") != (0, '12 31\n', '')
+
+First differing element 0:
+2
+0
+
++ (0, '12 31\n', '')
+- (2,
+-  '',
+-  "/usr/bin/python3: can't open file "
+-  "'skills/launch-fleet/scripts/route.py': [Errno 2] No such "
+-  'file or directory\n')
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.166s
+
+FAILED (failures=7)

@@ -1,0 +1,71 @@
+{
+ "case": "build-ticket.regression",
+ "candidate_tree": "9f7b7fd65725d57d433a7cc6622c123e4551b156",
+ "disposition": "unmeasured",
+ "disposition_rule": "Standing rule: a setup failure before the workflow measures nothing; one replacement after a passing isolated preflight; a second setup failure hands back unmeasured.",
+ "attempts": [
+  {
+   "attempt": "original",
+   "stopped": "setup, before synthetic assignment: the isolated Git seed could not write its first object",
+   "receipt": {
+    "case": "build-ticket.regression",
+    "commit": "b38d2e6ff78e177725555df3f4217cb2c7506b8c",
+    "effort": "medium",
+    "host": "codex",
+    "model": "gpt-6.2-sol",
+    "outcome": null,
+    "schema": "wizskills.measurement.v1",
+    "metrics": {
+     "discovery_tokens": null,
+     "entrypoint_tokens": null,
+     "input_tokens": null,
+     "output_tokens": null,
+     "reference_tokens": null,
+     "retries": 0,
+     "tool_output_tokens": null,
+     "wall_ms": null
+    }
+   },
+   "source": "https://github.com/openwizdev/OpenWiz/issues/1178#issuecomment-7001331616",
+   "trial_accounting": {
+    "cloud_credits": 4,
+    "spawn_to_receipt_upper_bound_seconds": 176,
+    "source": "https://github.com/openwizdev/OpenWiz/issues/1178#issuecomment-7001341980"
+   }
+  },
+  {
+   "attempt": "replacement",
+   "stopped": "isolated preflight, before synthetic assignment: Git never launched",
+   "receipt": {
+    "case": "build-ticket.regression",
+    "commit": "b38d2e6ff78e177725555df3f4217cb2c7506b8c",
+    "effort": "medium",
+    "host": "codex",
+    "model": "gpt-6.2-sol",
+    "outcome": null,
+    "schema": "wizskills.measurement.v1",
+    "metrics": {
+     "discovery_tokens": null,
+     "entrypoint_tokens": null,
+     "input_tokens": null,
+     "output_tokens": null,
+     "reference_tokens": null,
+     "retries": null,
+     "tool_output_tokens": null,
+     "wall_ms": null
+    }
+   },
+   "source": "https://github.com/openwizdev/OpenWiz/issues/1178#issuecomment-7001776864",
+   "trial_accounting": {
+    "cloud_credits": 3,
+    "spawn_to_receipt_upper_bound_seconds": 297,
+    "source": "https://github.com/openwizdev/OpenWiz/issues/1178#issuecomment-7001788768"
+   }
+  }
+ ],
+ "cloud_credits_total": 7,
+ "unobserved_cases": [
+  "build-ticket.near-miss",
+  "build-ticket.unowned-path"
+ ]
+}

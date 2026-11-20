@@ -1,0 +1,124 @@
+# WS12 red run: python3 -I skills/diagnose/scripts/test_loop.py against the argument-accepting skeleton
+FFFFFFFFFFFF
+======================================================================
+FAIL: test_a_clean_tree_passes (__main__.Clean.test_a_clean_tree_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 102, in test_a_clean_tree_passes
+    self.assertEqual((r.returncode, r.stdout), (0, 'clean: no [DEBUG-a4f2] left\n'))
+AssertionError: Tuples differ: (0, '') != (0, 'clean: no [DEBUG-a4f2] left\n')
+
+First differing element 1:
+''
+'clean: no [DEBUG-a4f2] left\n'
+
+- (0, '')
++ (0, 'clean: no [DEBUG-a4f2] left\n')
+
+======================================================================
+FAIL: test_a_prefix_that_would_match_ordinary_text_is_refused (__main__.Clean.test_a_prefix_that_would_match_ordinary_text_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 120, in test_a_prefix_that_would_match_ordinary_text_is_refused
+    self.assertEqual(r.returncode, 2, prefix)
+AssertionError: 0 != 2 : 
+
+======================================================================
+FAIL: test_leftovers_in_tracked_and_untracked_files_are_named (__main__.Clean.test_leftovers_in_tracked_and_untracked_files_are_named)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 112, in test_leftovers_in_tracked_and_untracked_files_are_named
+    self.assertEqual(r.returncode, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_outside_a_git_tree_nothing_is_called_clean (__main__.Clean.test_outside_a_git_tree_nothing_is_called_clean)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 125, in test_outside_a_git_tree_nothing_is_called_clean
+    self.assertEqual((r.returncode, r.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_a_failure_never_stops_the_count_or_retries_to_green (__main__.Rate.test_a_failure_never_stops_the_count_or_retries_to_green)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 47, in test_a_failure_never_stops_the_count_or_retries_to_green
+    self.assertEqual(r.returncode, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_a_hang_is_a_failed_run (__main__.Rate.test_a_hang_is_a_failed_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 54, in test_a_hang_is_a_failed_run
+    self.assertEqual(r.returncode, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_all_passing_runs_are_green (__main__.Rate.test_all_passing_runs_are_green)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 42, in test_all_passing_runs_are_green
+    self.assertEqual(r.stdout, 'rate: 0/3 failed; exits 0x3; timeouts 0\n')
+AssertionError: '' != 'rate: 0/3 failed; exits 0x3; timeouts 0\n'
++ rate: 0/3 failed; exits 0x3; timeouts 0
+
+
+======================================================================
+FAIL: test_bad_arguments_are_refused (__main__.Rate.test_bad_arguments_are_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 73, in test_bad_arguments_are_refused
+    self.assertEqual(r.returncode, 2, args)
+AssertionError: 0 != 2 : ['rate', '--runs', '0', '--', 'true']
+
+======================================================================
+FAIL: test_command_output_is_never_echoed (__main__.Rate.test_command_output_is_never_echoed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 60, in test_command_output_is_never_echoed
+    self.assertEqual(r.stdout, 'rate: 1/2 failed; exits 0x1 3x1; timeouts 0\n')
+AssertionError: '' != 'rate: 1/2 failed; exits 0x1 3x1; timeouts 0\n'
++ rate: 1/2 failed; exits 0x1 3x1; timeouts 0
+
+
+======================================================================
+FAIL: test_every_run_counts_and_a_late_failure_is_red (__main__.Rate.test_every_run_counts_and_a_late_failure_is_red)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 34, in test_every_run_counts_and_a_late_failure_is_red
+    self.assertEqual(r.returncode, 1, r.stderr)
+AssertionError: 0 != 1 : 
+
+======================================================================
+FAIL: test_missing_tool_is_an_environment_failure_not_red (__main__.Rate.test_missing_tool_is_an_environment_failure_not_red)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 65, in test_missing_tool_is_an_environment_failure_not_red
+    self.assertEqual(r.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_tags_are_fresh_debug_prefixes (__main__.Tag.test_tags_are_fresh_debug_prefixes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/diagnose/scripts/test_loop.py", line 93, in test_tags_are_fresh_debug_prefixes
+    self.assertRegex(first.stdout, r'^\[DEBUG-[0-9a-f]{4}\]\n$')
+AssertionError: Regex didn't match: '^\\[DEBUG-[0-9a-f]{4}\\]\\n$' not found in ''
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.200s
+
+FAILED (failures=12)

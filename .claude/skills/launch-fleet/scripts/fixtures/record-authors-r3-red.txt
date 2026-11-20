@@ -1,0 +1,10 @@
+$ TEST_ONLY="record authors: a partly malformed*" TEST_EXPECTED=4 sh skills/launch-fleet/scripts/test.sh; python3 -I skills/launch-fleet/scripts/test-grants.py  (before the R3 fix)
+ok   record authors: a partly malformed row stops the check: | Record authors | `synthetic-factory[bot]`, Synthetic-Owner |
+ok   record authors: a partly malformed row stops the check: | Record authors | `synthetic-factory[bot]` `Synthetic-Owner` |
+ok   record authors: a partly malformed row stops the check: | Record authors | `synthetic-factory[bot]`, `Synthetic-Owner`; extra |
+FAIL record authors: a partly malformed row stops the check: | Record authors | `synthetic-factory[bot]` | `Synthetic-Owner`: exit 0, not 2
+ok   every gh call was one of fleet.sh's reads
+4 cases, 1 failed
+FAIL: test_record_authors_come_from_the_fleet_settings (__main__.AuditProof.test_record_authors_come_from_the_fleet_settings)
+Ran 23 tests in 0.114s
+FAILED (failures=1)

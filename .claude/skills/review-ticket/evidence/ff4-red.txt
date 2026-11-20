@@ -1,0 +1,42 @@
+$ python3 -I skills/review-ticket/scripts/test_review.py   (#1334 red, before the fix)
+FFF............................F....
+======================================================================
+FAIL: test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk (__main__.Review.test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk) [polish on unchanged code]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/review-ticket/scripts/test_review.py", line 443, in test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk
+    self.assertEqual(out.returncode, code, out.stdout + out.stderr)
+AssertionError: 0 != 1 : report ok
+
+
+======================================================================
+FAIL: test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk (__main__.Review.test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk) [user path on unchanged code]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/review-ticket/scripts/test_review.py", line 444, in test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk
+    self.assertIn(expected, out.stdout.splitlines())
+AssertionError: 'R4: `src/cli.rs` is unchanged since aaaaaaa; a re-check raises a new finding there only as a Risk: security, privacy or data-loss blocker' not found in ['R4: only a Risk: blocker goes to the fresh round; log a User path: blocker']
+
+======================================================================
+FAIL: test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk (__main__.Review.test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/review-ticket/scripts/test_review.py", line 445, in test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk
+    self.assertIn(["api", f"repos/{SKILLS}/compare/{OLD}...{HEAD}"], self.state()["calls"])
+AssertionError: ['api', 'repos/example/skills/compare/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'] not found in [['api', 'repos/example/skills/pulls/7'], ['api', 'repos/example/skills/contents/docs/agents/fleet.md?ref=main'], ['api', 'repos/example/skills/commits/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/check-runs?per_page=100'], ['api', '--paginate', '--slurp', 'repos/example/skills/issues/7/comments?per_page=100'], ['api', 'repos/example/skills/pulls/7'], ['api', 'repos/example/skills/contents/docs/agents/fleet.md?ref=main'], ['api', 'repos/example/skills/commits/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/check-runs?per_page=100'], ['api', '--paginate', '--slurp', 'repos/example/skills/issues/7/comments?per_page=100'], ['api', 'repos/example/skills/pulls/7'], ['api', 'repos/example/skills/contents/docs/agents/fleet.md?ref=main'], ['api', 'repos/example/skills/commits/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/check-runs?per_page=100'], ['api', '--paginate', '--slurp', 'repos/example/skills/issues/7/comments?per_page=100'], ['api', 'repos/example/skills/pulls/7'], ['api', 'repos/example/skills/contents/docs/agents/fleet.md?ref=main'], ['api', 'repos/example/skills/commits/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/check-runs?per_page=100'], ['api', '--paginate', '--slurp', 'repos/example/skills/issues/7/comments?per_page=100']]
+
+======================================================================
+FAIL: test_the_builders_own_pass_catches_a_planted_checklist_miss (__main__.Review.test_the_builders_own_pass_catches_a_planted_checklist_miss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/review-ticket/scripts/test_review.py", line 501, in test_the_builders_own_pass_catches_a_planted_checklist_miss
+    out = self.builder_pass(work, good)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "skills/review-ticket/scripts/test_review.py", line 481, in builder_pass
+    self.assertIsNotNone(line, "build-ticket's SKILL.md names no self-check line")
+AssertionError: unexpectedly None : build-ticket's SKILL.md names no self-check line
+
+----------------------------------------------------------------------
+Ran 34 tests in 7.752s
+
+FAILED (failures=4)

@@ -1,0 +1,22 @@
+$ python3 -I -m unittest discover -s skills/image/tests -k overflow_summary -v
+test_overflow_summary_includes_the_first_screen (test_screenshot.Screenshots.test_overflow_summary_includes_the_first_screen) ... FAIL
+
+======================================================================
+FAIL: test_overflow_summary_includes_the_first_screen (test_screenshot.Screenshots.test_overflow_summary_includes_the_first_screen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_screenshot.py", line 177, in test_overflow_summary_includes_the_first_screen
+    self.assertEqual(result.stdout.splitlines()[1:],
+AssertionError: Lists differ: ['overflow: none'] != ['overflow: phone first screen 600 > 390']
+
+First differing element 0:
+'overflow: none'
+'overflow: phone first screen 600 > 390'
+
+- ['overflow: none']
++ ['overflow: phone first screen 600 > 390']
+
+----------------------------------------------------------------------
+Ran 1 test in 2.986s
+
+FAILED (failures=1)

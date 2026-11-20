@@ -1,0 +1,202 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py   # #1446 retry, report and clear tests, before the fix
+# The two synthetic private values the test plants are shown as <synthetic token> and <synthetic thread id>.
+FFFFFFFFF.FFF........
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a token]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 309, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s start 3 times; next: %s'
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not si[64 chars]try') != (1, "stopped (driver start failed): the local[128 chars]and")
+
+First differing element 1:
+'refused: the synthetic harness is not si[63 chars]etry'
+"stopped (driver start failed): the local[127 chars]hand"
+
+  (1,
+-  'refused: the synthetic harness is not signed in; next: export '
+-  'token=<synthetic token> and retry')
++  "stopped (driver start failed): the local driver refused #7's start 3 times; "
++  'next: withheld, as it held a credential, a private id or a machine path; run '
++  'the driver by hand')
+
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a thread id]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 309, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s start 3 times; next: %s'
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not si[41 chars]and') != (1, "stopped (driver start failed): the local[128 chars]and")
+
+First differing element 1:
+'refused: the synthetic harness is not si[40 chars]hand'
+"stopped (driver start failed): the local[127 chars]hand"
+
+  (1,
+-  'refused: the synthetic harness is not signed in; next: resume <synthetic thread id> '
+-  'by hand')
++  "stopped (driver start failed): the local driver refused #7's start 3 times; "
++  'next: withheld, as it held a credential, a private id or a machine path; run '
++  'the driver by hand')
+
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a machine path]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 309, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s start 3 times; next: %s'
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not si[43 chars]onf') != (1, "stopped (driver start failed): the local[128 chars]and")
+
+First differing element 1:
+'refused: the synthetic harness is not si[42 chars]conf'
+"stopped (driver start failed): the local[127 chars]hand"
+
+  (1,
+-  'refused: the synthetic harness is not signed in; next: edit '
+-  '/srv/synthetic/driver.conf')
++  "stopped (driver start failed): the local driver refused #7's start 3 times; "
++  'next: withheld, as it held a credential, a private id or a machine path; run '
++  'the driver by hand')
+
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a secret value]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 309, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s start 3 times; next: %s'
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not si[54 chars] in') != (1, "stopped (driver start failed): the local[128 chars]and")
+
+First differing element 1:
+'refused: the synthetic harness is not si[53 chars]n in'
+"stopped (driver start failed): the local[127 chars]hand"
+
+  (1,
+-  'refused: the synthetic harness is not signed in; next: use '
+-  'synthetic-secret-value-0123 to sign in')
++  "stopped (driver start failed): the local driver refused #7's start 3 times; "
++  'next: withheld, as it held a credential, a private id or a machine path; run '
++  'the driver by hand')
+
+======================================================================
+FAIL: test_a_later_success_clears_the_stopped_state_once (__main__.Failures.test_a_later_success_clears_the_stopped_state_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 267, in test_a_later_success_clears_the_stopped_state_once
+    self.assertEqual(p.fleet_notes(), [STOPPED, 'done'])
+AssertionError: Lists differ: [] != ['stopped (driver start failed)', 'done']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'stopped (driver start failed)'
+
+- []
++ ['stopped (driver start failed)', 'done']
+
+======================================================================
+FAIL: test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once (__main__.Failures.test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 242, in test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once
+    self.assertGreaterEqual(time.monotonic() - began, 3, 'two waits, of 1 and 2 seconds')
+AssertionError: 0.06141573598142713 not greater than or equal to 3 : two waits, of 1 and 2 seconds
+
+======================================================================
+FAIL: test_a_refused_wake_is_retried_reported_and_cleared (__main__.Failures.test_a_refused_wake_is_retried_reported_and_cleared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 279, in test_a_refused_wake_is_retried_reported_and_cleared
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s wake 3 times; next: %s' % (STOPPED, NEXT)))
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not si[52 chars]ain') != (1, "stopped (driver start failed): the local[78 chars]ain")
+
+First differing element 1:
+'refused: the synthetic harness is not si[51 chars]gain'
+"stopped (driver start failed): the local[77 chars]gain"
+
+  (1,
+-  'refused: the synthetic harness is not signed in; next: sign in to the '
+-  'harness, then start again')
++  "stopped (driver start failed): the local driver refused #7's wake 3 times; "
++  'next: sign in to the harness, then start again')
+
+======================================================================
+FAIL: test_a_report_github_lost_is_written_by_the_next_failure (__main__.Failures.test_a_report_github_lost_is_written_by_the_next_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 322, in test_a_report_github_lost_is_written_by_the_next_failure
+    self.assertTrue(out.startswith('%s: the local driver refused #7\'s start 3 times; next: %s; unknown: the ticket '
+AssertionError: False is not true : refused: the synthetic harness is not signed in; next: sign in to the harness, then start again
+
+======================================================================
+FAIL: test_a_start_that_succeeds_on_a_retry_reports_nothing (__main__.Failures.test_a_start_that_succeeds_on_a_retry_reports_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 258, in test_a_start_that_succeeds_on_a_retry_reports_nothing
+    self.assertEqual(p.host('start', REPO, 7, 'claude', 'm', FAKE_DRIVER_REFUSALS='2'), (0, 'started #7 on local', ''))
+AssertionError: Tuples differ: (1, 'refused: the synthetic harness is not[59 chars], '') != (0, 'started #7 on local', '')
+
+First differing element 0:
+1
+0
+
++ (0, 'started #7 on local', '')
+- (1,
+-  'refused: the synthetic harness is not signed in; next: sign in to the '
+-  'harness, then start again',
+-  '')
+
+======================================================================
+FAIL: test_no_fleet_identity_starts_or_wakes_nothing (__main__.Failures.test_no_fleet_identity_starts_or_wakes_nothing) [start]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 332, in test_no_fleet_identity_starts_or_wakes_nothing
+    self.assertEqual((code, out), (2, ''))
+AssertionError: Tuples differ: (0, 'started #7 on local') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'started #7 on local')
++ (2, '')
+
+======================================================================
+FAIL: test_no_fleet_identity_starts_or_wakes_nothing (__main__.Failures.test_no_fleet_identity_starts_or_wakes_nothing) [wake]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 332, in test_no_fleet_identity_starts_or_wakes_nothing
+    self.assertEqual((code, out), (2, ''))
+AssertionError: Tuples differ: (0, 'woke #7 on local') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'woke #7 on local')
++ (2, '')
+
+======================================================================
+FAIL: test_no_fleet_identity_starts_or_wakes_nothing (__main__.Failures.test_no_fleet_identity_starts_or_wakes_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 334, in test_no_fleet_identity_starts_or_wakes_nothing
+    self.assertEqual(p.calls(), [])
+AssertionError: Lists differ: [{'host': 'local', 'command': 'start', 'in[195 chars]7'}}] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+{'host': 'local', 'command': 'start', 'input': {'repository': 'synthetic-owner/synthetic-repo', 'ticket': 7, 'skill': 'build-ticket', 'harness': 'claude', 'model': 'm'}}
+
++ []
+- [{'command': 'start',
+-   'host': 'local',
+-   'input': {'harness': 'claude',
+-             'model': 'm',
+-             'repository': 'synthetic-owner/synthetic-repo',
+-             'skill': 'build-ticket',
+-             'ticket': 7}},
+-  {'command': 'wake', 'host': 'local', 'input': {'run': 'local-run-7'}}]
+
+----------------------------------------------------------------------
+Ran 16 tests in 4.757s
+
+FAILED (failures=12)

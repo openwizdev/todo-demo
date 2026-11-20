@@ -1,0 +1,68 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "refused",
+  "counts": {
+    "tickets": 4,
+    "links": 4,
+    "real": 1,
+    "file": 0,
+    "unlabelled": 3,
+    "refusals": 3
+  },
+  "links": [
+    {
+      "ticket": 9002,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 9002,
+      "blocker": 9050,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9003,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9004,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    }
+  ],
+  "refusals": [
+    {
+      "ticket": 9002,
+      "number": 9050,
+      "code": "no_reason",
+      "message": "#9050 has no reason line"
+    },
+    {
+      "ticket": 9003,
+      "number": 9001,
+      "code": "no_reason",
+      "message": "#9001 has no reason line"
+    },
+    {
+      "ticket": 9004,
+      "number": 9001,
+      "code": "no_reason",
+      "message": "#9001 has no reason line"
+    }
+  ]
+}

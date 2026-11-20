@@ -1,0 +1,35 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "refused",
+  "counts": {
+    "tickets": 2,
+    "links": 1,
+    "real": 0,
+    "file": 0,
+    "unlabelled": 1,
+    "refusals": 1
+  },
+  "links": [
+    {
+      "ticket": 9002,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    }
+  ],
+  "refusals": [
+    {
+      "ticket": 9002,
+      "number": 9001,
+      "code": "duplicate",
+      "message": "#9001 has more than one line"
+    }
+  ]
+}

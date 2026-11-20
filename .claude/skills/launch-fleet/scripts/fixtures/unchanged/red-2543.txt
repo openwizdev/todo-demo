@@ -1,0 +1,21 @@
+# GI1 (#2543) red run: TEST_ONLY='GI1:*' sh skills/launch-fleet/scripts/test.sh
+# against fleet.sh at 958d3e51d (before the unchanged probe); synthetic fixtures only.
+
+FAIL GI1: an unchanged spec reads no GraphQL and prints what a full read prints: run 3 read GraphQL 4 times
+FAIL GI1: a line due with time comes due from saved facts: run 3 read GraphQL 4 times
+FAIL GI1: a full read 30 minutes old is read again: run 3 read GraphQL 4 times
+FAIL GI1: a changed ticket gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a changed label event gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a pull request's new head gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a changed check gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a new review verdict gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a newly linked pull request gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a merge to main gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: another account gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a lost cache gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: a damaged cache gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: an unreadable cache gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: another request's cache gets a full read: run 3 read GraphQL 4 times
+FAIL GI1: damaged probe answers get a full read: run 3 read GraphQL 4 times
+ok   every gh call was one of fleet.sh's reads
+16 cases, 16 failed

@@ -1,0 +1,10 @@
+{
+  "commit": "cbfe4bcf3d5a1aafecf081f6a192db752d314a71",
+  "workflows": {
+    "triage.dispatch": [
+      "skills/triage/SKILL.md",
+      "contracts/open-development.v1.md",
+      "skills/triage/AGENT-BRIEF.md"
+    ]
+  }
+}

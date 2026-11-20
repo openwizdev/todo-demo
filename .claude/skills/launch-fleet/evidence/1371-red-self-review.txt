@@ -1,0 +1,38 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py   # self-review: exact answer shapes and starts at once, before the fix
+.F....F
+======================================================================
+FAIL: test_a_driver_refusal_or_an_unreadable_answer_saves_no_run (__main__.Host.test_a_driver_refusal_or_an_unreadable_answer_saves_no_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 109, in test_a_driver_refusal_or_an_unreadable_answer_saves_no_run
+    self.assertEqual((code, out), (1, 'unknown: the local driver answered no run; a run may exist, '
+AssertionError: Tuples differ: (0, 'started #7 on local') != (1, 'unknown: the local driver answered no[49 chars]try')
+
+First differing element 0:
+0
+1
+
+- (0, 'started #7 on local')
++ (1,
++  'unknown: the local driver answered no run; a run may exist, so reconcile '
++  'before any retry')
+
+======================================================================
+FAIL: test_starts_at_once_keep_every_run (__main__.Host.test_starts_at_once_keep_every_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 132, in test_starts_at_once_keep_every_run
+    self.assertEqual(p.saved()['runs'], {'7': {'host': 'local', 'run': 'local-run-7'},
+AssertionError: {'7':[24 chars]: 'local-run-7'}} != {'7':[24 chars]: 'local-run-7'}, '8': {'host': 'local', 'run': 'local-run-8'}}
+- {'7': {'host': 'local', 'run': 'local-run-7'}}
+?                                              ^
+
++ {'7': {'host': 'local', 'run': 'local-run-7'},
+?                                              ^
+
++  '8': {'host': 'local', 'run': 'local-run-8'}}
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.875s
+
+FAILED (failures=2)

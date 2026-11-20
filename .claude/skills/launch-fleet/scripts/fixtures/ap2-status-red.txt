@@ -1,0 +1,17 @@
+$ python3 -I skills/launch-fleet/scripts/test-status.py FleetRun
+F
+======================================================================
+FAIL: test_a_synthetic_fleet_run_moves_each_note_in_place_and_the_wake_fixes_or_reports (__main__.FleetRun.test_a_synthetic_fleet_run_moves_each_note_in_place_and_the_wake_fixes_or_reports)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-status.py", line 810, in test_a_synthetic_fleet_run_moves_each_note_in_place_and_the_wake_fixes_or_reports
+    build = self.command('build-ticket', 'builder')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-status.py", line 772, in command
+    self.assertIsNotNone(base, f'{skill} has no one status write line')
+AssertionError: unexpectedly None : build-ticket has no one status write line
+
+----------------------------------------------------------------------
+Ran 1 test in <time>
+
+FAILED (failures=1)

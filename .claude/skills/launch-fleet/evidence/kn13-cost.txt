@@ -1,0 +1,7 @@
+KN13 (#1448) GraphQL cost, GitHub dry runs (rateLimit(dryRun: true)) of the Spec read, a spec's tickets read with the TICKET fragment, 2026-11-20:
+
+fragment      20 tickets  60 tickets  100 tickets
+before        2           7           12
+with KN13     2           7           12
+
+The fields added (lastEditedAt, editor, a labelled event's actor) are objects, not connections, so they cost nothing. The Writer read (1 point) runs only for a ticket that could otherwise start and that a user who is no record author labelled.

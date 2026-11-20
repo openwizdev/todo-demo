@@ -1,0 +1,156 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py   # the orchestrator decision on R3 at 90aed73, before the fix
+# The two claim proofs fail at the stored ticket (a schemeless user:password@host reaches it); the eleven IndexErrors are the comment expectation reading the owner-only driver log, which does not exist before the fix.
+.EEEEEEFEEEE...EF........
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a token]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a thread id]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a machine path]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a secret value]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a URL password]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a URL user]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 348, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_later_success_clears_the_stopped_state_once (__main__.Failures.test_a_later_success_clears_the_stopped_state_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 298, in test_a_later_success_clears_the_stopped_state_once
+    self.assertEqual(p.failures(), [(MARK + ', cleared', p.failure()[1] + '\n\nCleared: the local driver started '
+                                                         ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run (__main__.Failures.test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 366, in test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once (__main__.Failures.test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 259, in test_a_refused_start_is_tried_three_times_with_backoff_then_reported_once
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_a_refused_wake_is_retried_reported_and_cleared (__main__.Failures.test_a_refused_wake_is_retried_reported_and_cleared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 311, in test_a_refused_wake_is_retried_reported_and_cleared
+    self.assertEqual(p.failures(), [p.failure('wake')])
+                                    ^^^^^^^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note (__main__.Failures.test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 396, in test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note
+    self.assertEqual(p.failures(), [p.failure()])
+                                    ^^^^^^^^^^^
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 121, in failure
+    % (command, self.driver_log()[entry]['time'], n))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+IndexError: list index out of range
+
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a schemeless URL password]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 344, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertNotIn(part, world)  # the ticket first: the public boundary
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'made-up-pass-43' unexpectedly found in '{"repo": "synthetic-owner/synthetic-repo", "me": "openwiz[bot]", "fleet_md": "# Fleet settings\\n\\n## GitHub identity\\n\\n| Setting | Value |\\n| --- | --- |\\n| Record authors | `openwiz[bot]`, `synthetic-owner` |\\n", "next_id": 5002, "comments": {"7": [{"id": 5001, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T06:07:11Z", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T06:07:11Z", "node_id": "N5001"}, {"id": 5002, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: set the endpoint to svc:made-up-pass-43@driver.example.invalid/api", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T06:07:11Z", "node_id": "N5002"}]}, "writes": [{"post": 7, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T06:07:11Z"}, {"post": 7, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: set the endpoint to svc:made-up-pass-43@driver.example.invalid/api"}], "faults": {}}'
+
+======================================================================
+FAIL: test_the_drivers_own_words_stay_in_the_owners_log_never_on_the_ticket (__main__.Failures.test_the_drivers_own_words_stay_in_the_owners_log_never_on_the_ticket)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 274, in test_the_drivers_own_words_stay_in_the_owners_log_never_on_the_ticket
+    self.assertNotIn(part, world)
+AssertionError: 'made-up-pass-44' unexpectedly found in '{"repo": "synthetic-owner/synthetic-repo", "me": "openwiz[bot]", "fleet_md": "# Fleet settings\\n\\n## GitHub identity\\n\\n| Setting | Value |\\n| --- | --- |\\n| Record authors | `openwiz[bot]`, `synthetic-owner` |\\n", "next_id": 5002, "comments": {"7": [{"id": 5001, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T06:07:45Z", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T06:07:45Z", "node_id": "N5001"}, {"id": 5002, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: reach svc:made-up-pass-44@driver.example.invalid, then ask the synthetic operator", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T06:07:45Z", "node_id": "N5002"}]}, "writes": [{"post": 7, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T06:07:45Z"}, {"post": 7, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: reach svc:made-up-pass-44@driver.example.invalid, then ask the synthetic operator"}], "faults": {}}'
+
+----------------------------------------------------------------------
+Ran 19 tests in 69.083s
+
+FAILED (failures=2, errors=11)

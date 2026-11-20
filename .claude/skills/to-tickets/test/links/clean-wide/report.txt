@@ -1,0 +1,1 @@
+pass spec #9000: tickets 6, links 4, real 4, file 0, unlabelled 0, refusals 0

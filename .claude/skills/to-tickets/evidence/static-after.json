@@ -1,0 +1,34 @@
+{
+  "commit": "fcfe7f5fa5d0a01e625ae95402fa42cab4de5d34",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "plan-graph.spec-confirmation": {
+      "fragments": {
+        "skills/to-spec/SKILL.md": 963,
+        "skills/to-spec/spec.md": 240,
+        "skills/to-spec/video.md": 211,
+        "skills/to-tickets/records.md": 746,
+        "contracts/open-development.v1.md": 10781,
+        "contracts/decisions.v1.md": 6113,
+        "contracts/decisions.v1.schema.json": 3817
+      },
+      "loaded_path_tokens": 22871
+    },
+    "plan-graph.approval": {
+      "fragments": {
+        "skills/to-tickets/SKILL.md": 1127,
+        "skills/to-tickets/tickets.md": 720,
+        "contracts/plan-links.v1.md": 4245,
+        "skills/to-tickets/records.md": 746,
+        "contracts/open-development.v1.md": 10781,
+        "contracts/decisions.v1.md": 6113,
+        "contracts/decisions.v1.schema.json": 3817
+      },
+      "loaded_path_tokens": 27549
+    }
+  }
+}

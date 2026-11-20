@@ -1,0 +1,26 @@
+# FF2 R2 red (decision: fix once more), before the fix: python3 -I skills/launch-fleet/scripts/test-route.py SetupUnderTracing
+# Real GitHub CLI 2.100.0 against a local Node HTTPS stand-in over HTTP/2 and HTTP/1.1; the caller sets GH_DEBUG=api, DEBUG=api, GODEBUG=http2debug=2 and SYNTHETIC_FUTURE_TRACE=1. Synthetic address only.
+# Each address failure is trimmed to the stderr lines that carry the address.
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) [documented commands]
+AssertionError: Lists differ: ['DELETE', 'GET', 'POST'] != ['DELETE', 'GET', 'PATCH', 'POST']
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h2', call='room-cli loop hook loop_synthetic | jq \'{name: "web", active: true, events: ["issues", "issue_comment", "pull_request", "pull_request_review", "check_suite", "workflow_run"], config: {url: .url, content_type: "json", insecure_ssl: "0"}}\' | env -u GH_DEBUG -u DEBUG gh api --method POST \'repos/{owner}/{repo}/hooks\' --input - --jq \'{id, events, active}\'')
+AssertionError: the address found in stderr:
+    \\"url\\": \\"https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000\\"" (60 bytes omitted)
+    2026/11/20 04:08:53 http2: Framer 0x4db24959dce0: read DATA stream=1 len=137 data="{\\"id\\":7,\\"events\\":[\\"issues\\"],\\"active\\":true,\\"config\\":{\\"url\\":\\"https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-000
+    2026/11/20 04:08:53 http2: Transport received DATA stream=1 len=137 data="{\\"id\\":7,\\"events\\":[\\"issues\\"],\\"active\\":true,\\"config\\":{\\"url\\":\\"https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000\\",\\"c
+  : tracing writes the address to stderr
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h2', call="env -u GH_DEBUG -u DEBUG gh api 'repos/{owner}/{repo}/hooks' --jq '.[] | {id, events, active}'")
+AssertionError: the address found in stderr:
+    2026/11/20 04:08:53 http2: Framer 0x5b41edefe000: read DATA stream=1 len=139 data="[{\\"id\\":7,\\"events\\":[\\"issues\\"],\\"active\\":true,\\"config\\":{\\"url\\":\\"https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-00
+    2026/11/20 04:08:53 http2: Transport received DATA stream=1 len=139 data="[{\\"id\\":7,\\"events\\":[\\"issues\\"],\\"active\\":true,\\"config\\":{\\"url\\":\\"https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000\\",\\"
+  : tracing writes the address to stderr
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h2', call="env -u GH_DEBUG -u DEBUG gh api --method DELETE 'repos/{owner}/{repo}/hooks/7'")
+AssertionError: {'GODEBUG', 'SYNTHETIC_FUTURE_TRACE'} is not false : gh starts with the caller's trace settings
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h1', call='room-cli loop hook loop_synthetic | jq \'{name: "web", active: true, events: ["issues", "issue_comment", "pull_request", "pull_request_review", "check_suite", "workflow_run"], config: {url: .url, content_type: "json", insecure_ssl: "0"}}\' | env -u GH_DEBUG -u DEBUG gh api --method POST \'repos/{owner}/{repo}/hooks\' --input - --jq \'{id, events, active}\'')
+AssertionError: {'GODEBUG', 'SYNTHETIC_FUTURE_TRACE'} is not false : gh starts with the caller's trace settings
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h1', call="env -u GH_DEBUG -u DEBUG gh api 'repos/{owner}/{repo}/hooks' --jq '.[] | {id, events, active}'")
+AssertionError: {'GODEBUG', 'SYNTHETIC_FUTURE_TRACE'} is not false : gh starts with the caller's trace settings
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (mode='h1', call="env -u GH_DEBUG -u DEBUG gh api --method DELETE 'repos/{owner}/{repo}/hooks/7'")
+AssertionError: {'GODEBUG', 'SYNTHETIC_FUTURE_TRACE'} is not false : gh starts with the caller's trace settings
+Ran 1 test in N s
+FAILED (failures=7)

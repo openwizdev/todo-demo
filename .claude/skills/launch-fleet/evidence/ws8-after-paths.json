@@ -1,0 +1,13 @@
+{
+  "commit": "cee8cdaa213814ca1559f1efc372c0ceea706475",
+  "workflows": {
+    "launch-fleet.wake": [
+      "skills/launch-fleet/SKILL.md",
+      "contracts/open-development.v1.md",
+      "skills/launch-fleet/overload.md",
+      "skills/launch-fleet/references/builders.md",
+      "skills/launch-fleet/references/identity.md",
+      "contracts/github-identity.v1.md"
+    ]
+  }
+}

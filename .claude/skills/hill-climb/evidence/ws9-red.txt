@@ -1,0 +1,36 @@
+$ python3 -I -m unittest discover -s skills/hill-climb/tests -k odds -v
+test_odds_against_the_baseline_come_from_the_fit (test_climb.CLI.test_odds_against_the_baseline_come_from_the_fit) ... FAIL
+test_odds_refuse_an_unknown_or_missing_baseline (test_climb.CLI.test_odds_refuse_an_unknown_or_missing_baseline) ... FAIL
+test_odds_stay_finite_when_display_strengths_underflow (test_climb.CLI.test_odds_stay_finite_when_display_strengths_underflow) ... ERROR
+
+======================================================================
+ERROR: test_odds_stay_finite_when_display_strengths_underflow (test_climb.CLI.test_odds_stay_finite_when_display_strengths_underflow)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/hill-climb/tests/test_climb.py", line 190, in test_odds_stay_finite_when_display_strengths_underflow
+    self.assertAlmostEqual(odds["C0001"], 5 / 6, places=7)
+                           ~~~~^^^^^^^^^
+KeyError: 'C0001'
+
+======================================================================
+FAIL: test_odds_against_the_baseline_come_from_the_fit (test_climb.CLI.test_odds_against_the_baseline_come_from_the_fit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/hill-climb/tests/test_climb.py", line 175, in test_odds_against_the_baseline_come_from_the_fit
+    self.assertEqual(odds["baseline"], "B")
+AssertionError: None != 'B'
+
+======================================================================
+FAIL: test_odds_refuse_an_unknown_or_missing_baseline (test_climb.CLI.test_odds_refuse_an_unknown_or_missing_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/hill-climb/tests/test_climb.py", line 196, in test_odds_refuse_an_unknown_or_missing_baseline
+    self.bad("odds", results(), "--baseline", "Z")
+  File "<repo>/skills/hill-climb/tests/test_climb.py", line 73, in bad
+    self.assertEqual(run.returncode, 2, run.stderr)
+AssertionError: 0 != 2 : 
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.092s
+
+FAILED (failures=2, errors=1)

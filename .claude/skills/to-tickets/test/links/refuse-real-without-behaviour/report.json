@@ -1,0 +1,74 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "refused",
+  "counts": {
+    "tickets": 5,
+    "links": 4,
+    "real": 0,
+    "file": 0,
+    "unlabelled": 4,
+    "refusals": 4
+  },
+  "links": [
+    {
+      "ticket": 9003,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9003,
+      "blocker": 9002,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9004,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9005,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    }
+  ],
+  "refusals": [
+    {
+      "ticket": 9003,
+      "number": 9001,
+      "code": "real_without_behaviour",
+      "message": "the real line for #9001 names no behaviour"
+    },
+    {
+      "ticket": 9003,
+      "number": 9002,
+      "code": "real_without_behaviour",
+      "message": "the real line for #9002 names no behaviour"
+    },
+    {
+      "ticket": 9004,
+      "number": 9001,
+      "code": "real_without_behaviour",
+      "message": "the real line for #9001 names no behaviour"
+    },
+    {
+      "ticket": 9005,
+      "number": 9001,
+      "code": "real_without_behaviour",
+      "message": "the real line for #9001 names no behaviour"
+    }
+  ]
+}

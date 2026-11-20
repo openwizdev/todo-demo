@@ -1,0 +1,3 @@
+interface:
+  display_name: "Image"
+  short_description: "Generate pictures and capture phone and desktop UI"

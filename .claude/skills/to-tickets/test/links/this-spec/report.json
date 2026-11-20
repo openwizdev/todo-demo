@@ -1,0 +1,77 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 1313
+  },
+  "result": "pass",
+  "counts": {
+    "tickets": 10,
+    "links": 8,
+    "real": 8,
+    "file": 0,
+    "unlabelled": 0,
+    "refusals": 0
+  },
+  "links": [
+    {
+      "ticket": 1317,
+      "blocker": 1315,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1318,
+      "blocker": 1315,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1319,
+      "blocker": 1315,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1321,
+      "blocker": 1318,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1322,
+      "blocker": 1318,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1323,
+      "blocker": 1318,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1325,
+      "blocker": 1318,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 1326,
+      "blocker": 1318,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    }
+  ],
+  "refusals": []
+}

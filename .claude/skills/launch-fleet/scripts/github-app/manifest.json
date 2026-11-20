@@ -1,0 +1,14 @@
+{
+  "name": "OpenWiz",
+  "public": false,
+  "hook_attributes": {"active": false},
+  "default_permissions": {
+    "metadata": "read",
+    "contents": "write",
+    "issues": "write",
+    "pull_requests": "write",
+    "checks": "read",
+    "actions": "read"
+  },
+  "default_events": []
+}

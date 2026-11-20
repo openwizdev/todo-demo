@@ -1,0 +1,23 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py Failures.test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note   # J87 ruling, before the fix
+F
+======================================================================
+FAIL: test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note (__main__.Failures.test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 346, in test_no_fleet_identity_still_starts_retries_and_comments_but_writes_no_note
+    self.assertEqual((code, out), (1, '%s: the local driver refused #7\'s start 3 times; next: %s' % (STOPPED, NEXT)))
+AssertionError: Tuples differ: (2, '') != (1, "stopped (driver start failed): the lo[82 chars]ain")
+
+First differing element 0:
+2
+1
+
+- (2, '')
++ (1,
++  "stopped (driver start failed): the local driver refused #7's start 3 times; "
++  'next: sign in to the harness, then start again')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.157s
+
+FAILED (failures=1)

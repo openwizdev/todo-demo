@@ -1,0 +1,9 @@
+{
+  "commit": "0e9a3b80e94bbdc3c14c245ed310a60b0eb26c49",
+  "workflows": {
+    "ask-wiz.route": [
+      "skills/ask-wiz/SKILL.md",
+      "skills/grill/SKILL.md"
+    ]
+  }
+}

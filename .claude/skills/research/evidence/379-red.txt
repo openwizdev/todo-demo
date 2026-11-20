@@ -1,0 +1,53 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded serde v1.0.229
+  Downloaded quote v1.0.47
+  Downloaded memchr v2.8.3
+  Downloaded proc-macro2 v1.0.107
+  Downloaded itoa v1.0.18
+  Downloaded zmij v1.0.23
+  Downloaded unicode-ident v1.0.27
+  Downloaded serde_derive v1.0.229
+  Downloaded serde_json v1.0.154
+  Downloaded serde_core v1.0.229
+  Downloaded syn v3.0.9
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.154
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.3
+   Compiling syn v3.0.9
+   Compiling serde_derive v1.0.229
+   Compiling openwiz-core v0.0.1-dev (<checkout>/crates/core)
+   Compiling openwiz-store v0.0.1-dev (<checkout>/crates/store)
+   Compiling openwiz-adapter-github v0.0.1-dev (<checkout>/crates/adapters/github)
+   Compiling openwiz-adapter-cloudroom v0.0.1-dev (<checkout>/crates/adapters/cloudroom)
+   Compiling openwiz-cli v0.0.1-dev (<checkout>/crates/cli)
+   Compiling openwiz-server v0.0.1-dev (<checkout>/crates/server)
+   Compiling openwiz-tests v0.0.1-dev (<checkout>/tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.11s
+     Running checks/main.rs (target/debug/deps/checks-dc901f0b3d444c02)
+
+running 1 test
+test skills::research_worker_github_check ... FAILED
+
+failures:
+
+---- skills::research_worker_github_check stdout ----
+
+thread 'skills::research_worker_github_check' (3524) panicked at tests/checks/skills.rs:1897:5:
+snapshot: sh: 0: cannot open <checkout>/tests/../skills/research/scripts/check-workers.sh: No such file
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    skills::research_worker_github_check
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p openwiz-tests --test checks`

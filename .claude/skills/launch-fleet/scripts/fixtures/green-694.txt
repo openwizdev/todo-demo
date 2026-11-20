@@ -1,0 +1,604 @@
+# #694: sh skills/launch-fleet/scripts/test.sh, the full run at 6daac2dd (origin/main merged in again, with #384; 4 workers).
+ok   nightly: a completed failure needs the user
+ok   nightly: no run is quiet
+ok   nightly: success is quiet
+ok   nightly: a running run is not a completed success
+ok   nightly: unrelated runs cannot hide failure
+ok   nightly: latest completed success clears an older failure
+ok   nightly: cancelled is quiet
+ok   nightly: skipped is quiet
+ok   nightly: neutral is quiet
+ok   nightly: stale is quiet
+ok   nightly: timed out is red
+ok   nightly: startup failure is red
+ok   nightly: action required is red
+ok   nightly: absent workflow preserves other due work
+ok   nightly: forbidden fails even when JSON says not found
+ok   nightly: server error fails even when JSON says not found
+ok   nightly: another default branch is encoded
+ok   nightly: delivery recorded on GitHub is quiet without a warm cache
+ok   nightly: the record beyond the first page still suppresses delivery
+ok   nightly: another attempt may alert
+ok   nightly: another run on the same commit may alert
+ok   nightly: a quotation is not a delivery record
+ok   nightly: a claim requires reconciliation rather than another send
+ok   nightly: delivery wins over an old claim
+ok   nightly: uncertainty recorded on GitHub is quiet without a warm cache
+ok   nightly: paginated uncertainty settles even leftover claims
+ok   nightly: uncertainty for another attempt does not settle this attempt
+ok   nightly: uncertainty for another run on the same commit does not settle this run
+ok   nightly: quoted uncertainty does not settle a claim
+ok   nightly: suffixed uncertainty does not settle a claim
+ok   nightly: uncertainty for attempt ten does not settle attempt one
+ok   nightly: frontier does not read runs
+ok   nightly: holds does not read runs
+ok   nightly: claim does not read runs
+ok   nightly: a failed run read leaves even ticket output empty
+ok   nightly: a failed record read leaves even ticket output empty
+ok   nightly: malformed run envelope fails closed
+ok   nightly: missing run list fails closed
+ok   nightly: a positive count with no run fails closed
+ok   nightly: an unknown conclusion fails closed
+ok   nightly: missing attempt fails closed
+ok   nightly: malformed head fails closed
+ok   nightly: malformed comment page fails closed
+ok   nightly: malformed comment body fails closed
+ok   nightly: record appears on the next check without changing the cache
+ok   nightly: the next check reads the new delivery record
+ok   quiet: nothing due prints nothing
+ok   no command means check
+ok   GH_REPO unset: the repository comes from the clone
+ok   a merge unlocks the ticket waiting on it
+ok   a claimed start is left alone for 10 minutes
+ok   a claim with no outcome after 10 minutes is reconciled
+ok   a refused start stays queued and is tried again
+ok   a reconciled failed start is tried again
+ok   a start whose branch is up gets checked
+ok   no branch yet within 30 minutes: wait
+ok   a branch for ticket #130 is not #13s
+ok   no branch 30 minutes after the start
+ok   two builders recorded: look, and nothing else for it
+ok   a green head with green CI gets its first review
+ok   a head not marked green is still being built
+ok   "green" must be a word
+ok   CI still running: wait
+ok   no CI at all: wait
+ok   a required check missing is not green CI
+ok   CI failed: tell the builder
+ok   a CI failure already sent is not sent again
+ok   CI: cancelled non-required check cannot block three required successes
+ok   CI: failed non-required check cannot block review
+ok   CI: superseded required cancellation is green
+ok   CI: superseded required failure is green in reverse context order
+ok   CI: recovered head still gets review after builder was notified
+ok   CI: latest required failure overrides earlier success and green rollup
+ok   CI: latest required error fails
+ok   CI: latest required timeout fails
+ok   CI: latest required cancellation fails
+ok   CI: latest required action-needed result fails
+ok   CI: latest required run in progress overrides earlier success
+ok   CI: latest required queued run overrides earlier success without a start time
+ok   CI: latest required unknown result stays pending
+ok   CI: missing required check stays pending despite unrelated failure
+ok   CI: required failure is reported while another required check runs
+ok   CI: pending non-required check cannot block review
+ok   CI: latest successful legacy status supersedes failure
+ok   CI: latest failed legacy status overrides success
+ok   a review started 29 minutes ago: wait
+ok   no verdict 30 minutes after the review started: tell its reviewer again
+ok   a review started 50 minutes ago with no verdict: tell its reviewer again
+ok   a re-check sent 29 minutes ago: wait
+ok   no verdict 30 minutes after a re-check was sent: tell its reviewer again
+ok   told again 29 minutes ago: wait
+ok   still no verdict 30 minutes after it was told again: archive it and record review failed
+ok   a verdict after it was told again ends the check
+ok   told again on an older head does not count for the new head
+ok   a quiet reviewer recorded as failed: a fresh reviewer, the one fleet.md names
+ok   a quiet re-check recorded as failed: a fresh reviewer, never a re-check to that thread
+ok   the fresh reviewer re-checks the next head, not the failed one
+ok   the failed reviewer told again does not count for the fresh one
+ok   a failed claim whose reason names a thread does not retire that reviewer
+ok   a review record that names no thread: look, since its reviewer cannot be checked
+ok   a review claim with no outcome after 10 minutes is reconciled
+ok   a refused review is tried again, never with another model
+ok   CHANGES on this head: findings to the builder
+ok   findings already sent: wait for a new head
+ok   a new green head after a review: re-check by the same reviewer
+ok   APPROVE on this head with green CI: merge
+ok   an APPROVE for an older head does not merge the new one
+ok   only the latest VERDICT counts: a later one on an older commit is no verdict on the head
+ok   APPROVE, then a later CHANGES on the same head: the latest counts
+ok   a VERDICT with a short commit is no verdict: look
+ok   a VERDICT that names no commit is no verdict: look
+ok   a verdict not at the very start of its comment is not a report
+ok   a merge recorded as blocked: wait
+ok   K9: two pull requests change the same file: the second is re-tested before it merges
+ok   K9: the re-test claimed, its new run not there yet: wait
+ok   K9: the re-test running, the base it tests recorded: wait
+ok   K9: the re-test green, on a main with the clash in it: merge
+ok   K9: reopened by hand, with no record of the base it tested: no credit, re-test (#258: a reopen can reuse an old merge commit)
+ok   K9: the re-test tested a main from before the clash: tell its builder to merge main in
+ok   K9: the builder already asked to merge main in: wait
+ok   K9: a clash merged after the re-test's reopen: re-test again
+ok   K9: a re-test record naming a base main never merged: no credit
+ok   K9: a re-test that ran but never recorded its base: re-test again, never silence
+ok   K9: a re-test record with a short base: no credit, re-test again
+ok   K9: checks from two runs after the claim: the recorded base is credited to neither
+ok   K9: a re-test record that names no run: no credit
+ok   K9: closed by its re-test and never reopened: reopen it
+ok   K9: a completed re-test, then closed on purpose: left alone
+ok   K9: closed long after an unfinished re-test claim: left alone
+ok   K9: closed before its re-test claim: left alone
+ok   K9: closed after a re-test claim for another head: left alone
+ok   K9: a re-test claimed over 30 minutes ago, and still no new run: re-test again
+ok   K9: a re-test claim for another head does not count
+ok   K9: main moved only in files the pull request did not change: merge without a re-test
+ok   K9: the same file, merged before the head was committed: merge
+ok   K9: the same file, merged in the minute the head was committed: re-test, as in doubt
+ok   K9: the same file, merged into another branch: merge
+ok   K9: main renamed a file the pull request changed: re-test
+ok   K9: the pull request renamed a file main changed: re-test
+ok   K9: two merges since, each named
+ok   K9: the pull request changes a test, main changed code it may read (the #326 shape): re-test
+ok   K9: main changed a test, the pull request changes code it may read: re-test
+ok   K9: every shape of test file counts
+ok   K9: test fixtures and other test layouts count as tests
+ok   K9: names like a test that are not one: merge
+ok   K9: the pull request changes tests, main changed only docs: merge
+ok   K9: main changed tests, the pull request changes only docs: merge
+ok   K9: a required check with no run time: look, never a merge
+ok   K9: a head with no commit time: look, never a merge
+ok   K9: the pull request's files can't be read: stop
+ok   K9: a file without a string name in the pull request's files: stop
+ok   K9: a renamed file whose old name is not a string: stop
+ok   K9: a file without a string name in a merge's files: stop
+ok   K9: a file entry that is not an object: stop
+ok   K9: a rename without its old name: stop
+ok   K9: a file with an unknown status: stop
+ok   K9: a merge's rename without its old name: stop
+ok   K9: a merge's files, read fresh and cached
+ok   K9: an obsolete cached file list is read again, never trusted
+ok   K9: a pull request not yet approved reads no files
+ok   K9: a wake re-tests too
+ok   K9: two approved pull requests change the same file at once: only the first merges
+ok   K9: the first merged: the second is re-tested before it merges
+ok   K9: two approved at once, one with tests and one with code: only the first merges
+ok   a draft is left alone
+ok   a pull request to another base: look
+ok   two open pull requests for one ticket: look
+ok   stall: a legacy wait gets its builder resumed after a verified merge
+ok   R1: yes wait without a period resumes
+ok   R1: confirmed wait with a period resumes on a targeted wake
+ok   R1: a plain bold wait without a period resumes
+ok   R1: an unknown lead-in is not a wait instruction
+ok   R1: free-form prose alone is not a wait instruction
+ok   R1: a structured record covers a free-form orchestrator answer
+ok   stall: targeted wake resumes the same legacy waiter
+ok   stall: a structured wait resumes a standalone builder
+ok   stall: an open blocker keeps its builder waiting
+ok   stall: a closed blocker without a merge keeps its builder waiting
+ok   stall: a blocker merged to another base keeps its builder waiting
+ok   stall: missing blocker data cannot resume a builder
+ok   stall: delivery suppresses a repeated resume
+ok   stall: a later wait replaces the previous blocker
+ok   stall: waiting again after delivery gets a new notification
+ok   stall: a wait never starts a second builder
+ok   stall: a wait without an existing builder starts nothing early
+ok   stall: arbitrary prose quoting a wait is not a wait instruction
+ok   stall: unreadable waiter comments produce a look rather than resume
+ok   stall: an unrelated targeted wake leaves the waiter for the safety net
+ok   stall: every existing builder waiting on a merge gets a line
+ok   stall: blocker read failure fails closed
+ok   stall: a claimed resume cannot be delivered by a second tick
+ok   stall: a truncated blocker read leaves unrelated work due
+ok   stall: oldest resume claim may deliver
+ok   stall: incomplete spec facts withdraw a resume claim
+ok   stall: unreadable spec approvals withdraw a resume claim
+ok   stall: recovered spec history permits a resume claim
+ok   stall: a truncated blocker withdraws a resume claim
+ok   stall: second resume claim withdraws
+ok   stall: a stale resume claim is reconciled instead of blindly delivered
+ok   stall: completed claim suppresses its resume
+ok   stall: failed delivery releases its claim for retry
+ok   stall: superseded wait withdraws the old resume claim
+ok   stall: unmerged blocker withdraws a resume claim
+ok   stall: a PR number cannot be treated as a waited-on ticket
+ok   stall: a noted truncated blocker stays quiet without hiding unrelated work
+ok   stall: semicolon detail in a reopen record also retries
+ok   a closed ticket gets its builder and reviewer archived
+ok   a failed reviewer's thread is still archived when its ticket closes
+ok   needs-info: the question goes to the orchestrator
+ok   needs-info already asked: quiet
+ok   needs-info: a new question after the last one was asked
+ok   a changed contract holds the unstarted ticket and notes the building one
+ok   the check prints the same hold and note
+ok   creating a contract is not changing it
+ok   a merge before the approval does not count
+ok   a merge before a ticket's own approval does not count, though it is after another's
+ok   a merge into another branch does not count
+ok   a merge before the latest approval does not count
+ok   a hold or note already recorded is not repeated
+ok   a folder and a pattern under Relies on
+ok   a contract renamed away is a change
+ok   a contract removed is a change
+ok   a ready ticket with a hold due is held, not started
+ok   a held ticket does not start, even with its label still on
+ok   a held label stops a start; with no hold of launch-fleet's behind it, it is left on
+ok   held, labelled, and no new approval yet: quiet
+ok   a new approval after the hold: the held label comes off first
+ok   a held label put on after launch-fleet's hold ended is not launch-fleet's to release (Sol R4)
+ok   launch-fleet's hold of a ticket already labelled held is launch-fleet's to release
+ok   launch-fleet holds again after a release: an older approval does not release it
+ok   launch-fleet holds again after a release: a newer approval releases it
+ok   a held ticket starts once a new revision approves it
+ok   merged pull requests read across pages, files cached
+ok   a second run reads the merged files from the cache
+ok   the loop's script clones the project and runs its check, with plan-graph's revision.sh beside it
+ok   the next run updates its clone to the default branch, without cloning again
+ok   the loop's script without GH_REPO exits 2
+ok   the bundled loop works without a consumer skills/ or plugin cache
+ok   claim: the only claim goes
+ok   claim: of two claims still starting, the older goes
+ok   claim: of two claims still starting, the later withdraws
+ok   claim: a later claim withdraws when the older one has already started its builder (Sol R1)
+ok   claim: an older claim keeps its ticket through start checked
+ok   claim: an older refused start does not stop a retry
+ok   claim: an open pull request stops a start
+ok   claim: a ticket held since the check stops a start
+ok   claim: a comment that is not a starting claim fails
+ok   claim: a comment that is not there fails
+ok   review claim: the only claim goes
+ok   review claim: a later claim withdraws when an older one has started the reviewer
+ok   review claim: a re-check of a new head goes, whatever the older head had
+ok   review claim: a claim for a head that moved withdraws
+ok   review claim: a fresh reviewer after a failed one goes
+ok   an open issue approved on its own, past the first page of the search, starts (#259)
+ok   a closed issue approved on its own is archived, even past the first page of closed issues (Sol R2)
+ok   a search that lists fewer issues outside specs than it counts fails loudly
+ok   a closed issue whose last comment is its archive record is not read again
+ok   a spec closes only once its tickets' agents are archived
+ok   a person's ticket whose contract changed is held, not announced (Sol R3)
+ok   a held person's ticket stays quiet until approved again
+ok   a person's ticket approved again since its hold is released before it is announced
+ok   a plan changed since its approval starts nothing, and asks once
+ok   a change already raised is not raised again
+ok   a new revision approves the changed plan
+ok   a title changed after the approval
+ok   a ticket body edited after the approval
+ok   the spec body edited after the approval
+ok   a ticket dropped from the spec after the approval
+ok   a low finding filed under the spec after the approval stops new starts
+ok   labels, comments, closed tickets and merges leave an approval current
+ok   a ticked task box leaves an approval current (revision v2)
+ok   a ticket being built keeps going when the plan changes
+ok   nothing could start: no revision is read
+ok   nothing could start: no revision.sh is needed
+ok   an approval with no fingerprint starts nothing
+ok   a quoted approval is no approval
+ok   a ticket approved only in an older revision does not start
+ok   a person's ticket is never started: the user is told once it is ready
+ok   a person's ticket still blocked: nothing yet
+ok   a person's ticket already told: quiet
+ok   a ready-for-human row never starts, whatever the issue's label
+ok   an approval that lists no tickets: look
+ok   a low finding filed after the approval does not start, even labelled ready-for-agent
+ok   a low finding approved on its own still waits for its spec's approval
+ok   a ready-for-agent issue with no approval does not start
+ok   an issue approved on its own starts
+ok   an issue approved on its own is in the frontier
+ok   an approval only quoted mid-line is no approval
+ok   an issue approved on its own waits for its blockers
+ok   an issue approved on its own goes through review like a ticket
+ok   a held issue approved on its own starts once approved again
+ok   a closed issue approved on its own gets its builder archived
+ok   a spec with no approval is not a fleet
+ok   every approved ticket closed: one closing summary
+ok   summary posted, an open sub-issue follow-up does not block closure
+ok   every ticket closed after the summary: close the spec
+ok   batch approval: the spec decision alone admits no follow-ups
+ok   batch approval: the documented records admit only the approved subset
+ok   the closing summary lists follow-ups filed outside the spec, and only its own
+ok   a "Follow-up of" line that is not the body's first line does not count
+ok   summary posted, an open external follow-up does not block closure
+ok   a spec closes once the follow-ups filed outside it are closed
+ok   an open planned ticket prevents spec completion with open polish
+ok   a summary cannot close a spec with an open planned ticket
+ok   closed without a merged planned ticket is not spec completion
+ok   a missing planned ticket is not spec completion
+ok   an open planned live check prevents spec completion
+ok   a completed planned live check needs no pull request
+ok   R1: an unclassified new sub-issue blocks the summary
+ok   R1: an unclassified new sub-issue blocks closure
+ok   R1: a reported pending sub-issue does not repeat the alert
+ok   R1: a polish label identifies a follow-up without a body marker
+ok   R1: a follow-up marker for another spec is pending work here
+ok   R1: a marker after other prose does not identify a follow-up
+ok   R2: recorded missing live evidence blocks the summary
+ok   R2: a wake repeats no missing-evidence alert
+ok   R2: verified live evidence releases the summary
+ok   R2: recorded missing live evidence blocks closure after a summary
+ok   R2: a check repeats no missing-evidence alert after a summary
+ok   R2: a newer verification releases closure and invalidates the cache
+ok   R2: a later missing-evidence report requires verification again
+ok   R6: a new evidence comment asks the tick to verify it
+ok   R6: a spec wake also asks for unverified new evidence
+ok   R6: an inspected comment without a verified pass is not reported again
+ok   R6: another evidence comment wakes verification again
+ok   R6: the tick verifies the evidence and records a suffixed pass
+ok   R6: new evidence after a summary also wakes verification
+ok   R6: a suffixed pass record releases a missing-evidence wait
+ok   R6: a similar word is not a pass record
+ok   R6: each unhandled evidence comment gets its own verification action
+ok   history: a 51-comment ticket retains its builder
+ok   history: a 120-comment ticket retains its wait on check
+ok   history: a 120-comment ticket retains its wait on wake
+ok   history: a 51-comment PR retains its reviewer
+ok   history: a 120-comment PR retains its verdict on wake
+ok   history: a verdict on page 2 permits a merge on wake
+ok   history: a 120-comment spec retains its approval
+ok   history: a 120-comment standalone issue retains its approval
+ok   history: an unreadable standalone history cannot start
+ok   history: an unreadable spec history cannot start its tickets
+ok   history: an unreadable third page cannot archive a closed ticket
+ok   history: a closed ticket cannot hide an unreadable PR history
+ok   history: an unreadable ticket cannot close its spec
+ok   history: an unreadable linked PR cannot close its spec
+ok   an unreadable second ticket comment page: look
+ok   a spec with more than 100 tickets: look
+ok   an unreadable second PR comment page: look
+ok   a ticket look already raised is not raised again
+ok   a pull request look already raised is not raised again
+ok   a spec look already raised is not raised again
+ok   a failed GitHub read
+ok   a failed first read fails loudly: an empty answer is not a spent allowance
+ok   a wake's failed first read fails loudly
+ok   GraphQL errors
+ok   no fleet settings
+ok   fleet settings with no CI checks
+ok   triage labels missing a role
+ok   a failed read of a merge's files
+ok   a failed read of the branches
+ok   revision.sh fails: nothing starts, and the check fails
+ok   revision.sh missing when a ticket could start: the check fails
+ok   no jq
+ok   GH_REPO not owner/name
+ok   an unknown command
+ok   LAUNCH_FLEET_NOW not a number
+ok   the frontier: verified merges in any version, the ready label, approved, not started
+ok   the frontier read in pages of one
+ok   a closed blocker is not enough: with a verified merge it is
+ok   a merge into a release branch is not a verified merge: into main it is
+ok   a reopened blocker holds its ticket: closed again, it does not
+ok   cross-version: an unmerged blocker in the older version holds its ticket
+ok   missing labels: no ready label, no start; with it, a start
+ok   a ticket waiting on an answer starts once the label is gone
+ok   an approval for an older revision starts nothing: a new revision does
+ok   duplicate starts: a started, claimed or pull-requested ticket is not started again; without those, it is
+ok   a low finding added after the approval starts once a new revision covers it
+ok   a contract hold due stops a start
+ok   the check over several fleets at once
+ok   budget: the check reports the points and questions it used, on stderr
+ok   budget: revision.sh's questions are counted, a point each
+ok   budget: a low allowance backs off: one line, exit 0, nothing more asked
+ok   budget: a quarter of the allowance left still checks
+ok   budget: an allowance that has run out backs off: one line, exit 0
+ok   budget: a spent allowance spelled RATE_LIMITED backs off too
+ok   budget: an allowance that runs out part-way still fails loudly
+ok   budget: an allowance GitHub does not give as a number fails loudly
+ok   budget: several fleets, the first check
+ok   budget: several fleets, the next check: the same lines, about a quarter of the points
+ok   budget: the first check reads the plan once
+ok   budget: the plan unchanged: its fingerprint is reused, no revision read
+ok   budget: a ticket body edited since the last check is read again
+ok   budget: a stale plan unchanged since: the reused fingerprint still stops starts
+ok   budget: a title changed since the last check is read again
+ok   budget: a blocker changed since the last check is read again
+ok   budget: the spec body changed since the last check is read again
+ok   budget: a ticket dropped since the last check is read again
+ok   budget: a ticket added since the last check is read again
+ok   budget: the spec updated since the last check is read again
+ok   budget: a damaged cache is not trusted: read again
+ok   budget: a fingerprint from another revision.sh is not reused
+ok   budget: revision.sh read another plan than the check: nothing is kept (Sol R2)
+ok   budget: the next check reads the plan again and starts nothing (Sol R2)
+ok   budget: a plan with ticked task boxes: the first check (Sol R2)
+ok   budget: a plan with ticked task boxes is cached like any other (Sol R2)
+ok   budget: a spec with no open ticket and nothing due
+ok   budget: a quiet spec with no open ticket is not read again
+ok   budget: a quiet spec is read again once a comment lands on it
+ok   budget: and is quiet again
+ok   budget: polish follow-ups do not invalidate a quiet spec
+ok   budget: a quiet spec, before a claim
+ok   budget: a claim reads its own ticket, whatever the quiet cache says
+ok   budget: a quiet spec, before a ticket reopens
+ok   budget: a quiet spec is read again once a ticket reopens
+ok   budget: a quiet spec, before fleet.sh changes
+ok   budget: a quiet spec is read again by a changed fleet.sh
+ok   budget: a closed ticket whose start is still claimed: its spec is not cached as quiet (Sol R1)
+ok   budget: its claim edited to started: the archive is due on the next check (Sol R1)
+ok   budget: a closed ticket whose pull request has a review claimed: its spec is not cached as quiet (Sol R1)
+ok   budget: the review claim edited to started: the archive is due on the next check (Sol R1)
+ok   budget: a spec with no open ticket that owes an archive
+ok   budget: it is read on every check until it is archived
+ok   budget: archived, it closes
+ok   budget: a ticket added after the list is still read
+ok   wake: a pull request reads only itself and its ticket, in one read
+ok   wake: the check prints the same line for it
+ok   wake: it reports its points: one read of 1 point, and the two settings files
+ok   wake: a pull request whose ticket relies on a contract also reads the merges since its approval
+ok   wake: a line on an item it does not name is left to the check
+ok   wake: the safety-net check prints it
+ok   wake: a ticket that could start: its spec is read in full for the approval, and only it has lines
+ok   wake: the tick's claim reuses the approval its wake checked
+ok   wake: every ticket of a spec named, its body empty
+ok   wake: the spec's body written since: its approval is checked again
+ok   wake: a spec it names is read in full, as the check reads it
+ok   wake: a spec it names gets its spec lines
+ok   wake: the check prints the same spec lines
+ok   wake: an issue approved on its own
+ok   wake: an issue outside the fleets is nothing
+ok   wake: a number that is no issue or pull request is nothing
+ok   wake: several numbers, each read once
+ok   a pull request closing six issues, its ticket sixth: the check (Sol R2)
+ok   a pull request closing six issues, its ticket sixth: the wake prints the same (Sol R2)
+ok   a pull request closing six issues, its ticket sixth: its claim goes (Sol R2)
+ok   wake: a pull request merged: its ticket's agents are archived
+ok   stall: reopened for fresh CI becomes merge-due at the approved green head
+ok   stall: reopened record with explanatory detail becomes merge-due
+ok   stall: safety-net check retries the reopened approved head
+ok   stall: reopened head with pending CI stays quiet
+ok   stall: reopened head with failed CI goes to its builder
+ok   stall: reopened head missing a required green check stays quiet
+ok   stall: a stale approval cannot merge the reopened head
+ok   stall: a later unrelated block still requires intervention
+ok   stall: an older unrelated block does not hide a later reopen
+ok   stall: an unknown reopen reason is not an automatic retry
+ok   wake: an approved head merges
+ok   wake: a changed contract holds the ticket it names, which never starts
+ok   a start refused 9 minutes ago waits: a wake
+ok   a start refused 9 minutes ago waits: the check
+ok   a start refused 9 minutes ago waits: the frontier
+ok   a start refused 9 minutes ago waits: a claim withdraws
+ok   a start refused 9 minutes ago waits: a claim on an issue approved on its own withdraws (helper finding)
+ok   a start refused 10 minutes ago is tried again
+ok   a failed start is tried again at once
+ok   a review refused 9 minutes ago waits: a wake
+ok   a review refused 9 minutes ago waits: the check
+ok   a review refused 10 minutes ago is tried again
+ok   a start claimed 20 minutes ago and refused 1 minute ago waits: a wake (Sol R1)
+ok   a start claimed 20 minutes ago and refused 1 minute ago waits: the check (Sol R1)
+ok   a start claimed 20 minutes ago and refused 10 minutes ago is tried again (Sol R1)
+ok   a review claimed 20 minutes ago and refused 1 minute ago waits: a wake (Sol R1)
+ok   a review claimed 20 minutes ago and refused 1 minute ago waits: the check (Sol R1)
+ok   wake: a reviewer given up on gets a fresh one at once
+ok   wake: a low allowance backs off: one line, nothing more asked
+ok   wake: a spent allowance backs off
+ok   wake: a read that fails fails loudly
+ok   wake: needs a number
+ok   wake: only numbers
+ok   an hour of the fake fleet: the wakes ask at most 40% of the points the timer asked before #259 (762): the timer 274 points in 1531 questions, 6 ticks; the wakes and the safety net 226 in 1079, 19 ticks
+ok   an hour of the fake fleet: with the same fleet.sh, the wakes ask fewer points than the timer
+ok   an hour of the fake fleet: every line the timer printed, the wakes printed too (20 kinds of line)
+ok   an hour of the fake fleet: a message that never arrives is found by the safety net
+ok   REST cache: reader updates retain conditional GETs
+ok   REST cache: changed PR heads cannot borrow previous checks
+ok   REST cache: paginated 304s retain and refresh next-page links
+ok   REST cache: issue listing search and comments use REST
+ok   REST cache: 304 keeps the same check output
+ok   REST cache: a changed response replaces the cached answer
+ok   REST cache: split envelope objects are ignored
+ok   REST cache: duplicate envelope fields are ignored
+ok   REST cache: corrupt answers are ignored
+ok   REST cache: unreadable answers are ignored
+timing harness: traced reads=155, peak=56, drained=0
+ok   REST parallel: specs and archive reads share one bounded pool
+timing harness: traced reads=83, peak=58, drained=0
+ok   REST parallel: independent spec queries overlap after the allowance gate
+timing harness: traced reads=5, peak=3, drained=0
+ok   REST parallel: one issue reads independent facts together
+timing harness: traced reads=158, peak=64, drained=0
+ok   REST parallel: archive pages share the bounded reader pool
+timing harness: traced reads=155, peak=64, drained=0
+ok   REST parallel: a slow reader leaves other readers working
+timing harness: traced reads=74, peak=56, drained=0
+ok   REST parallel: small specs share the bounded reader pool
+timing harness: traced reads=155, peak=64, drained=0
+ok   REST parallel: bounded readers preserve every read and decision
+timing harness: traced reads=154, peak=64, drained=0
+ok   REST parallel: repeat checks revalidate the shared ETag cache
+timing harness: traced reads=156, peak=64, drained=0
+ok   REST parallel: a failed reader drains workers and prints no actions
+timing harness: traced reads=157, peak=64, drained=0
+ok   REST parallel: a failed comment reader drains workers and prints only a look
+ok   blocker identity: one merged same-number issue cannot free another in the frontier
+ok   blocker identity: a claim refuses an unmerged same-number blocker
+ok   blocker identity: both verified same-number issues free the frontier
+ok   blocker identity: a claim goes after both same-number blockers merge
+ok   scope blocker: a builder waiting on its question raises one look, keyed
+ok   scope blocker: once recorded, the next tick is quiet
+ok   scope blocker: still unchanged, a third tick is quiet too
+ok   scope blocker: an answer changes its key and raises it again
+ok   scope blocker: once recorded, the check is quiet
+ok   scope blocker: a wake on its own record prints nothing
+ok   scope blocker: within the 30-minute timeout, nothing yet
+ok   scope blocker: a new builder is a changed input
+ok   scope blocker: an edited question raises it again
+ok   scope blocker: an edited question raises it again through a wake
+ok   scope blocker: an edited answer raises it again
+ok   scope blocker: an edit to its own records stays quiet
+ok   scope blocker: the needs-info label off, the start is checked again
+ok   one probe per batch: both starts are due
+ok   one probe per batch: the start not tried waits with the refused probe
+ok   one probe per batch: 10 minutes on, the batch retries together
+ok   one probe per batch: a claim on a start not tried withdraws within 10 minutes
+ok   one probe per batch: the frontier leaves out a start not tried
+ok   skill: no superseded base-moved merge text
+ok   skill: M1 alone decides a move of main
+ok   skill: the brief carries no merge rule
+ok   skill: a tick archives itself once its records are written
+ok   skill: a tick never stays open for the user
+ok   skill: a re-check names its finding ids, both heads and what changed
+ok   skill: one probe per batch, by assignment
+ok   skill: the start not tried record
+ok   skill: a scope blocker is raised once per key
+ok   ordering: verified main merge offers only the owned release
+ok   ordering: targeted wake verifies the held tickets full plan
+ok   ordering: a PR prerequisite requires its own main merge
+ok   ordering: a merged PR into another base stays held
+ok   ordering: a closed unmerged PR stays held
+ok   ordering: closed unmerged issue stays held
+ok   ordering: open prerequisite stays held
+ok   ordering: wrong base issue merge stays held
+ok   ordering: incomplete prerequisite relationships stay held
+ok   ordering: missing prerequisite stays held
+ok   ordering: PR number cannot impersonate an issue
+ok   ordering: issue number cannot impersonate a PR
+ok   ordering: another unmet native blocker stays held
+ok   ordering: stale fingerprint never releases
+ok   ordering: manual hold cannot be inferred from a closed blocker
+ok   ordering: contract hold still needs reapproval
+ok   ordering: due contract change prevents release
+ok   ordering: production live hold is not an ordering record
+ok   ordering: new manual label ownership defeats older ordering evidence
+ok   ordering: missing label timeline cannot prove ownership
+ok   ordering: needs info prevents release
+ok   ordering: malformed extra release condition stays held
+ok   ordering: legacy explicit ordering-only record is reconciled
+ok   ordering: legacy mismatched release issue stays held
+ok   ordering: already manually released legacy hold is not released again
+ok   ordering: release is not a frontier builder start
+ok   ordering: oldest release claim may act
+ok   ordering: duplicate release claim withdraws
+ok   ordering: claim rechecks manual label ownership
+ok   ordering: claim rechecks prerequisite merge
+ok   ordering: duplicate wake leaves fresh release claim alone
+ok   ordering: lost release reply reconciles instead of resending
+ok   ordering: removed held label with lost reply cannot start
+ok   ordering: lost reply is not on the frontier
+ok   ordering: partial labels still reconcile the same release
+ok   ordering: verified release completion permits ordinary start
+ok   ordering: ordinary start still elects the oldest builder claim
+ok   ordering: builder claim cannot bypass lost release reply
+ok   ordering: first builder claim after verified release goes
+ok   ordering: standalone held issue is discovered and released
+ok   ordering: standalone held wake keeps its own approval requirement
+ok   ordering: superseded release stays uncertain
+ok   ordering: a new conditional hold cannot bypass an old uncertain release
+ok   ordering: snapshot disagreement never releases an approved fingerprint
+ok   ordering: release claim rechecks stale fingerprint
+ok   ordering: a later hold record withdraws the earlier release claim
+ok   ordering: a production live role remains held even with an ordering record
+ok   ordering: unreadable held comments cannot authorize release
+ok   ordering: proven failure without label changes permits release retry
+ok   ordering R1: qualified bold live hold supersedes ordering
+ok   ordering R1: qualified free-form live hold supersedes ordering
+ok   ordering R1: non-record uppercase manual hold defeats ownership
+ok   ordering R1: later plain hold withdraws an existing release claim
+ok   ordering R1: unrelated plain comment preserves authorized release
+ok   ordering R1: household is not a hold instruction
+ok   ordering R1: qualified legacy prose grants no release authority
+ok   ordering R1: documented live hold record defeats ordering ownership
+ok   the pinned revision.sh is plan-graph's, byte for byte
+ok   every gh call was one of fleet.sh's reads
+4 workers
+590 cases, 0 failed

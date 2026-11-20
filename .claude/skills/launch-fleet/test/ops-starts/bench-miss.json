@@ -1,0 +1,137 @@
+{
+ "authority": "none",
+ "misses": [
+  "builder_start:t9001",
+  "reviewer_start:p9101:cccccccccccccccccccccccccccccccccccccccc:2030-03-01T10:00:00Z"
+ ],
+ "read_at": "2030-03-01T10:20:00Z",
+ "schema": "closedwiz.journey.stage-bench.v1",
+ "settings": {
+  "minutes": {
+   "builder_question_answer": 15,
+   "builder_start": 10,
+   "fix_after_changes": 30,
+   "merge": 5,
+   "reviewer_start": 5
+  },
+  "schema": "closedwiz.factory-limits.v1"
+ },
+ "sources": {
+  "s1": "fixture:ops-starts/bench-miss#gate",
+  "s2": "fixture:ops-starts/bench-miss#green"
+ },
+ "stages": [
+  {
+   "intervals": 1,
+   "limit_minutes": 10,
+   "measured": 1,
+   "results": {
+    "gated": 0,
+    "missed": 1,
+    "not missed": 0,
+    "pending": 0,
+    "stale": 0,
+    "unknown": 0
+   },
+   "stage": "builder_start"
+  },
+  {
+   "intervals": 1,
+   "limit_minutes": 5,
+   "measured": 1,
+   "results": {
+    "gated": 0,
+    "missed": 1,
+    "not missed": 0,
+    "pending": 0,
+    "stale": 0,
+    "unknown": 0
+   },
+   "stage": "reviewer_start"
+  },
+  {
+   "intervals": 0,
+   "limit_minutes": 5,
+   "measured": 0,
+   "results": {
+    "gated": 0,
+    "missed": 0,
+    "not missed": 0,
+    "pending": 0,
+    "stale": 0,
+    "unknown": 0
+   },
+   "stage": "merge"
+  },
+  {
+   "intervals": 0,
+   "limit_minutes": 30,
+   "measured": 0,
+   "results": {
+    "gated": 0,
+    "missed": 0,
+    "not missed": 0,
+    "pending": 0,
+    "stale": 0,
+    "unknown": 0
+   },
+   "stage": "fix_after_changes"
+  },
+  {
+   "intervals": 0,
+   "limit_minutes": 15,
+   "measured": 0,
+   "results": {
+    "gated": 0,
+    "missed": 0,
+    "not missed": 0,
+    "pending": 0,
+    "stale": 0,
+    "unknown": 0
+   },
+   "stage": "builder_question_answer"
+  }
+ ],
+ "waits": [
+  {
+   "end": null,
+   "folded": 0,
+   "gaps": [],
+   "key": "builder_start:t9001",
+   "limit_minutes": 10,
+   "pull_request": null,
+   "result": "missed",
+   "stage": "builder_start",
+   "start": "s1",
+   "support": [],
+   "tickets": [
+    9001
+   ],
+   "wait_minutes": 20.0,
+   "wait_range_minutes": [
+    20.0,
+    20.0
+   ]
+  },
+  {
+   "end": null,
+   "folded": 0,
+   "gaps": [],
+   "key": "reviewer_start:p9101:cccccccccccccccccccccccccccccccccccccccc:2030-03-01T10:00:00Z",
+   "limit_minutes": 5,
+   "pull_request": 9101,
+   "result": "missed",
+   "stage": "reviewer_start",
+   "start": "s2",
+   "support": [],
+   "tickets": [
+    9002
+   ],
+   "wait_minutes": 20.0,
+   "wait_range_minutes": [
+    20.0,
+    20.0
+   ]
+  }
+ ]
+}

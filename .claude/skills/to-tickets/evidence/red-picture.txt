@@ -1,0 +1,51 @@
+test_render_escapes_issue_text_as_data (__main__.TicketPicture.test_render_escapes_issue_text_as_data) ... FAIL
+test_render_groups_fanout_and_bolds_the_longest_chain (__main__.TicketPicture.test_render_groups_fanout_and_bolds_the_longest_chain) ... FAIL
+test_render_refuses_a_cycle_or_missing_prerequisite (__main__.TicketPicture.test_render_refuses_a_cycle_or_missing_prerequisite) ...
+  test_render_refuses_a_cycle_or_missing_prerequisite (__main__.TicketPicture.test_render_refuses_a_cycle_or_missing_prerequisite) (message='cycle') ... FAIL
+  test_render_refuses_a_cycle_or_missing_prerequisite (__main__.TicketPicture.test_render_refuses_a_cycle_or_missing_prerequisite) (message='unknown ticket') ... FAIL
+test_render_shows_state_size_and_human_gates (__main__.TicketPicture.test_render_shows_state_size_and_human_gates) ... FAIL
+
+======================================================================
+FAIL: test_render_escapes_issue_text_as_data (__main__.TicketPicture.test_render_escapes_issue_text_as_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_picture.py", line 73, in test_render_escapes_issue_text_as_data
+    self.assertIn('Read #34;#93; #60;img#62; #96;draft#96;', result.stdout)
+AssertionError: 'Read #34;#93; #60;img#62; #96;draft#96;' not found in ''
+
+======================================================================
+FAIL: test_render_groups_fanout_and_bolds_the_longest_chain (__main__.TicketPicture.test_render_groups_fanout_and_bolds_the_longest_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_picture.py", line 50, in test_render_groups_fanout_and_bolds_the_longest_chain
+    self.assertIn('T0 --> B0', result.stdout)
+AssertionError: 'T0 --> B0' not found in ''
+
+======================================================================
+FAIL: test_render_refuses_a_cycle_or_missing_prerequisite (__main__.TicketPicture.test_render_refuses_a_cycle_or_missing_prerequisite) (message='cycle')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_picture.py", line 64, in test_render_refuses_a_cycle_or_missing_prerequisite
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_render_refuses_a_cycle_or_missing_prerequisite (__main__.TicketPicture.test_render_refuses_a_cycle_or_missing_prerequisite) (message='unknown ticket')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_picture.py", line 64, in test_render_refuses_a_cycle_or_missing_prerequisite
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_render_shows_state_size_and_human_gates (__main__.TicketPicture.test_render_shows_state_size_and_human_gates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_picture.py", line 44, in test_render_shows_state_size_and_human_gates
+    self.assertIn(row, result.stdout)
+AssertionError: 'T0["#35;10 · S · Draft"]:::merged' not found in ''
+
+----------------------------------------------------------------------
+Ran 4 tests
+
+FAILED (failures=5)

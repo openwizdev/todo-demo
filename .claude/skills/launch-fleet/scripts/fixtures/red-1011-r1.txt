@@ -1,0 +1,3 @@
+FAIL REST cache: split envelope objects are ignored: invalid cache must make twenty-four unconditional REST reads
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

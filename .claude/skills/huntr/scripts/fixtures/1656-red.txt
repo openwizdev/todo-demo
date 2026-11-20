@@ -1,0 +1,17 @@
+# WS23 red run (#1656) at the merged base 9665ccb; synthetic fake gh, no network.
+# Reproduction of #1608 under two host zones (pace UTC 2 <yesterday>T23:00:00, offset-free):
+TZ=UTC -> {"hunt":true}
+TZ=America/Los_Angeles -> {"hunt":false,"until":"2026-11-21"}
+# node --test --test-name-pattern='PC3|D5|W1' controller.test.mjs (cwd check/fixtures/huntr-project)
+✖ PC3 pace: an offset-free time is refused and an offset-bearing instant decides the same in every host zone (51.938363ms)
+✖ D5 a controller paused after claiming cannot record past its live lease; release frees it for the next controller (513.314274ms)
+✖ W1 the last wake and a pause after claiming finish with release; record only without a live lease (0.695957ms)
+ℹ pass 0
+ℹ fail 3
+  AssertionError [ERR_ASSERTION]: UTC 2026-11-19T23:00:00: {"hunt":true}
+    actual: 0,
+    expected: 2,
+  AssertionError [ERR_ASSERTION]: {"holder":{"run":"synthetic-final","since":"2026-11-20T01:16:21Z","expires":"2026-11-20T02:01:21Z","comment":101},"comment":103}
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /every slice is reported or blocked[^.]*\bfinish the hunt \(step 5\) with `release`/i. Input:
+    actual: '\n1. `lease.mjs due <run> scheduled|hunter`. Exit 2: file nothing more, post\n   unfiled candidates as a step 5 record, and archive.\n2. File every proven finding first (step 3).\n3. `hunters.mjs collect <pi
+    expected: /every slice is reported or blocked[^.]*\bfinish the hunt \(step 5\) with `release`/i,

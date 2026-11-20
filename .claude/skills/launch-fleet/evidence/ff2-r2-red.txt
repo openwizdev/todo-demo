@@ -1,0 +1,16 @@
+# FF2 R2 red, before the fix: python3 -I skills/launch-fleet/scripts/test-route.py SetupUnderTracing
+# Real GitHub CLI 2.100.0, a local HTTPS fixture, GH_DEBUG=api and DEBUG=api in the caller, synthetic address only.
+# Each failure's stderr is trimmed to the lines that carry the address.
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (call='room-cli loop hook loop_synthetic | jq \'{name: "web", active: true, events: ["issues", "issue_comment", "pull_request", "pull_request_review", "check_suite", "workflow_run"], config: {url: .url, content_type: "json", insecure_ssl: "0"}}\' | gh api --method POST \'repos/{owner}/{repo}/hooks\' --input - --jq \'{id, events, active}\'')
+AssertionError: the address found in stderr:
+    AssertionError: 'SYNTHETIC-ADDRESS' unexpectedly found in '* Request at 2026-11-20 02:09:32.290555176 +0000 UTC m=+0.050080385
+    "url": "https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000",
+    "url": "https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000",
+  : HTTP tracing writes the address to stderr
+FAIL: test_tracing_never_shows_the_address (__main__.SetupUnderTracing.test_tracing_never_shows_the_address) (call="gh api 'repos/{owner}/{repo}/hooks' --jq '.[] | {id, events, active}'")
+AssertionError: the address found in stderr:
+    AssertionError: 'SYNTHETIC-ADDRESS' unexpectedly found in '* Request at 2026-11-20 02:09:32.358278029 +0000 UTC m=+0.048711209
+    "url": "https://synthetic.invalid/wake/SYNTHETIC-ADDRESS-0000",
+  : HTTP tracing writes the address to stderr
+Ran 1 test in N s
+FAILED (failures=2)

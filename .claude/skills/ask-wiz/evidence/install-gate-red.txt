@@ -1,0 +1,22 @@
+   Compiling openwiz-tests v0.0.1-dev (<checkout>/tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.17s
+     Running checks/main.rs (target/debug/deps/checks-dc901f0b3d444c02)
+
+running 1 test
+test skills::ask_wiz_install_rule_refuses_ungated_or_hidden_instructions ... FAILED
+
+failures:
+
+---- skills::ask_wiz_install_rule_refuses_ungated_or_hidden_instructions stdout ----
+
+thread 'skills::ask_wiz_install_rule_refuses_ungated_or_hidden_instructions' (8521) panicked at tests/checks/skills.rs:2490:9:
+accepted an absent or hidden installation gate
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    skills::ask_wiz_install_rule_refuses_ungated_or_hidden_instructions
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 81 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p openwiz-tests --test checks`

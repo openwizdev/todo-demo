@@ -1,0 +1,4 @@
+FAIL REST parallel: bounded readers preserve every read and decision: fake gh: sixteen independent readers never overlapped
+fleet.sh: can't read the issues outside specs
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

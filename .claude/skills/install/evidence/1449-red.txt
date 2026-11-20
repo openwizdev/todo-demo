@@ -1,0 +1,204 @@
+FFFF..FFFFFFFF.FF
+======================================================================
+FAIL: test_acting_login_not_a_record_author (__main__.Doctor.test_acting_login_not_a_record_author)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 232, in test_acting_login_not_a_record_author
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_acting_login_unreadable (__main__.Doctor.test_acting_login_unreadable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 239, in test_acting_login_unreadable
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_app_check_out_of_date (__main__.Doctor.test_app_check_out_of_date)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 205, in test_app_check_out_of_date
+    lines = self.lines(self.s.run())
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_app_not_installed (__main__.Doctor.test_app_not_installed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 197, in test_app_not_installed
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_driver_does_not_answer_version (__main__.Doctor.test_driver_does_not_answer_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 254, in test_driver_does_not_answer_version
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_every_problem_in_order (__main__.Doctor.test_every_problem_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 273, in test_every_problem_in_order
+    lines = self.lines(self.s.run())
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_gh_is_only_read (__main__.Doctor.test_gh_is_only_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 281, in test_gh_is_only_read
+    self.assertTrue(calls)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_harness_not_signed_in (__main__.Doctor.test_harness_not_signed_in)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 246, in test_harness_not_signed_in
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_labels_unreadable_prints_the_sign_in_command (__main__.Doctor.test_labels_unreadable_prints_the_sign_in_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 190, in test_labels_unreadable_prints_the_sign_in_command
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_missing_label (__main__.Doctor.test_missing_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 176, in test_missing_label
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_no_driver_is_said_on_the_all_clear_line (__main__.Doctor.test_no_driver_is_said_on_the_all_clear_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 170, in test_no_driver_is_said_on_the_all_clear_line
+    self.assertEqual(self.lines(self.s.run(driver=False), 0),
+AssertionError: Lists differ: ['Doc[19 chars]els, App, record author, harness, driver and skills.'] != ['Doc[19 chars]els, App, record author, harness and skills; no driver given.']
+
+First differing element 0:
+'Doct[17 chars]bels, App, record author, harness, driver and skills.'
+'Doct[17 chars]bels, App, record author, harness and skills; no driver given.'
+
+- ['Doctor: all clear: labels, App, record author, harness, driver and skills.']
+?                                                         ^        ----------- -
+
++ ['Doctor: all clear: labels, App, record author, harness and skills; no driver '
+?                                                         ^^^^^^^^^^^^^^^
+
++  'given.']
+
+======================================================================
+FAIL: test_setup_for_another_repository (__main__.Doctor.test_setup_for_another_repository)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 222, in test_setup_for_another_repository
+    lines = self.lines(self.s.run())
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_skills_not_installed (__main__.Doctor.test_skills_not_installed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 261, in test_skills_not_installed
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+======================================================================
+FAIL: test_unmapped_label_role (__main__.Doctor.test_unmapped_label_role)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 183, in test_unmapped_label_role
+    self.assertEqual(self.only(self.s.run()),
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 158, in only
+    lines = self.lines(result)
+            ^^^^^^^^^^^^^^^^^^
+  File "<wizskills>/skills/install/tests/test_doctor.py", line 152, in lines
+    self.assertEqual(result.returncode, code, result.stdout + result.stderr)
+AssertionError: 0 != 5 : Doctor: all clear: labels, App, record author, harness, driver and skills.
+
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.174s
+
+FAILED (failures=14)

@@ -1,0 +1,5 @@
+# WS8 (#1181) red: the changeset gate at merge cee8cda, before this PR's changeset.
+# python3 -I check/changesets.py check --base origin/main (origin/main = 7c72d28)
+changeset check: `launch-fleet` changed but no new changeset names it: add one under .changeset/ (see .changeset/README.md)
+changeset check: fail
+exit=1

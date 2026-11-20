@@ -1,0 +1,32 @@
+# GI1 (#2543) planted defect: a copy of fleet.sh that ignores the probe's answers (FLEET_SH=<copy> TEST_ONLY='GI1: a*').
+# The probe-only changes must fail; synthetic fixtures only.
+
+ok   GI1: an unchanged spec reads no GraphQL and prints what a full read prints
+ok   GI1: a line due with time comes due from saved facts
+ok   GI1: a full read 30 minutes old is read again
+ok   GI1: a changed ticket gets a full read
+FAIL GI1: a changed label event gets a full read: run 4 read no GraphQL
+FAIL GI1: a pull request's new head gets a full read: run 4 printed 2c2
+< re-check #35 for #15 at 35f35f35f35f35f35f35f35f35f35f35f35f35f3: tell its reviewer, thread thr_synrev35
+---
+> check review #35 for #15 at 3535353535353535353535353535353535353535: no verdict 30 minutes after "review started 3535353535353535353535353535353535353535, thread thr_synrev35"; read thread thr_synrev35 and tell it again (its record: comment 3501)
+FAIL GI1: a changed check gets a full read: run 4 read no GraphQL
+ok   GI1: a new review verdict gets a full read
+FAIL GI1: a newly linked pull request gets a full read: run 4 read no GraphQL
+FAIL GI1: a merge to main gets a full read: run 4 printed 1c1
+< hold #13: contracts/widget.v1.md changed in #23
+---
+> start #13: W3: widget page (spec #10)
+4c4
+< hold #20: contracts/widget.v1.md changed in #23
+---
+> start #20: W10: widget contract (spec #10)
+FAIL GI1: another account gets a full read: run 4 read no GraphQL
+ok   GI1: a lost cache gets a full read
+ok   GI1: a damaged cache gets a full read
+ok   GI1: an unreadable cache gets a full read
+ok   GI1: another request's cache gets a full read
+GI1 points per unchanged check on a 12-ticket spec: before 4 (a warm full read), after 0 (fleet.sh: used 0 GitHub points in 78 questions, 78 unchanged; no GraphQL read)
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 15 cases ran, not 12: is "GI1: a*" a case's name?
+15 cases, 7 failed

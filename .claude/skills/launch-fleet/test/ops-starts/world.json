@@ -1,0 +1,138 @@
+{
+ "builders": [
+  {
+   "admission": "ok",
+   "approval": {
+    "comment": 9003,
+    "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "revision": 8
+   },
+   "approved_ready": true,
+   "blockers": [
+    {
+     "merged": true,
+     "number": 8999
+    }
+   ],
+   "blockers_complete": true,
+   "complete": true,
+   "evidence": {
+    "evidence_class": "fixture",
+    "source": "fixture:ops-starts/world"
+   },
+   "fingerprint_now": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "gates": [],
+   "holds": [],
+   "labels": [
+    "ready-for-agent"
+   ],
+   "live_builders": 0,
+   "open": true,
+   "open_prs": [],
+   "start_claims": [],
+   "table_complete": true,
+   "ticket": 9001
+  }
+ ],
+ "generations": [
+  {
+   "approval": {
+    "comment": 9003,
+    "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "revision": 8
+   },
+   "created_at": 10,
+   "evidence": [
+    {
+     "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+     "evidence_class": "fixture",
+     "source": "fixture:ops-protocol/synthetic"
+    }
+   ],
+   "generation": 1,
+   "id": "generation-1",
+   "intent_id": null,
+   "kind": "claim",
+   "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "owner": "primary",
+   "previous_generation": 0,
+   "ref": "refs/heads/openwiz-ops/v1/s-9000/generations/g-1",
+   "repository": "synthetic/ops",
+   "rule": {
+    "comment": 9004,
+    "name": "dispatch",
+    "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   },
+   "schema": "openwiz.ops-dispatch.v1",
+   "scope": "generation",
+   "spec": 9000,
+   "subject": {
+    "kind": "issue",
+    "number": 9001
+   },
+   "ticket": 9001
+  }
+ ],
+ "history": [],
+ "pass": {
+  "generation": 1,
+  "now": 1000,
+  "owner": "primary"
+ },
+ "repository": "synthetic/ops",
+ "reviews": [
+  {
+   "admission": "ok",
+   "approval": {
+    "comment": 9003,
+    "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "revision": 8
+   },
+   "base": "main",
+   "branch": "room/9002-synthetic",
+   "builder": {
+    "providers": [
+     "claude-code"
+    ],
+    "record_branch": "room/9002-synthetic"
+   },
+   "ci": {
+    "head": "cccccccccccccccccccccccccccccccccccccccc",
+    "required_complete": true,
+    "state": "success"
+   },
+   "closes": [
+    9002
+   ],
+   "complete": true,
+   "default_branch": "main",
+   "draft": false,
+   "evidence": {
+    "evidence_class": "fixture",
+    "source": "fixture:ops-starts/world"
+   },
+   "fingerprint_now": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "gates": [],
+   "head": "cccccccccccccccccccccccccccccccccccccccc",
+   "head_now": "cccccccccccccccccccccccccccccccccccccccc",
+   "holds": [],
+   "labels": [
+    "ready-for-agent"
+   ],
+   "open": true,
+   "pr": 9101,
+   "reviewer_available": true,
+   "spans": [],
+   "subject": "#9002: green: synthetic hand-back",
+   "table_complete": true,
+   "ticket": 9002,
+   "verdict": null
+  }
+ ],
+ "rule": {
+  "comment": 9004,
+  "name": "dispatch",
+  "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+ },
+ "spec": 9000
+}

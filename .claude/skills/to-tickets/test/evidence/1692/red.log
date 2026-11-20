@@ -1,0 +1,61 @@
+FFFF..
+======================================================================
+FAIL: test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing (__main__.PlannedReliesTest.test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing) (case='another repository')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_relies.py", line 173, in test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing
+    self.assertEqual((out.returncode, out.stdout), (1, ''), out.stderr)
+AssertionError: Tuples differ: (0, '**Machine plan approval, 2026-11-19, [2050 chars]>\n') != (1, '')
+
+First differing element 0:
+0
+1
+
+Diff is 2413 characters long. Set self.maxDiff to None to see it. : 
+
+======================================================================
+FAIL: test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing (__main__.PlannedReliesTest.test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing) (case='a child path')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_relies.py", line 173, in test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing
+    self.assertEqual((out.returncode, out.stdout), (1, ''), out.stderr)
+AssertionError: Tuples differ: (0, '**Machine plan approval, 2026-11-19, [2050 chars]>\n') != (1, '')
+
+First differing element 0:
+0
+1
+
+Diff is 2413 characters long. Set self.maxDiff to None to see it. : 
+
+======================================================================
+FAIL: test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing (__main__.PlannedReliesTest.test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing) (case='a dependent in another repository')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_relies.py", line 173, in test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing
+    self.assertEqual((out.returncode, out.stdout), (1, ''), out.stderr)
+AssertionError: Tuples differ: (0, '**Machine plan approval, 2026-11-19, [2050 chars]>\n') != (1, '')
+
+First differing element 0:
+0
+1
+
+Diff is 2413 characters long. Set self.maxDiff to None to see it. : 
+
+======================================================================
+FAIL: test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing (__main__.PlannedReliesTest.test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing) (case='a dependent in two repositories')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/test/test_relies.py", line 173, in test_a_blocker_in_another_repository_or_owning_only_a_child_plans_nothing
+    self.assertEqual((out.returncode, out.stdout), (1, ''), out.stderr)
+AssertionError: Tuples differ: (0, '**Machine plan approval, 2026-11-19, [2050 chars]>\n') != (1, '')
+
+First differing element 0:
+0
+1
+
+Diff is 2413 characters long. Set self.maxDiff to None to see it. : 
+
+----------------------------------------------------------------------
+Ran 3 tests in 13.127s
+
+FAILED (failures=4)

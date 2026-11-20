@@ -1,0 +1,105 @@
+ok   KN13: labelled by a record author, unedited: starts as before
+ok   KN13: labelled by the App, which GraphQL names without [bot]: starts
+ok   KN13: edited before a maintainer labelled it: starts
+FAIL KN13: labelled by a non-maintainer: refused, once, naming who must re-approve: unexpected output:
+    --- /tmp/<run>/case-4/want.txt	
+    +++ /tmp/<run>/case-4/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: the refusal recorded, nothing more: unexpected output:
+    --- /tmp/<run>/case-4/want2.txt	
+    +++ /tmp/<run>/case-4/out2	
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+ok   KN13: a maintainer adds it again: starts
+FAIL KN13: labelled by a deleted user: refused: unexpected output:
+    --- /tmp/<run>/case-7/want.txt	
+    +++ /tmp/<run>/case-7/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: labelled by an App that is not a record author: refused: unexpected output:
+    --- /tmp/<run>/case-8/want.txt	
+    +++ /tmp/<run>/case-8/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: the newest labelling counts: a maintainer, then a non-maintainer: unexpected output:
+    --- /tmp/<run>/case-9/want.txt	
+    +++ /tmp/<run>/case-9/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T10:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+ok   KN13: labelled by a collaborator with write access: starts
+FAIL KN13: labelled by a collaborator with write access: starts: the gh log has 0 lines matching '^graphql Writer login=synthetic-writer$', not 1
+FAIL KN13: labelled by a collaborator with triage access only: refused: unexpected output:
+    --- /tmp/<run>/case-11/want.txt	
+    +++ /tmp/<run>/case-11/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: write access only for a longer login it matches: refused: unexpected output:
+    --- /tmp/<run>/case-12/want.txt	
+    +++ /tmp/<run>/case-12/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: an unreadable collaborator answer fails closed: unexpected output:
+    --- /tmp/<run>/case-13/want.txt	
+    +++ /tmp/<run>/case-13/out	
+    @@ -1 +1 @@
+    -look #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+ok   KN13: a blocked ticket labelled by an outsider asks nothing
+FAIL KN13: edited by someone else after labelling: refused: unexpected output:
+    --- /tmp/<run>/case-15/want.txt	
+    +++ /tmp/<run>/case-15/out	
+    @@ -1 +1 @@
+    -look #13: start refused: the ticket was edited at 2026-11-01T10:00:00Z, after ready-for-agent was added at 2026-11-01T09:00:00Z; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+ok   KN13: a maintainer adds it again after the edit: starts
+FAIL KN13: any edit after labelling refuses, a maintainer's too: unexpected output:
+    --- /tmp/<run>/case-17/want.txt	
+    +++ /tmp/<run>/case-17/out	
+    @@ -1 +1 @@
+    -look #13: start refused: the ticket was edited at 2026-11-01T10:00:00Z, after ready-for-agent was added at 2026-11-01T09:00:00Z; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: the ready label pushed out of the last 20 label events: refused: unexpected output:
+    --- /tmp/<run>/case-18/want.txt	
+    +++ /tmp/<run>/case-18/out	
+    @@ -1 +1 @@
+    -look #13: start refused: who added ready-for-agent can't be read; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: the frontier leaves a refused ticket out: unexpected output:
+    --- /tmp/<run>/case-19/want.txt	
+    +++ /tmp/<run>/case-19/out	
+    @@ -0,0 +1 @@
+    +#13 W3: widget page
+FAIL KN13: a wake on a refused ticket refuses it too: unexpected output:
+    --- /tmp/<run>/case-20/want.txt	
+    +++ /tmp/<run>/case-20/out	
+    @@ -1 +1 @@
+    -look #13: start refused: the ticket was edited at 2026-11-01T10:00:00Z, after ready-for-agent was added at 2026-11-01T09:00:00Z; a maintainer must add it again
+    +start #13: W3: widget page (spec #10)
+FAIL KN13: a claim on a ticket edited since labelling withdraws: unexpected output:
+    --- /tmp/<run>/case-21/want.txt	
+    +++ /tmp/<run>/case-21/out	
+    @@ -1 +1 @@
+    -withdraw #13: start refused: the ticket was edited at 2026-11-01T10:00:00Z, after ready-for-agent was added at 2026-11-01T09:00:00Z; a maintainer must add it again
+    +go #13
+FAIL KN13: a claim on a ticket labelled by a non-maintainer withdraws: unexpected output:
+    --- /tmp/<run>/case-22/want.txt	
+    +++ /tmp/<run>/case-22/out	
+    @@ -1 +1 @@
+    -withdraw #13: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +go #13
+FAIL KN13: an issue approved on its own needs a maintainer's label too: unexpected output:
+    --- /tmp/<run>/case-23/want.txt	
+    +++ /tmp/<run>/case-23/out	
+    @@ -1 +1 @@
+    -look #70: start refused: ready-for-agent was last added at 2026-11-01T09:00:00Z by someone who is not a maintainer; a maintainer must add it again
+    +start #70: Fix the broken link in the widget docs (approved on its own)
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 23 cases ran, not 1: is "KN13:*" a case's name?
+23 cases, 18 failed

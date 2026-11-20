@@ -1,0 +1,39 @@
+.....FF....
+======================================================================
+FAIL: test_inconsistent_pages_refuse (__main__.FrontierTest.test_inconsistent_pages_refuse) [a node not an object]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 251, in test_inconsistent_pages_refuse
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (1, '') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_inconsistent_pages_refuse (__main__.FrontierTest.test_inconsistent_pages_refuse) [next page not a boolean]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 251, in test_inconsistent_pages_refuse
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '#9 frontier wayfind:grill: Synthetic question 9\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '#9 frontier wayfind:grill: Synthetic question 9\n')
++ (2, '')
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.151s
+
+FAILED (failures=2)

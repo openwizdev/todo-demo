@@ -1,0 +1,48 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py Failures.test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run   # R1 of the review at 1f9c7f6, before the fix
+F
+======================================================================
+FAIL: test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run (__main__.Failures.test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 333, in test_a_lost_note_write_still_posts_the_failure_comment_in_the_same_run
+    self.assertEqual(p.failures(), [(MARK, "The local driver could not start this ticket's builder after 3 "
+AssertionError: Lists differ: [] != [('launch-fleet: driver start failed', "Th[131 chars]in")]
+
+Second list contains 1 additional elements.
+First extra element 0:
+('launch-fleet: driver start failed', "The local driver could not start this ticket's builder after 3 tries. What it says to do next: sign in to the harness, then start again")
+
+- []
++ [('launch-fleet: driver start failed',
++   "The local driver could not start this ticket's builder after 3 tries. What "
++   'it says to do next: sign in to the harness, then start again')]
+
+----------------------------------------------------------------------
+Ran 1 test in 3.388s
+
+FAILED (failures=1)
+
+$ python3 -I skills/launch-fleet/scripts/test-host.py Failures.test_a_clearing_github_lost_keeps_the_saved_run_and_the_next_success_clears   # R1 on the clearing route, before the fix
+F
+======================================================================
+FAIL: test_a_clearing_github_lost_keeps_the_saved_run_and_the_next_success_clears (__main__.Failures.test_a_clearing_github_lost_keeps_the_saved_run_and_the_next_success_clears)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 351, in test_a_clearing_github_lost_keeps_the_saved_run_and_the_next_success_clears
+    self.assertEqual(p.fleet_notes(), [STOPPED, 'done'])  # R1's cause on the clearing route: written apart
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['stopped (driver start failed)'] != ['stopped (driver start failed)', 'done']
+
+Second list contains 1 additional elements.
+First extra element 1:
+'done'
+
+- ['stopped (driver start failed)']
++ ['stopped (driver start failed)', 'done']
+?                                 ++++++++
+
+
+----------------------------------------------------------------------
+Ran 1 test in 3.763s
+
+FAILED (failures=1)

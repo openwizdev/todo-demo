@@ -1,0 +1,37 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "pass",
+  "counts": {
+    "tickets": 3,
+    "links": 2,
+    "real": 1,
+    "file": 1,
+    "unlabelled": 0,
+    "refusals": 0
+  },
+  "links": [
+    {
+      "ticket": 9002,
+      "blocker": 8001,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 9003,
+      "blocker": 8002,
+      "blocker_state": "OPEN",
+      "kind": "file",
+      "files": [
+        "synthetic/shared.md"
+      ]
+    }
+  ],
+  "refusals": []
+}

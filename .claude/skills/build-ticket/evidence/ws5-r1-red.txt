@@ -1,0 +1,166 @@
+$ python3 -I skills/build-ticket/scripts/test_ticket.py -v   # R1 fresh-round cases against ticket.py at fd3bd0f
+test_author_sets_the_users_noreply_identity (__main__.Author.test_author_sets_the_users_noreply_identity) ... ok
+test_read_keeps_repository_binding_and_annotated_lists (__main__.Read.test_read_keeps_repository_binding_and_annotated_lists) ... ok
+test_read_lists_owned_paths_and_readiness (__main__.Read.test_read_lists_owned_paths_and_readiness) ... ok
+test_read_refuses_a_ticket_not_released_to_agents (__main__.Read.test_read_refuses_a_ticket_not_released_to_agents) ... ok
+test_read_refuses_an_open_blocker (__main__.Read.test_read_refuses_an_open_blocker) ... ok
+test_read_refuses_incomplete_blocker_data (__main__.Read.test_read_refuses_incomplete_blocker_data) ... ok
+test_read_requires_completed_blockers_and_the_fleet_start (__main__.Read.test_read_requires_completed_blockers_and_the_fleet_start) ... ok
+test_read_without_owned_paths_refuses (__main__.Read.test_read_without_owned_paths_refuses) ... ok
+test_unreadable_ticket_exits_2 (__main__.Read.test_unreadable_ticket_exits_2) ... ok
+test_post_receipt_ignores_a_copy_by_anyone_else (__main__.Receipt.test_post_receipt_ignores_a_copy_by_anyone_else) ... ok
+test_post_receipt_reads_back_after_a_timed_out_post (__main__.Receipt.test_post_receipt_reads_back_after_a_timed_out_post) ... ok
+test_post_receipt_reports_a_refused_write (__main__.Receipt.test_post_receipt_reports_a_refused_write) ... ok
+test_post_receipt_survives_a_lost_response_and_never_posts_twice (__main__.Receipt.test_post_receipt_survives_a_lost_response_and_never_posts_twice) ... ok
+test_post_receipt_without_a_read_back_is_unknown (__main__.Receipt.test_post_receipt_without_a_read_back_is_unknown) ... ok
+test_push_after_an_unrecorded_earlier_push_stays_unknown (__main__.Receipt.test_push_after_an_unrecorded_earlier_push_stays_unknown) ... ok
+test_push_receipt_records_only_the_first_success (__main__.Receipt.test_push_receipt_records_only_the_first_success) ... ok
+test_push_refuses_a_receipt_inside_the_checkout (__main__.Receipt.test_push_refuses_a_receipt_inside_the_checkout) ... ok
+test_records_binds_a_decision_to_its_parked_finding_and_head (__main__.Records.test_records_binds_a_decision_to_its_parked_finding_and_head) ... ok
+test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) ... 
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [partial set] ... FAIL
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [before the park] ... FAIL
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [park line not terminal] ... FAIL
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [incomplete form] ... FAIL
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [log and merge without its polish issues] ... FAIL
+  test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [superseded park] ... FAIL
+test_records_marks_a_verdict_on_an_older_head (__main__.Records.test_records_marks_a_verdict_on_an_older_head) ... ok
+test_records_reads_authors_only_from_the_identity_table (__main__.Records.test_records_reads_authors_only_from_the_identity_table) ... ok
+test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) ... 
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [the ticket read offers no guessed answer] ... FAIL
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [a named trusted answer] ... FAIL
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [comment 4: not a record author] ... FAIL
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [comment 99: not on #41] ... FAIL
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [the pull request read shows its fleet record] ... FAIL
+  test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [a named trusted pull request record] ... FAIL
+test_records_reads_only_a_full_verdict_header (__main__.Records.test_records_reads_only_a_full_verdict_header) ... ok
+test_records_trusts_only_record_authors (__main__.Records.test_records_trusts_only_record_authors) ... ok
+test_records_unreadable_comments_exit_2 (__main__.Records.test_records_unreadable_comments_exit_2) ... ok
+test_scope_accepts_annotated_and_hand_resolved_paths (__main__.Scope.test_scope_accepts_annotated_and_hand_resolved_paths) ... ok
+test_scope_applies_owned_paths_only_in_their_repository (__main__.Scope.test_scope_applies_owned_paths_only_in_their_repository) ... ok
+test_scope_flags_every_unowned_side (__main__.Scope.test_scope_flags_every_unowned_side) ... ok
+test_scope_passes_owned_and_named_supporting_edits_only (__main__.Scope.test_scope_passes_owned_and_named_supporting_edits_only) ... ok
+test_scope_refuses_an_unknown_base (__main__.Scope.test_scope_refuses_an_unknown_base) ... ok
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [partial set]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 2 by owner-1: fix once more R1 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: yes
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [before the park]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 1 by owner-1: fix once more R1 and R2 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: yes
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [park line not terminal]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 2 by owner-1: fix once more R1 and R2 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: yes
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [incomplete form]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 2 by owner-1: fix once more R1 and R2 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: yes
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [log and merge without its polish issues]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 2 by owner-1: log and merge R1 and R2 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: yes
+
+======================================================================
+FAIL: test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park (__main__.Records.test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park) [superseded park]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 361, in test_records_binds_only_a_later_decision_naming_exactly_the_terminal_park
+    self.assertTrue(line.endswith(expected), line)
+AssertionError: False is not true : decision: comment 2 by owner-1: fix once more R1 and R2 at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, bound: no: R1, R2 was not parked at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [the ticket read offers no guessed answer]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 377, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertFalse(any('Evidence:' in l or 'Answer:' in l for l in lines), out)
+AssertionError: True is not false : authors: example[bot], owner-1
+record: comment 3 by example[bot]: Evidence: a synthetic run, not an answer.
+launch-fleet: comment 1 by owner-1: launch-fleet: started
+ignored: 1 comment(s) not by a record author
+
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [a named trusted answer]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 380, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 :   ticket.py read REPO N                     owned paths, links, blockers, fleet start, readiness
+  ticket.py scope REPO N [--base REF] [--supporting PATH]... [--owned PATH]...
+                                            every changed path: owned, supporting or OUT
+  ticket.py records REPO N [--ticket] [--fleet-ref REF]
+                                            trusted verdict and bound decision on pull request N,
+                                            or with --ticket the newest trusted records on ticket N
+  ticket.py author                          set git's author to the GitHub user's noreply
+  ticket.py push RECEIPT -- PUSH-COMMAND... run the push; keep the first success's receipt
+  ticket.py post-receipt REPO PR RECEIPT    post the receipt once as a record author, read back
+
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [comment 4: not a record author]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 385, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertEqual(code, 1, (out, err))
+AssertionError: 2 != 1 : ('', "  ticket.py read REPO N                     owned paths, links, blockers, fleet start, readiness\n  ticket.py scope REPO N [--base REF] [--supporting PATH]... [--owned PATH]...\n                                            every changed path: owned, supporting or OUT\n  ticket.py records REPO N [--ticket] [--fleet-ref REF]\n                                            trusted verdict and bound decision on pull request N,\n                                            or with --ticket the newest trusted records on ticket N\n  ticket.py author                          set git's author to the GitHub user's noreply\n  ticket.py push RECEIPT -- PUSH-COMMAND... run the push; keep the first success's receipt\n  ticket.py post-receipt REPO PR RECEIPT    post the receipt once as a record author, read back\n")
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [comment 99: not on #41]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 385, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertEqual(code, 1, (out, err))
+AssertionError: 2 != 1 : ('', "  ticket.py read REPO N                     owned paths, links, blockers, fleet start, readiness\n  ticket.py scope REPO N [--base REF] [--supporting PATH]... [--owned PATH]...\n                                            every changed path: owned, supporting or OUT\n  ticket.py records REPO N [--ticket] [--fleet-ref REF]\n                                            trusted verdict and bound decision on pull request N,\n                                            or with --ticket the newest trusted records on ticket N\n  ticket.py author                          set git's author to the GitHub user's noreply\n  ticket.py push RECEIPT -- PUSH-COMMAND... run the push; keep the first success's receipt\n  ticket.py post-receipt REPO PR RECEIPT    post the receipt once as a record author, read back\n")
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [the pull request read shows its fleet record]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 392, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertIn(f'launch-fleet: comment 1 by owner-1: launch-fleet: findings sent {HEAD}: '
+AssertionError: 'launch-fleet: comment 1 by owner-1: launch-fleet: findings sent aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: fresh round started' not found in ['authors: example[bot], owner-1', 'verdict: none', 'decision: none', 'ignored: 1 comment(s) not by a record author']
+
+======================================================================
+FAIL: test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request (__main__.Records.test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request) [a named trusted pull request record]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/build-ticket/scripts/test_ticket.py", line 396, in test_records_reads_one_named_trusted_comment_on_a_ticket_or_pull_request
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 :   ticket.py read REPO N                     owned paths, links, blockers, fleet start, readiness
+  ticket.py scope REPO N [--base REF] [--supporting PATH]... [--owned PATH]...
+                                            every changed path: owned, supporting or OUT
+  ticket.py records REPO N [--ticket] [--fleet-ref REF]
+                                            trusted verdict and bound decision on pull request N,
+                                            or with --ticket the newest trusted records on ticket N
+  ticket.py author                          set git's author to the GitHub user's noreply
+  ticket.py push RECEIPT -- PUSH-COMMAND... run the push; keep the first success's receipt
+  ticket.py post-receipt REPO PR RECEIPT    post the receipt once as a record author, read back
+
+
+----------------------------------------------------------------------
+Ran 30 tests
+
+FAILED (failures=12)

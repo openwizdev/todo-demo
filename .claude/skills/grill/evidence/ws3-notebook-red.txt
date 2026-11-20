@@ -1,0 +1,16 @@
+test_notebook_fixture_records_dependent_round_and_confirmed_summary (__main__.Records.test_notebook_fixture_records_dependent_round_and_confirmed_summary) ... FAIL
+
+======================================================================
+FAIL: test_notebook_fixture_records_dependent_round_and_confirmed_summary (__main__.Records.test_notebook_fixture_records_dependent_round_and_confirmed_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 302, in test_notebook_fixture_records_dependent_round_and_confirmed_summary
+    self.publish()
+  File "<checkout>/skills/grill/scripts/test_records.py", line 110, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.016s
+
+FAILED (failures=1)

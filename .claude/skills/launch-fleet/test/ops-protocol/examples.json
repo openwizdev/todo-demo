@@ -1,0 +1,579 @@
+{
+  "envelope": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "envelope-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "approved-envelope",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "envelope",
+    "paths": [
+      {
+        "path": "tests/fixtures/synthetic.json",
+        "purpose": "Prove the approved synthetic output",
+        "criterion": "ac1",
+        "shared_section": null,
+        "owner_ticket": 9001
+      }
+    ],
+    "supporting": [],
+    "material": {
+      "intent_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "evidence_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+      "ownership_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "purpose_digest": "4444444444444444444444444444444444444444444444444444444444444444",
+      "rule_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "protected": ["contracts", "interfaces", "dependencies", "workflows", "live", "spending", "self_authorization"]
+  },
+  "grant": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "grant-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "narrow-grant",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "grant",
+    "grant_id": "grant-1",
+    "envelope_id": "envelope-1",
+    "paths": [
+      {
+        "path": "tests/fixtures/synthetic.json",
+        "purpose": "Prove the approved synthetic output",
+        "criterion": "ac1",
+        "shared_section": null,
+        "owner_ticket": 9001
+      }
+    ],
+    "material": {
+      "intent_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "evidence_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+      "ownership_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "purpose_digest": "4444444444444444444444444444444444444444444444444444444444444444",
+      "rule_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "status": "granted",
+    "reason": "Within the approved fixture purpose",
+    "supersedes": null
+  },
+  "intent": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "intent-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "intent",
+    "action": "builder_start",
+    "destination": "builder",
+    "assignment": "builder-span-1",
+    "prior_verdict": null,
+    "head": "cccccccccccccccccccccccccccccccccccccccc",
+    "sequence": 1
+  },
+  "generation": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "generation-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "claim",
+    "scope": "generation",
+    "generation": 1,
+    "previous_generation": 0,
+    "owner": "primary",
+    "intent_id": null,
+    "ref": "refs/heads/openwiz-ops/v1/s-9000/generations/g-1"
+  },
+  "operation": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "operation-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "claim",
+    "scope": "operation",
+    "generation": 1,
+    "previous_generation": 0,
+    "owner": "primary",
+    "intent_id": "intent-1",
+    "ref": "refs/heads/openwiz-ops/v1/s-9000/operations/g-1/k-122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3"
+  },
+  "admission": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "admission-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "admission",
+    "claim_id": "operation-1",
+    "generation": 1,
+    "ref": "refs/heads/openwiz-ops/v1/s-9000/operations/g-1/k-122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "record_commit": "3333333333333333333333333333333333333333",
+    "state": "admitted"
+  },
+  "transport": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "transport-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "transport",
+    "intent_id": "intent-1",
+    "generation": 1,
+    "state": "accepted",
+    "attempt": 1,
+    "receipt_digest": "5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "ack": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "ack-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "ack",
+    "intent_id": "intent-1",
+    "recipient": "builder",
+    "assignment": "builder-span-1",
+    "sequence": 1,
+    "checked_head": "cccccccccccccccccccccccccccccccccccccccc",
+    "checks_digest": "6666666666666666666666666666666666666666666666666666666666666666"
+  },
+  "completion": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "completion-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "dispatch",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "completion",
+    "intent_id": "intent-1",
+    "generation": 1,
+    "state": "disabled",
+    "superseded_by": null,
+    "result_digest": null
+  },
+  "on1": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "on1-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "on1",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "on1",
+    "producer": {
+      "ticket": 8999,
+      "approval": {
+        "revision": 3,
+        "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "comment": 9003
+      },
+      "merge": "7777777777777777777777777777777777777777",
+      "delta_digest": "7777777777777777777777777777777777777777777777777777777777777777"
+    },
+    "consumers": [
+      {
+        "ticket": 9001,
+        "approval": {
+          "revision": 3,
+          "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "comment": 9003
+        },
+        "scope_digest": "8888888888888888888888888888888888888888888888888888888888888888",
+        "paths_digest": "9999999999999999999999999999999999999999999999999999999999999999",
+        "grants": ["grant-1"],
+        "relies_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "links_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ],
+    "cutoff": {
+      "start": "6666666666666666666666666666666666666666",
+      "end": "7777777777777777777777777777777777777777",
+      "inclusive": true,
+      "complete": true,
+      "changes": [
+        {
+          "commit": "7777777777777777777777777777777777777777",
+          "path": "contracts/synthetic.v1.md",
+          "previous_path": "contracts/old-synthetic.v1.md",
+          "producer_ticket": 8999,
+          "consumer_tickets": [9001]
+        }
+      ]
+    },
+    "hold": {
+      "comment": 9009,
+      "kind": "contract",
+      "owner_rule": "on1",
+      "history_digest": "8888888888888888888888888888888888888888888888888888888888888888"
+    },
+    "other_gates": [],
+    "competing_claims": [],
+    "revision_record": 9011,
+    "verification": {
+      "before_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "after_digest": null,
+      "labels_digest": null,
+      "history_complete": true
+    }
+  },
+  "audit": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "id": "audit-1",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "subject": {"kind": "issue", "number": 9001},
+    "operation_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": 10,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "rule": {
+      "name": "audit",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "evidence": [
+      {
+        "evidence_class": "fixture",
+        "source": "fixture:ops-protocol/synthetic",
+        "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "kind": "audit",
+    "start": {"created_at": 10, "comment": 9010},
+    "end": {"created_at": 20, "comment": 9020},
+    "complete": true,
+    "entries": [
+      {
+        "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+        "decision": "granted",
+        "grant_id": "grant-1",
+        "final_diff_digest": null,
+        "remediation": "none"
+      },
+      {
+        "operation_key": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "decision": "uncertain",
+        "grant_id": null,
+        "final_diff_digest": null,
+        "remediation": "escalate"
+      }
+    ]
+  },
+  "result": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "kind": "result",
+    "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+    "intent_id": "intent-1",
+    "state": "disabled",
+    "reason": "unfenced_effect",
+    "next": "end",
+    "effects": []
+  },
+  "snapshot": {
+    "schema": "openwiz.ops-dispatch.v1",
+    "kind": "snapshot",
+    "repository": "synthetic/ops",
+    "spec": 9000,
+    "ticket": 9001,
+    "approval": {
+      "revision": 3,
+      "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comment": 9003
+    },
+    "head": "cccccccccccccccccccccccccccccccccccccccc",
+    "generation": 1,
+    "owner": "primary",
+    "complete": true,
+    "uncertain_keys": [],
+    "paused": false,
+    "revoked": false,
+    "holds": [9009],
+    "gates": [],
+    "cutoff": "7777777777777777777777777777777777777777",
+    "history_digest": "8888888888888888888888888888888888888888888888888888888888888888",
+    "next_sequence": 1,
+    "recipient_verified": false,
+    "material": {
+      "intent_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "evidence_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+      "ownership_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "purpose_digest": "4444444444444444444444444444444444444444444444444444444444444444",
+      "rule_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "intents": [
+      {
+        "schema": "openwiz.ops-dispatch.v1",
+        "id": "intent-1",
+        "repository": "synthetic/ops",
+        "spec": 9000,
+        "ticket": 9001,
+        "subject": {"kind": "issue", "number": 9001},
+        "operation_key": "122291124bad25e809fe86f73c91b3293f634593f3ea325c8a69a82942ca64a3",
+        "created_at": 10,
+        "approval": {
+          "revision": 3,
+          "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "comment": 9003
+        },
+        "rule": {
+          "name": "dispatch",
+          "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "comment": 9004
+        },
+        "evidence": [
+          {
+            "evidence_class": "fixture",
+            "source": "fixture:ops-protocol/synthetic",
+            "digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+          }
+        ],
+        "kind": "intent",
+        "action": "builder_start",
+        "destination": "builder",
+        "assignment": "builder-span-1",
+        "prior_verdict": null,
+        "head": "cccccccccccccccccccccccccccccccccccccccc",
+        "sequence": 1
+      }
+    ],
+    "rule": {
+      "name": "narrow-grant",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "comment": 9004
+    },
+    "consumers": [
+      {
+        "ticket": 9001,
+        "approval": {
+          "revision": 3,
+          "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "comment": 9003
+        },
+        "scope_digest": "8888888888888888888888888888888888888888888888888888888888888888",
+        "paths_digest": "9999999999999999999999999999999999999999999999999999999999999999",
+        "grants": ["grant-1"],
+        "relies_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "links_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ],
+    "cutoff_changes": [
+      {
+        "commit": "7777777777777777777777777777777777777777",
+        "path": "contracts/synthetic.v1.md",
+        "previous_path": "contracts/old-synthetic.v1.md",
+        "producer_ticket": 8999,
+        "consumer_tickets": [9001]
+      }
+    ],
+    "producer": {
+      "ticket": 8999,
+      "approval": {
+        "revision": 3,
+        "fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "comment": 9003
+      },
+      "merge": "7777777777777777777777777777777777777777",
+      "delta_digest": "7777777777777777777777777777777777777777777777777777777777777777"
+    }
+  }
+}

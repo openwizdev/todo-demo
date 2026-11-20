@@ -1,0 +1,23 @@
+$ TEST_ONLY='F6*' sh skills/launch-fleet/scripts/test.sh
+ok   F6 claim: no collider, go
+FAIL F6 claim: a running ticket outside the spec on the same paths withdraws: unexpected output:
+FAIL F6 claim: a running ticket of another spec on the same paths withdraws: unexpected output:
+FAIL F6 claim: an older colliding claim wins: unexpected output:
+ok   F6 claim: a newer colliding claim loses
+ok   F6: a ticket whose only open link is context starts
+ok   F6: an open hard blocker still holds a start
+ok   F6: a blocker with no link line is hard
+ok   F6: a path colliding with a running ticket holds a start
+ok   F6: shared or other-repository paths do not collide
+ok   F6: of two colliding ready tickets the lower starts first
+FAIL F6: an empty file reason is unlabelled, so hard: unexpected output:
+FAIL F6: a malformed Links section labels nothing: unexpected output:
+FAIL F6: a file link whose blocker owns a relied-on input is hard: unexpected output:
+FAIL F6: a file link naming a relied-on input is hard: unexpected output:
+FAIL F6: a file link whose blocker owns no path it can read is hard: unexpected output:
+FAIL F6: a bracket or question-mark pattern collides as approval reads it: unexpected output:
+FAIL F6: a ticket held only by an unadmitted collider still starts: unexpected output:
+ok   every gh call was one of fleet.sh's reads
+18 cases, 10 failed
+
+[exited with code 0]

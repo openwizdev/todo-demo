@@ -1,0 +1,17 @@
+FAIL steer: an App-posted video and a later shared-login agent note steer nothing (R2 decision): unexpected output:
+    --- <tmp>/case-1/want.txt	<time>
+    +++ <tmp>/case-1/out	<time>
+    @@ -1,2 +1 @@
+    -look #10: comments on the video steer nothing until the identity separation of OpenWiz #1402 is verified; the owner steers through the orchestrator
+    -start #13: W3: widget page (spec #10)
+    +re-cut #10: the owner said reset on the video in comment 1003; re-cut the plan and make a new video
+FAIL steer: the owner's stop on an App-posted video steers nothing either (R2 decision): unexpected output:
+    --- <tmp>/case-2/want.txt	<time>
+    +++ <tmp>/case-2/out	<time>
+    @@ -1,2 +1 @@
+    -look #10: comments on the video steer nothing until the identity separation of OpenWiz #1402 is verified; the owner steers through the orchestrator
+    -start #13: W3: widget page (spec #10)
+    +hold #10: the owner said stop on the video in comment 1003; nothing under the spec starts until a new video
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 2 cases ran, not 1: is "steer:*decision*" a case's name?
+2 cases, 3 failed

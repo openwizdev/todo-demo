@@ -1,0 +1,3 @@
+interface:
+  display_name: "Install"
+  short_description: "Install OpenWiz from its one line and continue to a first fleet"

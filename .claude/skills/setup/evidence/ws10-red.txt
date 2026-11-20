@@ -1,0 +1,69 @@
+FFFFFFFF
+======================================================================
+FAIL: test_a_linked_settings_file_is_refused (__main__.Check.test_a_linked_settings_file_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 93, in test_a_linked_settings_file_is_refused
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_a_missing_setting_is_named_and_repair_reads_back (__main__.Check.test_a_missing_setting_is_named_and_repair_reads_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 72, in test_a_missing_setting_is_named_and_repair_reads_back
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_a_reviewer_from_the_builders_family_is_refused (__main__.Check.test_a_reviewer_from_the_builders_family_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 101, in test_a_reviewer_from_the_builders_family_is_refused
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_an_unfilled_template_value_or_unsourced_table_is_refused (__main__.Check.test_an_unfilled_template_value_or_unsourced_table_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 108, in test_an_unfilled_template_value_or_unsourced_table_is_refused
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_complete_settings_read_back_verified (__main__.Check.test_complete_settings_read_back_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 63, in test_complete_settings_read_back_verified
+    self.assertEqual(code, 0, out)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_each_triage_role_has_one_label_that_exists_once (__main__.Check.test_each_triage_role_has_one_label_that_exists_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 121, in test_each_triage_role_has_one_label_that_exists_once
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_every_required_file_and_section_is_named_when_missing (__main__.Check.test_every_required_file_and_section_is_named_when_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 80, in test_every_required_file_and_section_is_named_when_missing
+    self.assertEqual(code, 5, out)
+AssertionError: 2 != 5 : 
+
+======================================================================
+FAIL: test_usage_errors_exit_2 (__main__.Check.test_usage_errors_exit_2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/setup/scripts/test_settings.py", line 135, in test_usage_errors_exit_2
+    self.assertTrue(result.stdout.startswith('usage: settings.py check'), result.stdout)
+AssertionError: False is not true : 
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.069s
+
+FAILED (failures=8)

@@ -1,0 +1,35 @@
+..F...F.......
+======================================================================
+FAIL: test_a_lost_response_is_unknown_and_left_for_reconciliation (__main__.Post.test_a_lost_response_is_unknown_and_left_for_reconciliation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 100, in test_a_lost_response_is_unknown_and_left_for_reconciliation
+    self.assertEqual((code, out.split(' ')[0]), (1, 'unknown:'), out)
+AssertionError: Tuples differ: (0, 'posted') != (1, 'unknown:')
+
+First differing element 0:
+0
+1
+
+- (0, 'posted')
++ (1, 'unknown:') : posted 5001
+
+======================================================================
+FAIL: test_another_wakes_identical_record_is_never_adopted (__main__.Post.test_another_wakes_identical_record_is_never_adopted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 116, in test_another_wakes_identical_record_is_never_adopted
+    self.assertEqual((code, out.split(' ')[0]), (1, 'unknown:'), out)
+AssertionError: Tuples differ: (0, 'posted') != (1, 'unknown:')
+
+First differing element 0:
+0
+1
+
+- (0, 'posted')
++ (1, 'unknown:') : posted 8001
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.640s
+
+FAILED (failures=2)

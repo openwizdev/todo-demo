@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#101418">
+<title>Dark craft — synthetic inspection fixture</title>
+<style>
+  :root { color-scheme: dark; font: 14px/1.5 system-ui, sans-serif;
+    color: #edf2f7; background: #101418; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 40px 24px; }
+  main { max-width: 960px; margin: auto; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 8px 0 12px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  p { margin: 8px 0; }
+  .muted, label, small { color: #aab7c4; }
+  .eyebrow { font: 12px/1.5 monospace; letter-spacing: .08em; }
+  .grid { display: grid; grid-template-columns: 1fr 280px; gap: 24px; margin: 24px 0; }
+  .panel { background: #1b222b; border: 1px solid #394858; border-radius: 12px; padding: 24px; }
+  .overlay { background: #283341; border: 1px solid #718399; border-radius: 12px; padding: 24px; align-self: start; }
+  .session { border-left: 3px solid #e5bd68; padding-left: 16px; margin: 20px 0; }
+  .attention { color: #e5bd68; }
+  button, select { background: #1b222b; color: #edf2f7; border: 1px solid #718399;
+    border-radius: 8px; padding: 10px 12px; font: inherit; max-width: 100%; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid #9bc7ff; outline-offset: 4px; }
+  label { display: block; margin: 24px 0 8px; }
+  .legend { padding-left: 24px; }
+  .legend li { margin: 12px 0; }
+  .rule { height: 1px; background: #394858; margin: 20px 0; }
+  @media (max-width: 640px) {
+    body { padding: 24px 16px; }
+    h1 { font-size: 24px; }
+    .grid { grid-template-columns: 1fr; gap: 16px; }
+    .panel, .overlay { padding: 20px; }
+  }
+</style>
+<main>
+  <p class="eyebrow muted">SYNTHETIC FIXTURE · 1 / GROUND</p>
+  <h1>Dark-interface craft inspection</h1>
+  <p class="muted">An annotated render for the checklist. No account data or product behaviour.</p>
+  <div class="grid">
+    <section class="panel" aria-labelledby="queue-title">
+      <h2 id="queue-title">2 / Sample session inventory</h2>
+      <p>3 sessions · 1 running · 1 needs input · 1 idle</p>
+      <p class="muted">2030-01-15 · 09:00 UTC</p>
+      <div class="session" aria-label="Selected session Birch">
+        <strong>Birch</strong>
+        <p class="attention">4 / Selected · Needs input</p>
+        <p class="muted">The left edge and words carry the state as well as colour.</p>
+      </div>
+      <button id="details" type="button">5 / Open saved details</button>
+      <label for="project">6 / Native project selector</label>
+      <select id="project"><option>Sample project</option></select>
+      <div class="rule" aria-hidden="true"></div>
+      <small>The quiet separator groups content; it does not define the control edge.</small>
+    </section>
+    <aside class="overlay" aria-label="Example overlay surface">
+      <h2>3 / Overlay level</h2>
+      <p>A floating-surface tone, shown in flow here to keep every annotation readable.</p>
+      <p class="muted">Inspect its edge and text independently from the panel.</p>
+    </aside>
+  </div>
+  <ol class="legend muted">
+    <li>Ground, panel (2) and overlay (3) have separate roles; tone differences alone are not control boundaries.</li>
+    <li>Gold flags the attention state (4). Selection also has a persistent left edge and explicit words.</li>
+    <li>The focused button (5) has a blue outline; the native select (6) uses the browser's dark scheme.</li>
+  </ol>
+</main>
+<script>
+  document.querySelector('#details').focus({ preventScroll: true });
+  document.documentElement.dataset.ready = 'true';
+</script>
+</html>

@@ -1,0 +1,16 @@
+# WS23 planner's-call round red run (#1656, R1 once more) at c5d05f6; synthetic fake gh, no network.
+# node --test --test-name-pattern='^(F[1-4]|W[12]|D6) ' controller.test.mjs (cwd check/fixtures/huntr-project)
+✖ W1 the last wake and a pause after claiming finish with release; record only without a live lease (1.769793ms)
+✖ D6 due: an unreadable switch issue exits 3, never the lost-lease exit 2; after it recovers the holder releases (200.08159ms)
+✖ W2 an unreadable wake retries instead of recording, and a dispatch with nothing running finishes at once (0.467846ms)
+✖ F1 finish after a brief read failure on the last wake releases the held lease and posts the final index (402.116187ms)
+✖ F2 finish while the lease stays unreadable reads it a bounded four times, posts under a release line and frees only its own lease (413.18288ms)
+✖ F3 finish after a confirmed loss records the index without a lease line (280.790065ms)
+✖ F4 finish with GitHub down keeps finalization pending, and a rerun reuses an index already posted (410.193859ms)
+ℹ pass 0
+ℹ fail 7
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /to finish the hunt, `lease\.mjs finish <run> <index>`/. Input:
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /switch issue read failed: the lease is unknown, so file nothing this wake/. Input:
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Exit 2 \(the lease is lost or taken\): file nothing more, put unfiled candidates in the record and finish the hunt \(s
+  AssertionError [ERR_ASSERTION]: huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-f
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:

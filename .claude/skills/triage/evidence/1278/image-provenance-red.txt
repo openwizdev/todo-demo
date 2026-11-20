@@ -1,0 +1,44 @@
+test_01_pinned_public_taste_brief (test_ui_guidance.UIGuidance.test_01_pinned_public_taste_brief) ... ok
+test_02_surface_specific_templates (test_ui_guidance.UIGuidance.test_02_surface_specific_templates) ... ok
+test_03_design_specification_precedes_target (test_ui_guidance.UIGuidance.test_03_design_specification_precedes_target) ... ok
+test_04_one_synthetic_packet_with_edge_cases (test_ui_guidance.UIGuidance.test_04_one_synthetic_packet_with_edge_cases) ... ok
+test_05_critique_passes_and_locatable_defects (test_ui_guidance.UIGuidance.test_05_critique_passes_and_locatable_defects) ... ok
+test_06_dark_craft_is_used_for_targets_and_real_pages (test_ui_guidance.UIGuidance.test_06_dark_craft_is_used_for_targets_and_real_pages) ... ok
+test_07_each_reference_cites_pinned_research_and_primary_sources (test_ui_guidance.UIGuidance.test_07_each_reference_cites_pinned_research_and_primary_sources) ...
+  test_07_each_reference_cites_pinned_research_and_primary_sources (test_ui_guidance.UIGuidance.test_07_each_reference_cites_pinned_research_and_primary_sources) (reference='ui-brief.md') ... FAIL
+  test_07_each_reference_cites_pinned_research_and_primary_sources (test_ui_guidance.UIGuidance.test_07_each_reference_cites_pinned_research_and_primary_sources) (reference='ui-craft.md') ... FAIL
+
+======================================================================
+FAIL: test_07_each_reference_cites_pinned_research_and_primary_sources (test_ui_guidance.UIGuidance.test_07_each_reference_cites_pinned_research_and_primary_sources) (reference='ui-brief.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/image/references/test_ui_guidance.py", line 98, in test_07_each_reference_cites_pinned_research_and_primary_sources
+    self.assertFalse(
+    ~~~~~~~~~~~~~~~~^
+        bool(re.search(r"https://github\.com/[^\s)]+/(?:private|docs/grills)/", sources)),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "public reference links directly to a private source file",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: True is not false : public reference links directly to a private source file
+
+======================================================================
+FAIL: test_07_each_reference_cites_pinned_research_and_primary_sources (test_ui_guidance.UIGuidance.test_07_each_reference_cites_pinned_research_and_primary_sources) (reference='ui-craft.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/image/references/test_ui_guidance.py", line 98, in test_07_each_reference_cites_pinned_research_and_primary_sources
+    self.assertFalse(
+    ~~~~~~~~~~~~~~~~^
+        bool(re.search(r"https://github\.com/[^\s)]+/(?:private|docs/grills)/", sources)),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "public reference links directly to a private source file",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: True is not false : public reference links directly to a private source file
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.003s
+
+FAILED (failures=2)

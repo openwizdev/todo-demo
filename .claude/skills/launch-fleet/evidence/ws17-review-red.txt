@@ -1,0 +1,52 @@
+ok   machine: a valid machine plan approval starts its fleet
+ok   machine: a spec with no approval starts nothing
+ok   machine: a header that is not the exact machine record approves nothing
+ok   machine: a record without its grill confirmation approves nothing
+ok   machine: an outsider's machine record approves nothing
+FAIL machine: a record without its checks summary or revision text approves nothing (R4): unexpected output:
+    --- <tmp>/case-6/want.txt	<time>
+    +++ <tmp>/case-6/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+FAIL machine: a table that differs from its revision text approves nothing (R4): unexpected output:
+    --- <tmp>/case-7/want.txt	<time>
+    +++ <tmp>/case-7/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+FAIL machine: revision text that is not the plan its fingerprint names approves nothing (R4): unexpected output:
+    --- <tmp>/case-8/want.txt	<time>
+    +++ <tmp>/case-8/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+FAIL machine: a revision after a contract hold leaves the hold to the owner (R1): unexpected output:
+    --- <tmp>/case-9/want.txt	<time>
+    +++ <tmp>/case-9/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+ok   machine: the owner's re-approval releases a contract hold under a machine-current plan (R1)
+ok   machine: a plan changed since its machine approval starts nothing
+ok   every gh call was one of fleet.sh's reads
+11 cases, 4 failed
+ok   steer: a stop on the video holds the fleet and asks to record it
+ok   steer: a recorded stop still holds the fleet
+ok   steer: a reset asks a re-cut and holds the fleet
+ok   steer: a recorded reset still holds until the new video
+ok   steer: a new video ends the hold
+ok   steer: anything else is a steer the fleet reads, and the fleet goes on
+ok   steer: a steer already read is not asked again
+ok   steer: a stop before the video steers nothing
+ok   steer: an outsider's stop holds nothing
+FAIL steer: the factory App's note is no owner steer (R2): unexpected output:
+    --- <tmp>/case-10/want.txt	<time>
+    +++ <tmp>/case-10/out	<time>
+    @@ -1 +1 @@
+    -start #13: W3: widget page (spec #10)
+    +re-cut #10: the owner said reset on the video in comment 1003; re-cut the plan and make a new video
+FAIL steer: a help comment repeating the cue is no new video and keeps the stop (R3): unexpected output:
+    --- <tmp>/case-11/want.txt	<time>
+    +++ <tmp>/case-11/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+ok   steer: the fleet's own bold records are no steer
+ok   every gh call was one of fleet.sh's reads
+12 cases, 2 failed

@@ -1,0 +1,151 @@
+$ python3 -I -m unittest discover -s skills/image/tests -k contrast -k overflow -v
+test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) ... 
+  test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('gold', '#000000')) ... FAIL
+  test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#fff', '#000000')) ... FAIL
+  test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#gggggg', '#000000')) ... FAIL
+  test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#000000',)) ... FAIL
+  test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#000000', '#ffffff', '--min', '0')) ... FAIL
+test_known_ratios (test_contrast.Contrast.test_known_ratios) ... 
+  test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#000000', bg='#ffffff') ... FAIL
+  test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#ffffff', bg='#ffffff') ... FAIL
+  test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#edf2f7', bg='#1b222b') ... FAIL
+  test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#aab7c4', bg='#283341') ... FAIL
+  test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#718399', bg='#1b222b') ... FAIL
+test_order_does_not_matter (test_contrast.Contrast.test_order_does_not_matter) ... FAIL
+test_threshold_passes_or_fails_by_exit_code (test_contrast.Contrast.test_threshold_passes_or_fails_by_exit_code) ... FAIL
+test_short_result_names_horizontal_overflow (test_screenshot.Screenshots.test_short_result_names_horizontal_overflow) ... FAIL
+
+======================================================================
+FAIL: test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('gold', '#000000'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 46, in test_bad_colours_are_refused
+    self.assertEqual(result.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#fff', '#000000'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 46, in test_bad_colours_are_refused
+    self.assertEqual(result.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#gggggg', '#000000'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 46, in test_bad_colours_are_refused
+    self.assertEqual(result.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#000000',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 46, in test_bad_colours_are_refused
+    self.assertEqual(result.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_bad_colours_are_refused (test_contrast.Contrast.test_bad_colours_are_refused) (args=('#000000', '#ffffff', '--min', '0'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 46, in test_bad_colours_are_refused
+    self.assertEqual(result.returncode, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#000000', bg='#ffffff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 27, in test_known_ratios
+    self.assertEqual(result.stdout, ratio + '\n')
+AssertionError: '' != '21.00:1\n'
++ 21.00:1
+
+
+======================================================================
+FAIL: test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#ffffff', bg='#ffffff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 27, in test_known_ratios
+    self.assertEqual(result.stdout, ratio + '\n')
+AssertionError: '' != '1.00:1\n'
++ 1.00:1
+
+
+======================================================================
+FAIL: test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#edf2f7', bg='#1b222b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 27, in test_known_ratios
+    self.assertEqual(result.stdout, ratio + '\n')
+AssertionError: '' != '14.23:1\n'
++ 14.23:1
+
+
+======================================================================
+FAIL: test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#aab7c4', bg='#283341')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 27, in test_known_ratios
+    self.assertEqual(result.stdout, ratio + '\n')
+AssertionError: '' != '6.27:1\n'
++ 6.27:1
+
+
+======================================================================
+FAIL: test_known_ratios (test_contrast.Contrast.test_known_ratios) (fg='#718399', bg='#1b222b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 27, in test_known_ratios
+    self.assertEqual(result.stdout, ratio + '\n')
+AssertionError: '' != '4.13:1\n'
++ 4.13:1
+
+
+======================================================================
+FAIL: test_order_does_not_matter (test_contrast.Contrast.test_order_does_not_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 31, in test_order_does_not_matter
+    self.assertEqual(run('#1b222b', '#edf2f7').stdout, '14.23:1\n')
+AssertionError: '' != '14.23:1\n'
++ 14.23:1
+
+
+======================================================================
+FAIL: test_threshold_passes_or_fails_by_exit_code (test_contrast.Contrast.test_threshold_passes_or_fails_by_exit_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_contrast.py", line 36, in test_threshold_passes_or_fails_by_exit_code
+    self.assertEqual((passing.returncode, passing.stdout), (0, '4.13:1 pass (needs 3:1)\n'))
+AssertionError: Tuples differ: (0, '') != (0, '4.13:1 pass (needs 3:1)\n')
+
+First differing element 1:
+''
+'4.13:1 pass (needs 3:1)\n'
+
+- (0, '')
++ (0, '4.13:1 pass (needs 3:1)\n')
+
+======================================================================
+FAIL: test_short_result_names_horizontal_overflow (test_screenshot.Screenshots.test_short_result_names_horizontal_overflow)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/skills/image/tests/test_screenshot.py", line 157, in test_short_result_names_horizontal_overflow
+    self.assertEqual(wide.stdout.splitlines()[1:], ['overflow: phone 600 > 390'])
+AssertionError: Lists differ: [] != ['overflow: phone 600 > 390']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'overflow: phone 600 > 390'
+
+- []
++ ['overflow: phone 600 > 390']
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.079s
+
+FAILED (failures=13)

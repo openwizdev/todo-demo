@@ -1,0 +1,5 @@
+Links: #9002: malformed section: more than one ## Links section
+Links: #9003: malformed section: no lines
+Links: #9004: malformed section: none must be the only line
+Links: #9005: malformed section: a line is not a link line or none
+Links: #9006: malformed section: a line is not a link line or none

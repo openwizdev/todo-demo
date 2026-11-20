@@ -1,0 +1,12 @@
+$ python3 -I skills/to-tickets/scripts/test_check_approval.py
+Ran 37 tests in 78.682s
+
+OK
+$ python3 -I skills/to-tickets/test/test_picture.py
+Ran 5 tests in 0.087s
+
+OK
+$ python3 -I skills/to-tickets/test/test_lead_time.py
+Ran 3 tests in 0.170s
+
+OK

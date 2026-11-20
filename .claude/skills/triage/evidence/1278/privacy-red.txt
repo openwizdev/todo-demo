@@ -1,0 +1,7 @@
+T2 staged:".claude/skills/live-quick-check/SKILL.md":10
+T3 staged:".claude/skills/live-quick-check/SKILL.md":12
+T2 staged:".claude/skills/live-spike/SKILL.md":10
+T3 staged:".claude/skills/live-spike/SKILL.md":12
+T2 staged:"skills/build-ticket/SKILL.md":12
+T2 staged:"skills/huntr/SKILL.md":24
+literals: used

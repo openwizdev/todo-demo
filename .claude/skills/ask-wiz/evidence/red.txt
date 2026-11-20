@@ -1,0 +1,76 @@
+   Compiling openwiz-tests v0.0.1-dev (<checkout>/tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.18s
+     Running checks/main.rs (target/debug/deps/checks-dc901f0b3d444c02)
+
+running 30 tests
+test skills::a_missing_mit_notice_fails ... ok
+test plan_decisions_schema_conformance::skills_decision_record_outputs_validate_and_bind_the_proposal ... ok
+test skills::a_skill_not_adapted_from_matts_with_his_notice_fails ... ok
+test skills::a_broken_manifest_fails ... ok
+test skills::a_dangling_or_wrong_link_fails ... ok
+test skills::a_stub_not_adapted_from_matts_passes_with_its_source_line ... ok
+test skills::ask_wiz_contract ... FAILED
+test skills::ask_wiz_phase_boundaries ... FAILED
+test skills::ask_wiz_user_started_policy ... FAILED
+test skills::builder_checkout_isolation_is_portable ... ok
+test skills::checkout_isolation_check_refuses_hidden_or_shared_output_rules ... ok
+test skills::diagnose_bisect_wrapper_skips_inconclusive_input ... ok
+test skills::diagnose_orchestrator_is_listed_in_the_skills_table ... ok
+test skills::diagnose_orchestrator_is_routed_from_review_findings ... ok
+test skills::a_skill_not_adapted_from_matts_without_its_exact_source_line_fails ... ok
+test skills::overnight_day_review_preserves_redacted_technical_facts ... ok
+test skills::only_a_skill_that_adapts_matts_needs_his_notice ... ok
+test skills::a_user_only_flag_fails ... ok
+test skills::a_missing_or_broken_frontmatter_fails ... ok
+test skills::research_raw_output_instruction_survives_filling_measurements ... ok
+test skills::plan_graph_relies_on_rule_is_visible_and_template_is_unique ... ok
+test skills::research_workflow_checks_github_around_dispatch ... ok
+test skills::reviewer_checkout_isolation_is_portable ... ok
+test skills::setup_checkout_isolation_slot_is_optional ... ok
+test skills::plan_graph_relies_on_rule_and_template ... ok
+test skills::the_skill_set_is_exactly_the_list ... ok
+test skills::the_stubs_and_a_written_skill_pass ... ok
+test skills::the_skills_folder_passes_the_static_check ... FAILED
+test skills::plan_graph_relies_on_form ... ok
+test skills::research_worker_github_check ... ok
+
+failures:
+
+---- skills::ask_wiz_contract stdout ----
+
+thread 'skills::ask_wiz_contract' (4904) panicked at tests/checks/skills.rs:2311:73:
+ask-wiz skill: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- skills::ask_wiz_phase_boundaries stdout ----
+
+thread 'skills::ask_wiz_phase_boundaries' (4905) panicked at tests/checks/skills.rs:2409:10:
+phase reference: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+
+---- skills::ask_wiz_user_started_policy stdout ----
+
+thread 'skills::ask_wiz_user_started_policy' (4906) panicked at tests/checks/skills.rs:1065:5:
+expected no problems, got:
+skills/ask-wiz/SKILL.md: frontmatter key `disable-model-invocation` is not allowed: only `name` and `description`, so no harness can make the skill user-only (`disable-model-invocation`)
+skills/ask-wiz/agents/openai.yaml: `policy:` is not allowed: `policy` is Codex's switch that makes a skill user-only
+skills/ask-wiz/agents/openai.yaml: `allow_implicit_invocation: false` is not allowed: `policy` is Codex's switch that makes a skill user-only
+
+---- skills::the_skills_folder_passes_the_static_check stdout ----
+
+thread 'skills::the_skills_folder_passes_the_static_check' (4933) panicked at tests/checks/skills.rs:913:5:
+the skills folder breaks the static check:
+skills/ask-wiz/SKILL.md is missing
+.claude-plugin/plugin.json: it does not list `./skills/ask-wiz`
+.claude/skills/ask-wiz must be a link to `../../skills/ask-wiz`
+.agents/skills/ask-wiz must be a link to `../../skills/ask-wiz`
+
+
+failures:
+    skills::ask_wiz_contract
+    skills::ask_wiz_phase_boundaries
+    skills::ask_wiz_user_started_policy
+    skills::the_skills_folder_passes_the_static_check
+
+test result: FAILED. 26 passed; 4 failed; 0 ignored; 0 measured; 51 filtered out; finished in 11.46s
+
+error: test failed, to rerun pass `-p openwiz-tests --test checks`

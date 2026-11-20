@@ -1,0 +1,171 @@
+test_a_fingerprint_of_another_plan_gets_no_record (__main__.MachineApproval.test_a_fingerprint_of_another_plan_gets_no_record) ... FAIL
+test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) ... 
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='links', case=0) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='relies', case=0) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='relies', case=1) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=0) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=1) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=2) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='width', case=0) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='width', case=1) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=0) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=1) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=2) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=3) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=4) ... FAIL
+  test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=5) ... FAIL
+test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint (__main__.MachineApproval.test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint) ... FAIL
+test_revision_two_needs_what_changed (__main__.MachineApproval.test_revision_two_needs_what_changed) ... FAIL
+
+======================================================================
+FAIL: test_a_fingerprint_of_another_plan_gets_no_record (__main__.MachineApproval.test_a_fingerprint_of_another_plan_gets_no_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 779, in test_a_fingerprint_of_another_plan_gets_no_record
+    self.assertIn("approve: revision:", out.stderr)
+AssertionError: 'approve: revision:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='links', case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: links:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='relies', case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: relies:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='relies', case=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: relies:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: sizes:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: sizes:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='sizes', case=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: sizes:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='width', case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: width:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='width', case=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: width:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) (check='owned paths', case=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 769, in test_a_plan_that_fails_any_check_gets_no_record
+    self.assertIn(f"approve: {check}:", out.stderr)
+AssertionError: 'approve: owned paths:' not found in 'approve: not built\n'
+
+======================================================================
+FAIL: test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint (__main__.MachineApproval.test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 688, in test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint
+    self.assertEqual(out.returncode, 0, out.stderr)
+AssertionError: 1 != 0 : approve: not built
+
+
+======================================================================
+FAIL: test_revision_two_needs_what_changed (__main__.MachineApproval.test_revision_two_needs_what_changed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/to-tickets/scripts/test_check_approval.py", line 724, in test_revision_two_needs_what_changed
+    self.assertEqual((missing.returncode, missing.stdout), (2, ""))
+AssertionError: Tuples differ: (1, '') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 12.437s
+
+FAILED (failures=17)

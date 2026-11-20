@@ -1,0 +1,23 @@
+test_internal_visibility_cannot_receive_exact_records (__main__.Records.test_internal_visibility_cannot_receive_exact_records) ... FAIL
+test_foreign_pr_head_cannot_supply_saved_wording (__main__.Records.test_foreign_pr_head_cannot_supply_saved_wording) ... FAIL
+
+======================================================================
+FAIL: test_internal_visibility_cannot_receive_exact_records (__main__.Records.test_internal_visibility_cannot_receive_exact_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 272, in test_internal_visibility_cannot_receive_exact_records
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 0 != 2 : b''
+
+======================================================================
+FAIL: test_foreign_pr_head_cannot_supply_saved_wording (__main__.Records.test_foreign_pr_head_cannot_supply_saved_wording)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 278, in test_foreign_pr_head_cannot_supply_saved_wording
+    self.assertEqual(result.returncode, 2, result.stderr)
+AssertionError: 0 != 2 : b''
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.520s
+
+FAILED (failures=2)

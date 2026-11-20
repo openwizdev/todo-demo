@@ -1,0 +1,159 @@
+# WS8 (#1181) red run: brief.py tests against an argument-only skeleton, at the red commit.
+# python3 -I skills/launch-fleet/scripts/test-brief.py
+FFFFFFFFFFFFF
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='builder')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 51, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='reviewer')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 51, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='re-check')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 51, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='fresh')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 51, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='diagnose')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 51, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 55, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertIn('Open findings: R1,R2. Changed since %s: git diff %s %s' % (OLD, OLD, HEAD), text)
+AssertionError: 'Open findings: R1,R2. Changed since fedcba9876543210fedcba9876543210fedcba98: git diff fedcba9876543210fedcba9876543210fedcba98 0123456789abcdef0123456789abcdef01234567' not found in 'not built yet'
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('builder', '12; rm -rf /'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('reviewer', 31, 'abc123'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('fresh', 12, 31, 'main branch', '0123456789abcdef0123456789abcdef01234567'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('re-check', 31, '0123456789abcdef0123456789abcdef01234567', 'fedcba9876543210fedcba9876543210fedcba98', 'R1', 'thr_synthetic'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('fleet', 1, 'not a repo'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_malformed_targets_print_no_brief (__main__.Brief.test_malformed_targets_print_no_brief) (args=('nope',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 61, in test_malformed_targets_print_no_brief
+    self.assertEqual(brief(*args), (2, ''))
+AssertionError: Tuples differ: (1, 'not built yet') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, 'not built yet')
++ (2, '')
+
+======================================================================
+FAIL: test_the_fleet_thread_brief_is_the_one_install_sends (__main__.Brief.test_the_fleet_thread_brief_is_the_one_install_sends)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 34, in test_the_fleet_thread_brief_is_the_one_install_sends
+    self.assertEqual(brief('fleet', 4001, 'synthetic-owner/synthetic-repo'),
+AssertionError: Tuples differ: (1, 'not built yet') != (0, "You are the fleet thread for spec #40[972 chars]ke.")
+
+First differing element 0:
+1
+0
+
+Diff is 1132 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.129s
+
+FAILED (failures=13)

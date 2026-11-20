@@ -1,0 +1,39 @@
+# WS8 (#1181) red run: the loop-prompt brief cases against brief.py before its tick, wakes and wake forms.
+# python3 -I skills/launch-fleet/scripts/test-brief.py
+FFFF..
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='tick')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 58, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='wakes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 58, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill) (kind='wake')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 58, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_each_brief_points_at_its_own_work_and_skill (__main__.Brief.test_each_brief_points_at_its_own_work_and_skill)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-brief.py", line 62, in test_each_brief_points_at_its_own_work_and_skill
+    self.assertTrue(text.endswith("do its Each wake section for the due lines below. "
+AssertionError: False is not true : 
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.287s
+
+FAILED (failures=4)

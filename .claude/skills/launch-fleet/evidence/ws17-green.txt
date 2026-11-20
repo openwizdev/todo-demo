@@ -1,0 +1,14 @@
+## Review round, at the hand-back (main a1d6f8f merged in)
+test.sh (TEST_JOBS=4): 839 cases, 0 failed
+test-loop.sh: test-loop exit 0
+test-brief.py exit 0
+test-effects.py exit 0
+test-grants.py exit 0
+test-inbox.py exit 0
+test-limit-recovery.py exit 0
+test-limit-replacement.py exit 0
+test-merge.py exit 0
+test-on1.py exit 0
+test-ops-starts.py exit 0
+test-post.py exit 0
+The rest of the Python suites and the full check/run.py: CI.

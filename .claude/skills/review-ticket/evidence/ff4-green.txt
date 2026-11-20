@@ -1,0 +1,40 @@
+$ python3 -I skills/review-ticket/scripts/test_review.py -v   (#1334 green)
+test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk (__main__.Review.test_a_recheck_raises_new_findings_only_in_changed_code_or_as_a_stated_risk) ... ok
+test_a_report_at_this_head_is_not_repeated (__main__.Review.test_a_report_at_this_head_is_not_repeated) ... ok
+test_a_verdict_from_anyone_else_is_ignored (__main__.Review.test_a_verdict_from_anyone_else_is_ignored) ... ok
+test_additional_required_check_outside_the_table (__main__.Review.test_additional_required_check_outside_the_table) ... ok
+test_an_earlier_blocker_cannot_be_closed_as_polish (__main__.Review.test_an_earlier_blocker_cannot_be_closed_as_polish) ... ok
+test_approval_never_carries_to_a_new_head (__main__.Review.test_approval_never_carries_to_a_new_head) ... ok
+test_commands_are_bound_to_the_assigned_head (__main__.Review.test_commands_are_bound_to_the_assigned_head) ... ok
+test_draft_closed_and_ticketless_pull_requests_stop (__main__.Review.test_draft_closed_and_ticketless_pull_requests_stop) ... ok
+test_first_review_pins_the_head_and_its_ticket (__main__.Review.test_first_review_pins_the_head_and_its_ticket) ... ok
+test_fix_once_more_decision_admits_a_check_of_the_new_head (__main__.Review.test_fix_once_more_decision_admits_a_check_of_the_new_head) ... ok
+test_follow_up_is_filed_once_for_triage (__main__.Review.test_follow_up_is_filed_once_for_triage) ... ok
+test_follow_up_label_must_be_unique (__main__.Review.test_follow_up_label_must_be_unique) ... ok
+test_fresh_round_leads_to_a_final_check_and_park_stops (__main__.Review.test_fresh_round_leads_to_a_final_check_and_park_stops) ... ok
+test_full_review_report_problems (__main__.Review.test_full_review_report_problems) ... ok
+test_identical_text_from_anyone_else_is_not_a_post (__main__.Review.test_identical_text_from_anyone_else_is_not_a_post) ... ok
+test_log_and_merge_decision_admits_one_same_head_polish_report (__main__.Review.test_log_and_merge_decision_admits_one_same_head_polish_report) ... ok
+test_logged_blocker_follow_up (__main__.Review.test_logged_blocker_follow_up) ... ok
+test_lost_response_is_recovered_by_read_back (__main__.Review.test_lost_response_is_recovered_by_read_back) ... ok
+test_missing_or_malformed_record_authors_trust_nobody (__main__.Review.test_missing_or_malformed_record_authors_trust_nobody) ... ok
+test_pin_reads_one_snapshot (__main__.Review.test_pin_reads_one_snapshot) ... ok
+test_post_refuses_a_failing_report_with_zero_writes (__main__.Review.test_post_refuses_a_failing_report_with_zero_writes) ... ok
+test_post_repeats_admission_before_writing (__main__.Review.test_post_repeats_admission_before_writing) ... ok
+test_post_writes_once_and_reads_back (__main__.Review.test_post_writes_once_and_reads_back) ... ok
+test_private_material_is_refused (__main__.Review.test_private_material_is_refused) ... ok
+test_recheck_names_last_read_open_ids_and_next_id (__main__.Review.test_recheck_names_last_read_open_ids_and_next_id) ... ok
+test_recheck_report_problems (__main__.Review.test_recheck_report_problems) ... ok
+test_record_author_row_is_parsed_whole (__main__.Review.test_record_author_row_is_parsed_whole) ... ok
+test_required_check_not_green_stops (__main__.Review.test_required_check_not_green_stops) ... ok
+test_settings_come_from_the_base_branch (__main__.Review.test_settings_come_from_the_base_branch) ... ok
+test_the_builders_own_pass_catches_a_planted_checklist_miss (__main__.Review.test_the_builders_own_pass_catches_a_planted_checklist_miss) ... ok
+test_unconfirmed_post_is_unknown (__main__.Review.test_unconfirmed_post_is_unknown) ... ok
+test_unmatched_or_unauthorized_decisions_keep_the_park (__main__.Review.test_unmatched_or_unauthorized_decisions_keep_the_park) ... ok
+test_v2_ruling_mark_refusals (__main__.Review.test_v2_ruling_mark_refusals) ... ok
+test_valid_reports_pass (__main__.Review.test_valid_reports_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 9.193s
+
+OK

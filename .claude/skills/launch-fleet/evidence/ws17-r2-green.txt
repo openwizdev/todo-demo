@@ -1,0 +1,28 @@
+ok   machine: a valid machine plan approval starts its fleet
+ok   machine: a spec with no approval starts nothing
+ok   machine: a header that is not the exact machine record approves nothing
+ok   machine: a record without its grill confirmation approves nothing
+ok   machine: an outsider's machine record approves nothing
+ok   machine: a record without its checks summary or revision text approves nothing (R4)
+ok   machine: a table that differs from its revision text approves nothing (R4)
+ok   machine: revision text that is not the plan its fingerprint names approves nothing (R4)
+ok   machine: a revision after a contract hold leaves the hold to the owner (R1)
+ok   machine: the owner's re-approval releases a contract hold under a machine-current plan (R1)
+ok   machine: a plan changed since its machine approval starts nothing
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 11 cases ran, not 1: is "machine:*" a case's name?
+11 cases, 1 failed
+ok   steer: an App-posted video and a later shared-login agent note steer nothing (R2 decision)
+ok   steer: the owner's stop on an App-posted video steers nothing either (R2 decision)
+ok   steer: under the shared login an agent's note steers nothing, and steering off is noted (R2)
+ok   steer: under the shared login the owner's stop steers nothing either (R2)
+ok   steer: steering off is noted only once (R2)
+ok   steer: a stop before the video steers nothing
+ok   steer: an outsider's stop holds nothing
+ok   steer: the factory App's note is no owner steer (R2)
+ok   steer: a video with WS33's new wording gets the notice (WS33)
+ok   steer: a help comment repeating WS33's new cue is no video, so no notice (WS33)
+ok   steer: a help comment repeating the cue is no video, so no notice (R3)
+ok   every gh call was one of fleet.sh's reads
+FAIL the selected cases ran: 11 cases ran, not 1: is "steer:*" a case's name?
+11 cases, 1 failed

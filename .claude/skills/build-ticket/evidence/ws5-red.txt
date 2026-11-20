@@ -1,0 +1,189 @@
+$ python3 -I skills/build-ticket/scripts/test_ticket.py -v   # against the stub ticket.py (exit 2 for every command)
+test_author_sets_the_users_noreply_identity (__main__.Author.test_author_sets_the_users_noreply_identity) ... FAIL
+test_read_lists_owned_paths_and_readiness (__main__.Read.test_read_lists_owned_paths_and_readiness) ... FAIL
+test_read_refuses_a_ticket_not_released_to_agents (__main__.Read.test_read_refuses_a_ticket_not_released_to_agents) ... FAIL
+test_read_refuses_an_open_blocker (__main__.Read.test_read_refuses_an_open_blocker) ... FAIL
+test_read_without_owned_paths_refuses (__main__.Read.test_read_without_owned_paths_refuses) ... FAIL
+test_unreadable_ticket_exits_2 (__main__.Read.test_unreadable_ticket_exits_2) ... FAIL
+test_post_receipt_reports_an_unconfirmed_write (__main__.Receipt.test_post_receipt_reports_an_unconfirmed_write) ... FAIL
+test_post_receipt_survives_a_lost_response_and_never_posts_twice (__main__.Receipt.test_post_receipt_survives_a_lost_response_and_never_posts_twice) ... FAIL
+test_push_receipt_records_only_the_first_success (__main__.Receipt.test_push_receipt_records_only_the_first_success) ... FAIL
+test_push_refuses_a_receipt_inside_the_checkout (__main__.Receipt.test_push_refuses_a_receipt_inside_the_checkout) ... FAIL
+test_records_marks_a_verdict_on_an_older_head (__main__.Records.test_records_marks_a_verdict_on_an_older_head) ... FAIL
+test_records_trusts_only_record_authors (__main__.Records.test_records_trusts_only_record_authors) ... FAIL
+test_records_unreadable_comments_exit_2 (__main__.Records.test_records_unreadable_comments_exit_2) ... FAIL
+test_records_without_a_valid_authors_row_trusts_nobody (__main__.Records.test_records_without_a_valid_authors_row_trusts_nobody) ... FAIL
+test_scope_flags_every_unowned_side (__main__.Scope.test_scope_flags_every_unowned_side) ... FAIL
+test_scope_passes_owned_and_named_supporting_edits_only (__main__.Scope.test_scope_passes_owned_and_named_supporting_edits_only) ... FAIL
+test_scope_refuses_an_unknown_base (__main__.Scope.test_scope_refuses_an_unknown_base) ... FAIL
+
+======================================================================
+FAIL: test_author_sets_the_users_noreply_identity (__main__.Author.test_author_sets_the_users_noreply_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 289, in test_author_sets_the_users_noreply_identity
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 : ticket.py: not implemented
+
+
+======================================================================
+FAIL: test_read_lists_owned_paths_and_readiness (__main__.Read.test_read_lists_owned_paths_and_readiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 116, in test_read_lists_owned_paths_and_readiness
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 : ticket.py: not implemented
+
+
+======================================================================
+FAIL: test_read_refuses_a_ticket_not_released_to_agents (__main__.Read.test_read_refuses_a_ticket_not_released_to_agents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 142, in test_read_refuses_a_ticket_not_released_to_agents
+    self.assertEqual((code, last(out)), (1, f'ready: no: {reason}'), state)
+AssertionError: Tuples differ: (2, '') != (1, 'ready: no: the ticket is CLOSED')
+
+First differing element 0:
+2
+1
+
+- (2, '')
++ (1, 'ready: no: the ticket is CLOSED') : CLOSED
+
+======================================================================
+FAIL: test_read_refuses_an_open_blocker (__main__.Read.test_read_refuses_an_open_blocker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 131, in test_read_refuses_an_open_blocker
+    self.assertEqual(code, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_read_without_owned_paths_refuses (__main__.Read.test_read_without_owned_paths_refuses)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 149, in test_read_without_owned_paths_refuses
+    self.assertEqual((code, last(out)), (1, 'ready: no: no owned paths'))
+AssertionError: Tuples differ: (2, '') != (1, 'ready: no: no owned paths')
+
+First differing element 0:
+2
+1
+
+- (2, '')
++ (1, 'ready: no: no owned paths')
+
+======================================================================
+FAIL: test_unreadable_ticket_exits_2 (__main__.Read.test_unreadable_ticket_exits_2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 154, in test_unreadable_ticket_exits_2
+    self.assertIn('cannot read', err)
+AssertionError: 'cannot read' not found in 'ticket.py: not implemented\n'
+
+======================================================================
+FAIL: test_post_receipt_reports_an_unconfirmed_write (__main__.Receipt.test_post_receipt_reports_an_unconfirmed_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 282, in test_post_receipt_reports_an_unconfirmed_write
+    self.assertEqual(code, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_post_receipt_survives_a_lost_response_and_never_posts_twice (__main__.Receipt.test_post_receipt_survives_a_lost_response_and_never_posts_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 267, in test_post_receipt_survives_a_lost_response_and_never_posts_twice
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 : ticket.py: not implemented
+
+
+======================================================================
+FAIL: test_push_receipt_records_only_the_first_success (__main__.Receipt.test_push_receipt_records_only_the_first_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 240, in test_push_receipt_records_only_the_first_success
+    self.assertEqual((code, receipt.exists()), (1, False))
+AssertionError: Tuples differ: (2, False) != (1, False)
+
+First differing element 0:
+2
+1
+
+- (2, False)
+?  ^
+
++ (1, False)
+?  ^
+
+
+======================================================================
+FAIL: test_push_refuses_a_receipt_inside_the_checkout (__main__.Receipt.test_push_refuses_a_receipt_inside_the_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 258, in test_push_refuses_a_receipt_inside_the_checkout
+    self.assertIn('outside the checkout', err)
+AssertionError: 'outside the checkout' not found in 'ticket.py: not implemented\n'
+
+======================================================================
+FAIL: test_records_marks_a_verdict_on_an_older_head (__main__.Records.test_records_marks_a_verdict_on_an_older_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 213, in test_records_marks_a_verdict_on_an_older_head
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_records_trusts_only_record_authors (__main__.Records.test_records_trusts_only_record_authors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 202, in test_records_trusts_only_record_authors
+    self.assertEqual(code, 0, err)
+AssertionError: 2 != 0 : ticket.py: not implemented
+
+
+======================================================================
+FAIL: test_records_unreadable_comments_exit_2 (__main__.Records.test_records_unreadable_comments_exit_2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 233, in test_records_unreadable_comments_exit_2
+    self.assertIn('cannot read', err)
+AssertionError: 'cannot read' not found in 'ticket.py: not implemented\n'
+
+======================================================================
+FAIL: test_records_without_a_valid_authors_row_trusts_nobody (__main__.Records.test_records_without_a_valid_authors_row_trusts_nobody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 225, in test_records_without_a_valid_authors_row_trusts_nobody
+    self.assertIn('trust nobody', err)
+AssertionError: 'trust nobody' not found in 'ticket.py: not implemented\n'
+
+======================================================================
+FAIL: test_scope_flags_every_unowned_side (__main__.Scope.test_scope_flags_every_unowned_side)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 177, in test_scope_flags_every_unowned_side
+    self.assertEqual(code, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_scope_passes_owned_and_named_supporting_edits_only (__main__.Scope.test_scope_passes_owned_and_named_supporting_edits_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 164, in test_scope_passes_owned_and_named_supporting_edits_only
+    self.assertEqual(code, 0, out + err)
+AssertionError: 2 != 0 : ticket.py: not implemented
+
+
+======================================================================
+FAIL: test_scope_refuses_an_unknown_base (__main__.Scope.test_scope_refuses_an_unknown_base)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/build-ticket/scripts/test_ticket.py", line 186, in test_scope_refuses_an_unknown_base
+    self.assertIn('cannot read', err)
+AssertionError: 'cannot read' not found in 'ticket.py: not implemented\n'
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.583s
+
+FAILED (failures=17)

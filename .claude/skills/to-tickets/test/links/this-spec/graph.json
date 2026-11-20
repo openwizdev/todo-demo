@@ -1,0 +1,192 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "graph",
+  "repo": "synthetic-owner/synthetic-repo",
+  "read_at": "2026-11-05T23:50:00Z",
+  "source": {
+    "kind": "spec",
+    "spec": 1313
+  },
+  "tickets": [
+    {
+      "number": 1315,
+      "title": "Synthetic ticket 1315",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1315.\n\n## Owned paths\n\n- `synthetic/1315.md`\n\n**Relies on:** nothing\n\n## Links\n\nnone\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": true,
+      "pull_requests": []
+    },
+    {
+      "number": 1316,
+      "title": "Synthetic ticket 1316",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1316.\n\n## Owned paths\n\n- `synthetic/1316.md`\n\n**Relies on:** nothing\n\n## Links\n\nnone\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1317,
+      "title": "Synthetic ticket 1317",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1315,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1317.\n\n## Owned paths\n\n- `synthetic/1317.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1315 real: the link-reason line, the checker's command and exit codes, and the measures' words, as the plan links contract fixes them\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1318,
+      "title": "Synthetic ticket 1318",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1315,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1318.\n\n## Owned paths\n\n- `synthetic/1318.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1315 real: the checker's interface and the fixtures with their expected reports, which its tests run on\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1319,
+      "title": "Synthetic ticket 1319",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1315,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1319.\n\n## Owned paths\n\n- `synthetic/1319.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1315 real: the definitions of the ready stock and the builders running that the rule counts by\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1321,
+      "title": "Synthetic ticket 1321",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1318,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1321.\n\n## Owned paths\n\n- `synthetic/1321.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1318 real: the checker's JSON report on a graph read, which gives the board its file-link and unlabelled counts\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1322,
+      "title": "Synthetic ticket 1322",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1318,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1322.\n\n## Owned paths\n\n- `synthetic/1322.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1318 real: the checker's pass and report on the re-cut graph, which is this ticket's proof and gates the request to Jake\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1323,
+      "title": "Synthetic ticket 1323",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1318,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1323.\n\n## Owned paths\n\n- `synthetic/1323.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1318 real: the checker's pass and report on the re-cut graph, which is this ticket's proof and gates the request to Jake\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1325,
+      "title": "Synthetic ticket 1325",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1318,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1325.\n\n## Owned paths\n\n- `synthetic/1325.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1318 real: the checker's pass and report on the re-cut graph, which is this ticket's proof and gates the request to Jake\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 1326,
+      "title": "Synthetic ticket 1326",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Infra",
+      "parent": 1313,
+      "blocked_by": [
+        {
+          "number": 1318,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #1326.\n\n## Owned paths\n\n- `synthetic/1326.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #1318 real: the checker's pass and report on the re-cut graph, which is this ticket's proof and gates the request to Jake\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    }
+  ]
+}

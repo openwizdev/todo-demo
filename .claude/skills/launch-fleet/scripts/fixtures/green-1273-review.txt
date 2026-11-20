@@ -1,0 +1,14 @@
+Public process-boundary proofs (final review-fix code):
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 67.485s
+
+OK
+
+Legacy failed-archive and takeover checks:
+ok   a failed reviewer's thread is still archived when its ticket closes
+ok   every gh call was one of fleet.sh's reads
+1 cases, 0 failed
+ok   takeover: once given up, a fresh reviewer starts
+ok   every gh call was one of fleet.sh's reads
+1 cases, 0 failed

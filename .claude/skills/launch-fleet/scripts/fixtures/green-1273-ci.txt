@@ -1,0 +1,22 @@
+ok   a verdict after it was told again ends the check
+ok   K9: two approved pull requests change the same file at once: only the first merges
+ok   K9: the first merged: the second is re-tested before it merges
+ok   a closed ticket gets its builder and reviewer archived
+ok   a failed reviewer's thread is still archived when its ticket closes
+ok   the loop's script clones the project and runs its check, with plan-graph's revision.sh beside it
+ok   the next run updates its clone to the default branch, without cloning again
+ok   the loop's script without GH_REPO exits 2
+ok   the bundled loop works without a consumer skills/ or plugin cache
+ok   budget: the check reports the points and questions it used, on stderr
+ok   budget: revision.sh's questions are counted, a point each
+ok   budget: a quarter of the allowance left still checks
+ok   budget: several fleets, the first check
+ok   budget: several fleets, the next check: the same lines, about a quarter of the points
+ok   budget: a quiet spec, before fleet.sh changes
+ok   budget: a quiet spec is read again by a changed fleet.sh
+ok   wake: it reports its points: one read of 1 point, and the two settings files
+ok   REST cache: reader updates retain conditional GETs
+ok   loop: with FLEET_SPEC, the loop's script runs that spec's check alone
+ok   loop: a FLEET_SPEC that is no number exits 2
+ok   every gh call was one of fleet.sh's reads
+20 cases, 0 failed

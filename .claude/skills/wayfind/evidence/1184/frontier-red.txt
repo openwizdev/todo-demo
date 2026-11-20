@@ -1,0 +1,218 @@
+FFFFFFFFFFFFF
+======================================================================
+FAIL: test_clear_map_says_so (__main__.FrontierTest.test_clear_map_says_so)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 103, in test_clear_map_says_so
+    self.assertEqual((result.returncode, result.stdout), (0, 'no open question\n'))
+AssertionError: Tuples differ: (0, '') != (0, 'no open question\n')
+
+First differing element 1:
+''
+'no open question\n'
+
+- (0, '')
++ (0, 'no open question\n')
+
+======================================================================
+FAIL: test_earliest_unreleased_claim_holds (__main__.FrontierTest.test_earliest_unreleased_claim_holds) (claims=[100, 101, 103])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 113, in test_earliest_unreleased_claim_holds
+    self.assertEqual((result.returncode, result.stdout), (0, f'held by {holder}\n'))
+AssertionError: Tuples differ: (0, '') != (0, 'held by 100\n')
+
+First differing element 1:
+''
+'held by 100\n'
+
+- (0, '')
++ (0, 'held by 100\n')
+
+======================================================================
+FAIL: test_earliest_unreleased_claim_holds (__main__.FrontierTest.test_earliest_unreleased_claim_holds) (claims=[101, 103, 104])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 113, in test_earliest_unreleased_claim_holds
+    self.assertEqual((result.returncode, result.stdout), (0, f'held by {holder}\n'))
+AssertionError: Tuples differ: (0, '') != (0, 'held by 103\n')
+
+First differing element 1:
+''
+'held by 103\n'
+
+- (0, '')
++ (0, 'held by 103\n')
+
+======================================================================
+FAIL: test_earliest_unreleased_claim_holds (__main__.FrontierTest.test_earliest_unreleased_claim_holds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 116, in test_earliest_unreleased_claim_holds
+    self.assertEqual(result.stdout, 'unclaimed\n')
+AssertionError: '' != 'unclaimed\n'
++ unclaimed
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [gh fails]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [graphql error]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [no such issue]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [questions truncated]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [comments truncated]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [blockers truncated]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_incomplete_or_unreadable_read_prints_nothing_and_exits_2 (__main__.FrontierTest.test_incomplete_or_unreadable_read_prints_nothing_and_exits_2) [claim without its id]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 144, in test_incomplete_or_unreadable_read_prints_nothing_and_exits_2
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, '') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+======================================================================
+FAIL: test_map_lists_each_open_question_and_its_frontier_in_map_order (__main__.FrontierTest.test_map_lists_each_open_question_and_its_frontier_in_map_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 90, in test_map_lists_each_open_question_and_its_frontier_in_map_order
+    self.assertEqual(result.stdout, (
+AssertionError: '' != '#14 frontier wayfind:research: Which API [233 chars]16\n'
++ #14 frontier wayfind:research: Which API limits apply?
++ #11 blocked by #12 #13: Synthetic question 11
++ #12 held by 500: Synthetic question 12
++ #13 no kind label: Synthetic question 13
++ #15 no kind label: Synthetic question 15
++ #16 frontier wayfind:grill: Synthetic question 16
+
+
+======================================================================
+FAIL: test_mine_says_yours_only_for_the_holding_claim (__main__.FrontierTest.test_mine_says_yours_only_for_the_holding_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/wayfind/test/test_frontier.py", line 122, in test_mine_says_yours_only_for_the_holding_claim
+    self.assertEqual(self.run_script(fixture, 'holder', '9', '--mine', '100')[0].stdout, 'yours\n')
+AssertionError: '' != 'yours\n'
++ yours
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.133s
+
+FAILED (failures=13)

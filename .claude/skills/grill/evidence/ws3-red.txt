@@ -1,0 +1,97 @@
+test_cold_restart_reuses_post_after_lost_response (__main__.Records.test_cold_restart_reuses_post_after_lost_response) ... FAIL
+test_context_extracts_only_exact_payload_and_one_question (__main__.Records.test_context_extracts_only_exact_payload_and_one_question) ... FAIL
+test_corrected_summary_cannot_accept_previous_fingerprint (__main__.Records.test_corrected_summary_cannot_accept_previous_fingerprint) ... FAIL
+test_new_round_binds_saved_wording_and_risk (__main__.Records.test_new_round_binds_saved_wording_and_risk) ... FAIL
+test_partial_progress_requires_saved_settled_ids_and_preserves_comment (__main__.Records.test_partial_progress_requires_saved_settled_ids_and_preserves_comment) ... FAIL
+test_stale_round_and_cross_subject_answer_are_refused (__main__.Records.test_stale_round_and_cross_subject_answer_are_refused) ... FAIL
+test_unknown_privacy_writes_nothing (__main__.Records.test_unknown_privacy_writes_nothing) ... FAIL
+test_unknown_saved_risk_never_accepts_an_answer (__main__.Records.test_unknown_saved_risk_never_accepts_an_answer) ... FAIL
+
+======================================================================
+FAIL: test_cold_restart_reuses_post_after_lost_response (__main__.Records.test_cold_restart_reuses_post_after_lost_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 142, in test_cold_restart_reuses_post_after_lost_response
+    self.publish()
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_context_extracts_only_exact_payload_and_one_question (__main__.Records.test_context_extracts_only_exact_payload_and_one_question)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 154, in test_context_extracts_only_exact_payload_and_one_question
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_corrected_summary_cannot_accept_previous_fingerprint (__main__.Records.test_corrected_summary_cannot_accept_previous_fingerprint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 178, in test_corrected_summary_cannot_accept_previous_fingerprint
+    previous = self.publish("summary-one")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_new_round_binds_saved_wording_and_risk (__main__.Records.test_new_round_binds_saved_wording_and_risk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 121, in test_new_round_binds_saved_wording_and_risk
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_partial_progress_requires_saved_settled_ids_and_preserves_comment (__main__.Records.test_partial_progress_requires_saved_settled_ids_and_preserves_comment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 196, in test_partial_progress_requires_saved_settled_ids_and_preserves_comment
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_stale_round_and_cross_subject_answer_are_refused (__main__.Records.test_stale_round_and_cross_subject_answer_are_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 164, in test_stale_round_and_cross_subject_answer_are_refused
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_unknown_privacy_writes_nothing (__main__.Records.test_unknown_privacy_writes_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 150, in test_unknown_privacy_writes_nothing
+    self.assertIn(b"privacy", result.stderr)
+AssertionError: b'privacy' not found in b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+======================================================================
+FAIL: test_unknown_saved_risk_never_accepts_an_answer (__main__.Records.test_unknown_saved_risk_never_accepts_an_answer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 188, in test_unknown_saved_risk_never_accepts_an_answer
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 103, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.116s
+
+FAILED (failures=8)

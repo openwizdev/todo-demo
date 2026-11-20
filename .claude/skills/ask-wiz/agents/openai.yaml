@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ask Wiz"
+  short_description: "Choose the skill or flow for your question"
+policy:
+  allow_implicit_invocation: false

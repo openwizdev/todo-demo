@@ -1,0 +1,11 @@
+{
+  "commit": "332f9cf4eca3c24def77ef44d8a23069bfb20c39",
+  "workflows": {
+    "grill.new": [
+      "skills/grill/SKILL.md",
+      "skills/grill/assets/grill.md",
+      "skills/grill/references/records.md",
+      "contracts/open-development.v1.md"
+    ]
+  }
+}

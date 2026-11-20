@@ -1,0 +1,116 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "graph",
+  "repo": "synthetic-owner/synthetic-repo",
+  "read_at": "2026-11-05T23:50:00Z",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "tickets": [
+    {
+      "number": 9001,
+      "title": "Synthetic ticket 9001",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9001.\n\n## Owned paths\n\n- `synthetic/9001.md`\n\n**Relies on:** nothing\n\n## Links\n\nnone\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 9002,
+      "title": "Synthetic ticket 9002",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [
+        {
+          "number": 9001,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9002.\n\n## Owned paths\n\n- `synthetic/9002.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #9001 real: the synthetic contract's record shape, which its parser reads\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 9003,
+      "title": "Synthetic ticket 9003",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [
+        {
+          "number": 9001,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9003.\n\n## Owned paths\n\n- `synthetic/9003.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #9001 real: the fixtures and their expected reports, which its tests run on\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 9004,
+      "title": "Synthetic ticket 9004",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [
+        {
+          "number": 9001,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9004.\n\nAn example, not a section:\n\n```md\n## Links\n\n- #9999 soft: an example only\n```\n\n## Owned paths\n\n- `synthetic/9004.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #9001 real: the measure definitions that its rule counts by\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 9005,
+      "title": "Synthetic ticket 9005",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9005.\n\n## Owned paths\n\n- `synthetic/9005.md`\n\n**Relies on:** nothing\n\n## Links\n\nnone\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    },
+    {
+      "number": 9006,
+      "title": "Synthetic ticket 9006",
+      "state": "OPEN",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "milestone": "Synthetic",
+      "parent": 9000,
+      "blocked_by": [
+        {
+          "number": 9001,
+          "state": "OPEN"
+        }
+      ],
+      "body": "## Parent\n\nSynthetic ticket of spec #9000.\n\n## What to build\n\nSynthetic work for #9006.\n\n## Owned paths\n\n- `synthetic/9006.md`\n\n**Relies on:** nothing\n\n## Links\n\n- #9001 real: the synthetic contract's form for an approval\n\n## Acceptance criteria\n\n- [ ] Synthetic criterion.\n",
+      "start_recorded": false,
+      "pull_requests": []
+    }
+  ]
+}

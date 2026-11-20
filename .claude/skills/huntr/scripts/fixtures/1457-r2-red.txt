@@ -1,0 +1,22 @@
+R2 proof before the CI policy-cap pin. Exit 1.
+
+Command: python3 with the following script from the repository root:
+
+from pathlib import Path
+import os, subprocess
+p = Path('docs/agents/huntr.md')
+original = p.read_text()
+assert original.count('"open_cap": 50') == 1
+try:
+    p.write_text(original.replace('"open_cap": 50', '"open_cap": 5000'))
+    r = subprocess.run(['cargo', 'test', '-p', 'openwiz-tests', '--test', 'checks', 'overnight_preserves_huntr_risk_tiers_and_open_cap'], capture_output=True, text=True, env={**os.environ, 'CARGO_BUILD_JOBS': '2'})
+finally:
+    p.write_text(original)
+if r.returncode == 0:
+    print('R2 FAIL: CI cap check accepted policy open_cap=5000 (expected refusal).')
+    raise SystemExit(1)
+assert 'huntr policy open cap must be 50' in r.stdout, r.stdout + r.stderr
+print('R2 PASS: CI cap check refused policy open_cap=5000 for the approved-cap assertion.')
+
+Output:
+R2 FAIL: CI cap check accepted policy open_cap=5000 (expected refusal).

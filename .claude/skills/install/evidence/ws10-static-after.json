@@ -1,0 +1,48 @@
+{
+  "commit": "3c15b3ebb83d1d0a41495496d6a99bd20678b1d1",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "install.pinned": {
+      "fragments": {
+        "skills/install/SKILL.md": 2690
+      },
+      "loaded_path_tokens": 2690
+    },
+    "onboard.resume": {
+      "fragments": {
+        "skills/install/SKILL.md": 2690,
+        "contracts/cli.v1.md": 4248,
+        "contracts/open-development.v1.md": 10781,
+        "skills/setup/SKILL.md": 1915,
+        "skills/grill/SKILL.md": 1227,
+        "skills/grill/assets/grill.md": 146,
+        "skills/grill/references/records.md": 909,
+        "skills/to-spec/SKILL.md": 963,
+        "skills/to-spec/spec.md": 240,
+        "skills/to-spec/video.md": 211,
+        "skills/to-tickets/records.md": 746,
+        "contracts/decisions.v1.md": 6113,
+        "contracts/decisions.v1.schema.json": 3817,
+        "skills/to-tickets/SKILL.md": 1127,
+        "skills/to-tickets/tickets.md": 720,
+        "contracts/plan-links.v1.md": 4245,
+        "skills/launch-fleet/SKILL.md": 25231,
+        "skills/launch-fleet/overload.md": 1481,
+        "contracts/github-identity.v1.md": 3508
+      },
+      "loaded_path_tokens": 70318
+    },
+    "setup.repair": {
+      "fragments": {
+        "skills/setup/SKILL.md": 1915,
+        "skills/setup/templates/fleet.md": 1242,
+        "contracts/open-development.v1.md": 10781
+      },
+      "loaded_path_tokens": 13938
+    }
+  }
+}

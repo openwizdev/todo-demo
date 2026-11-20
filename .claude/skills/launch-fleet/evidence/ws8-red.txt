@@ -1,0 +1,711 @@
+# WS8 (#1181) red run: post.py and merge.py tests against argument-only skeletons, at the red commit.
+# python3 -I skills/launch-fleet/scripts/test-post.py; python3 -I skills/launch-fleet/scripts/test-merge.py
+FFFFFFFFFFFFFFFFFFF
+======================================================================
+FAIL: test_a_failed_write_is_unknown_never_posted (__main__.Post.test_a_failed_write_is_unknown_never_posted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 105, in test_a_failed_write_is_unknown_never_posted
+    self.assertTrue(out.startswith('unknown: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_a_lost_edit_is_recovered_and_a_failed_one_is_unknown (__main__.Post.test_a_lost_edit_is_recovered_and_a_failed_one_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 130, in test_a_lost_edit_is_recovered_and_a_failed_one_is_unknown
+    self.assertEqual(w.run('post.py', 'edit', REPO, 4000, 'launch-fleet: started'), (0, 'edited 4000'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'edited 4000')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'edited 4000')
+
+======================================================================
+FAIL: test_a_lost_response_is_recovered_by_read_back (__main__.Post.test_a_lost_response_is_recovered_by_read_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 98, in test_a_lost_response_is_recovered_by_read_back
+    self.assertEqual((code, out), (0, 'posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'posted 5001')
+
+======================================================================
+FAIL: test_a_record_is_posted_once_and_read_back (__main__.Post.test_a_record_is_posted_once_and_read_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 69, in test_a_record_is_posted_once_and_read_back
+    self.assertEqual((code, out), (0, 'posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'posted 5001')
+
+======================================================================
+FAIL: test_an_edit_is_read_back (__main__.Post.test_an_edit_is_read_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 125, in test_an_edit_is_read_back
+    self.assertEqual(w.run('post.py', 'edit', REPO, 4000, 'launch-fleet: started'), (0, 'edited 4000'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'edited 4000')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'edited 4000')
+
+======================================================================
+FAIL: test_another_authors_comment_is_never_edited (__main__.Post.test_another_authors_comment_is_never_edited)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 140, in test_another_authors_comment_is_never_edited
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_identical_text_from_anyone_else_is_not_the_record (__main__.Post.test_identical_text_from_anyone_else_is_not_the_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 112, in test_identical_text_from_anyone_else_is_not_the_record
+    self.assertTrue(out.startswith('unknown: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_fleet_records_are_posted (__main__.Post.test_only_fleet_records_are_posted) (body='Looks good to me')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 91, in test_only_fleet_records_are_posted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_fleet_records_are_posted (__main__.Post.test_only_fleet_records_are_posted) (body='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 91, in test_only_fleet_records_are_posted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_fleet_records_are_posted (__main__.Post.test_only_fleet_records_are_posted) (body='VERDICT: APPROVE at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 91, in test_only_fleet_records_are_posted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_fleet_records_are_posted (__main__.Post.test_only_fleet_records_are_posted) (body=' launch-fleet starting')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 91, in test_only_fleet_records_are_posted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_fleet_records_are_posted (__main__.Post.test_only_fleet_records_are_posted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 93, in test_only_fleet_records_are_posted
+    self.assertEqual(w.run('post.py', 'comment', REPO, 3, '**Needs you:** spec #3 changed since revision 2')[0], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_private_identities_are_refused_with_zero_writes (__main__.Post.test_private_identities_are_refused_with_zero_writes) (body='launch-fleet: started, thread thr_synthetic1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 82, in test_private_identities_are_refused_with_zero_writes
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_private_identities_are_refused_with_zero_writes (__main__.Post.test_private_identities_are_refused_with_zero_writes) (body='launch-fleet: look: builder thr_abc and thr_def both match')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 82, in test_private_identities_are_refused_with_zero_writes
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_private_identities_are_refused_with_zero_writes (__main__.Post.test_private_identities_are_refused_with_zero_writes) (body='launch-fleet: started\n\nwith gho_synthetictoken0123456789')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 82, in test_private_identities_are_refused_with_zero_writes
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_private_identities_are_refused_with_zero_writes (__main__.Post.test_private_identities_are_refused_with_zero_writes) (body='**Needs you:** loop loop_synthetic9 refused')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 82, in test_private_identities_are_refused_with_zero_writes
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_without_record_authors_nothing_is_trusted (__main__.Post.test_without_record_authors_nothing_is_trusted) (fleet_md=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 120, in test_without_record_authors_nothing_is_trusted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_without_record_authors_nothing_is_trusted (__main__.Post.test_without_record_authors_nothing_is_trusted) (fleet_md='# Fleet settings\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 120, in test_without_record_authors_nothing_is_trusted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_without_record_authors_nothing_is_trusted (__main__.Post.test_without_record_authors_nothing_is_trusted) (fleet_md='# Fleet settings\n\n## GitHub identity\n\n| Setting | Value |\n| --- | --- |\n| Record authors | `openwiz[bot]` `synthetic-owner` |\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-post.py", line 120, in test_without_record_authors_nothing_is_trusted
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.170s
+
+FAILED (failures=19)
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='base rule: no merge queue; mergeable: MERGEABLE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'base rule: no merge queue; mergeable: MERGEABLE')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'base rule: no merge queue; mergeable: MERGEABLE')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='base rule: no merge queue; mergeable: CONFLICTING')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'base rule: no merge queue; mergeable: CONFLICTING')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'base rule: no merge queue; mergeable: CONFLICTING')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='admit: the merge queue re-tests it on the latest main')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'admit: the merge queue re-tests it on the latest main')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'admit: the merge queue re-tests it on the latest main')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: not every required check is green on it: check')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: not every required check is green on it: check')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'wait: not every required check is green on it: check')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: not every required check is green on it: nightly')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: not every required check is green on it: nightly')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'wait: not every required check is green on it: nightly')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: its head has more checks than one read shows')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: its head has more checks than one read shows')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'wait: its head has more checks than one read shows')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: its head is bbbbbbbbbbbbbbbbbbb[64 chars]aaa')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0,
++  'wait: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not '
++  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: it is MERGED, not open')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: it is MERGED, not open')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'wait: it is MERGED, not open')
+
+======================================================================
+FAIL: test_admission (__main__.Admit.test_admission) (want='wait: its base is release, not the default branch main')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 92, in test_admission
+    self.assertEqual(World(self, pr=value).run('merge.py', 'admit', REPO, 7, HEAD, checks), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'wait: its base is release, not the default branch main')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'wait: its base is release, not the default branch main')
+
+======================================================================
+FAIL: test_an_unavailable_cost_is_posted_unknown_never_zero (__main__.Cost.test_an_unavailable_cost_is_posted_unknown_never_zero) (reason='PR #7 closes more than one ticket')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 209, in test_an_unavailable_cost_is_posted_unknown_never_zero
+    self.assertEqual(self.cost(w), (0, 'cost posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'cost posted 5001')
+
+======================================================================
+FAIL: test_an_unavailable_cost_is_posted_unknown_never_zero (__main__.Cost.test_an_unavailable_cost_is_posted_unknown_never_zero) (reason='no cost command')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 209, in test_an_unavailable_cost_is_posted_unknown_never_zero
+    self.assertEqual(self.cost(w), (0, 'cost posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'cost posted 5001')
+
+======================================================================
+FAIL: test_an_unavailable_cost_is_posted_unknown_never_zero (__main__.Cost.test_an_unavailable_cost_is_posted_unknown_never_zero) (reason='unexpected cost output')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 209, in test_an_unavailable_cost_is_posted_unknown_never_zero
+    self.assertEqual(self.cost(w), (0, 'cost posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'cost posted 5001')
+
+======================================================================
+FAIL: test_an_unavailable_cost_is_posted_unknown_never_zero (__main__.Cost.test_an_unavailable_cost_is_posted_unknown_never_zero) (reason='the cost command failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 209, in test_an_unavailable_cost_is_posted_unknown_never_zero
+    self.assertEqual(self.cost(w), (0, 'cost posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'cost posted 5001')
+
+======================================================================
+FAIL: test_no_cost_line_before_a_verified_merge (__main__.Cost.test_no_cost_line_before_a_verified_merge) (state='OPEN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 198, in test_no_cost_line_before_a_verified_merge
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_no_cost_line_before_a_verified_merge (__main__.Cost.test_no_cost_line_before_a_verified_merge) (state='MERGED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 198, in test_no_cost_line_before_a_verified_merge
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_no_cost_line_before_a_verified_merge (__main__.Cost.test_no_cost_line_before_a_verified_merge) (state='CLOSED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 198, in test_no_cost_line_before_a_verified_merge
+    self.assertTrue(out.startswith('refused: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_only_a_record_authors_cost_record_counts_as_posted (__main__.Cost.test_only_a_record_authors_cost_record_counts_as_posted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 216, in test_only_a_record_authors_cost_record_counts_as_posted
+    self.assertEqual(self.cost(w), (0, 'cost posted 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'cost posted 5001')
+
+======================================================================
+FAIL: test_a_direct_merge_needs_the_base_rule_checked (__main__.Merge.test_a_direct_merge_needs_the_base_rule_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 114, in test_a_direct_merge_needs_the_base_rule_checked
+    self.assertEqual((code, out), (1, 'base rule: no merge queue; mergeable: MERGEABLE; '
+AssertionError: Tuples differ: (1, 'not built yet') != (1, 'base rule: no merge queue; mergeable: MER[74 chars]ked')
+
+First differing element 1:
+'not built yet'
+'base rule: no merge queue; mergeable: MER[73 chars]cked'
+
+- (1, 'not built yet')
++ (1,
++  'base rule: no merge queue; mergeable: MERGEABLE; check the base rule and '
++  'fleet.sh every, then pass --base-rule-checked')
+
+======================================================================
+FAIL: test_a_lost_merge_response_is_read_back (__main__.Merge.test_a_lost_merge_response_is_read_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 165, in test_a_lost_merge_response_is_read_back
+    self.assertEqual((code, out), (0, 'merged %s; cost posted 5001' % ('f' * 40)))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'merged ffffffffffffffffffffffffffffffffffffffff; cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'merged ffffffffffffffffffffffffffffffffffffffff; cost posted 5001')
+
+======================================================================
+FAIL: test_a_merge_waits_for_its_admission_with_zero_writes (__main__.Merge.test_a_merge_waits_for_its_admission_with_zero_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 105, in test_a_merge_waits_for_its_admission_with_zero_writes
+    self.assertEqual(out, 'blocked: not every required check is green on it: check; recorded 5001')
+AssertionError: 'not built yet' != 'blocked: not every required check is green on it: check; recorded 5001'
+- not built yet
++ blocked: not every required check is green on it: check; recorded 5001
+
+
+======================================================================
+FAIL: test_a_queue_that_let_it_go_blocks_it (__main__.Merge.test_a_queue_that_let_it_go_blocks_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 158, in test_a_queue_that_let_it_go_blocks_it
+    self.assertEqual((code, out), (1, 'blocked: left the merge queue: failed checks; recorded 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (1, 'blocked: left the merge queue: failed checks; recorded 5001')
+
+First differing element 1:
+'not built yet'
+'blocked: left the merge queue: failed checks; recorded 5001'
+
+- (1, 'not built yet')
++ (1, 'blocked: left the merge queue: failed checks; recorded 5001')
+
+======================================================================
+FAIL: test_a_refused_merge_is_blocked_and_recorded (__main__.Merge.test_a_refused_merge_is_blocked_and_recorded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 171, in test_a_refused_merge_is_blocked_and_recorded
+    self.assertEqual((code, out), (1, 'blocked: open, the merge queue is off; recorded 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (1, 'blocked: open, the merge queue is off; recorded 5001')
+
+First differing element 1:
+'not built yet'
+'blocked: open, the merge queue is off; recorded 5001'
+
+- (1, 'not built yet')
++ (1, 'blocked: open, the merge queue is off; recorded 5001')
+
+======================================================================
+FAIL: test_a_verified_merge_posts_the_tickets_cost_line_once (__main__.Merge.test_a_verified_merge_posts_the_tickets_cost_line_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 122, in test_a_verified_merge_posts_the_tickets_cost_line_once
+    self.assertEqual((code, out), (0, 'merged %s; cost posted 5001' % ('f' * 40)))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'merged ffffffffffffffffffffffffffffffffffffffff; cost posted 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'merged ffffffffffffffffffffffffffffffffffffffff; cost posted 5001')
+
+======================================================================
+FAIL: test_merged_but_not_yet_read_back_waits_for_the_next_wake (__main__.Merge.test_merged_but_not_yet_read_back_waits_for_the_next_wake)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 179, in test_merged_but_not_yet_read_back_waits_for_the_next_wake
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_the_head_moving_after_admission_never_merges_another_commit (__main__.Merge.test_the_head_moving_after_admission_never_merges_another_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 140, in test_the_head_moving_after_admission_never_merges_another_commit
+    self.assertTrue(out.startswith('blocked: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_the_queue_takes_it_and_its_record_says_what_allowed_it (__main__.Merge.test_the_queue_takes_it_and_its_record_says_what_allowed_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 148, in test_the_queue_takes_it_and_its_record_says_what_allowed_it
+    self.assertEqual((code, out), (0, 'queued; recorded 5001'))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'queued; recorded 5001')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'queued; recorded 5001')
+
+======================================================================
+FAIL: test_an_unreadable_state_is_a_stop (__main__.Read.test_an_unreadable_state_is_a_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 73, in test_an_unreadable_state_is_a_stop
+    self.assertTrue(out.startswith('stop: '), out)
+AssertionError: False is not true : not built yet
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='open, the merge queue is off')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'open, the merge queue is off')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'open, the merge queue is off')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='open, the merge queue is on')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'open, the merge queue is on')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'open, the merge queue is on')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='open, the merge queue is on; it left the queue at 2026-01-01T00:00:00Z: failed checks')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'open, the merge queue is on; it left [45 chars]cks')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0,
++  'open, the merge queue is on; it left the queue at 2026-01-01T00:00:00Z: '
++  'failed checks')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='queued')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'queued')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'queued')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='merged cccccccccccccccccccccccccccccccccccccccc')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'merged cccccccccccccccccccccccccccccccccccccccc')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'merged cccccccccccccccccccccccccccccccccccccccc')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='stop: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'stop: its head is bbbbbbbbbbbbbbbbbbb[64 chars]aaa')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0,
++  'stop: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not '
++  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='stop: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'stop: its head is bbbbbbbbbbbbbbbbbbb[64 chars]aaa')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0,
++  'stop: its head is bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb, not '
++  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='stop: its base is release, not the default branch main')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'stop: its base is release, not the default branch main')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'stop: its base is release, not the default branch main')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands) (want='stop: CLOSED, in the merge queue: False')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 65, in test_where_it_stands
+    self.assertEqual(World(self, pr=value).run('merge.py', 'read', REPO, 7, HEAD), (0, want))
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'stop: CLOSED, in the merge queue: False')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'stop: CLOSED, in the merge queue: False')
+
+======================================================================
+FAIL: test_where_it_stands (__main__.Read.test_where_it_stands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/launch-fleet/scripts/test-merge.py", line 66, in test_where_it_stands
+    self.assertEqual(World(self, pr=pr(number=8)).run('merge.py', 'read', REPO, 7, HEAD),
+AssertionError: Tuples differ: (1, 'not built yet') != (0, 'stop: no such pull request')
+
+First differing element 0:
+1
+0
+
+- (1, 'not built yet')
++ (0, 'stop: no such pull request')
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.348s
+
+FAILED (failures=37)

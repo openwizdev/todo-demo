@@ -1,0 +1,24 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket   # R3 of the re-check at 004afb6, before the fix
+FF
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a URL password]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 314, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertNotIn(part, world)  # the ticket first: the public boundary
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'made-up-pass-42' unexpectedly found in '{"repo": "synthetic-owner/synthetic-repo", "me": "openwiz[bot]", "fleet_md": "# Fleet settings\\n\\n## GitHub identity\\n\\n| Setting | Value |\\n| --- | --- |\\n| Record authors | `openwiz[bot]`, `synthetic-owner` |\\n", "next_id": 5002, "comments": {"7": [{"id": 5001, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T04:44:50Z", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T04:44:50Z", "node_id": "N5001"}, {"id": 5002, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: sign in at https://svc-account:made-up-pass-42@driver.example.invalid/login", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T04:44:50Z", "node_id": "N5002"}]}, "writes": [{"post": 7, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T04:44:50Z"}, {"post": 7, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: sign in at https://svc-account:made-up-pass-42@driver.example.invalid/login"}], "faults": {}}'
+
+======================================================================
+FAIL: test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket (__main__.Failures.test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket) [a URL user]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 314, in test_a_credential_or_private_id_in_the_drivers_text_never_reaches_the_ticket
+    self.assertNotIn(part, world)  # the ticket first: the public boundary
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'made-up-user' unexpectedly found in '{"repo": "synthetic-owner/synthetic-repo", "me": "openwiz[bot]", "fleet_md": "# Fleet settings\\n\\n## GitHub identity\\n\\n| Setting | Value |\\n| --- | --- |\\n| Record authors | `openwiz[bot]`, `synthetic-owner` |\\n", "next_id": 5002, "comments": {"7": [{"id": 5001, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T04:44:53Z", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T04:44:53Z", "node_id": "N5001"}, {"id": 5002, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: open ssh://made-up-user@driver.example.invalid to sign in", "user": {"login": "openwiz[bot]"}, "created_at": "2026-01-01T00:00:00Z", "updated_at": "2026-11-20T04:44:53Z", "node_id": "N5002"}]}, "writes": [{"post": 7, "body": "<!-- openwiz:status v1 -->\\nagent: fleet\\nstate: stopped (driver start failed)\\nharness: Claude Code\\nmodel: Opus 5.5 Medium\\nskills: launch-fleet@0.1.2\\nstep: the local driver refused this builder\'s start 3 times; what to do next is in a comment here\\ntime: 2026-11-20T04:44:53Z"}, {"post": 7, "body": "launch-fleet: driver start failed\\n\\nThe local driver could not start this ticket\'s builder after 3 tries. What it says to do next: open ssh://made-up-user@driver.example.invalid to sign in"}], "faults": {}}'
+
+----------------------------------------------------------------------
+Ran 1 test in 20.860s
+
+FAILED (failures=2)

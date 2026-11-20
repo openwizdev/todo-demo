@@ -1,0 +1,80 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "refused",
+  "counts": {
+    "tickets": 6,
+    "links": 4,
+    "real": 0,
+    "file": 0,
+    "unlabelled": 4,
+    "refusals": 5
+  },
+  "links": [
+    {
+      "ticket": 9002,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9003,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9004,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    },
+    {
+      "ticket": 9005,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "unlabelled",
+      "files": []
+    }
+  ],
+  "refusals": [
+    {
+      "ticket": 9002,
+      "number": null,
+      "code": "malformed",
+      "message": "malformed section: more than one ## Links section"
+    },
+    {
+      "ticket": 9003,
+      "number": null,
+      "code": "malformed",
+      "message": "malformed section: no lines"
+    },
+    {
+      "ticket": 9004,
+      "number": null,
+      "code": "malformed",
+      "message": "malformed section: none must be the only line"
+    },
+    {
+      "ticket": 9005,
+      "number": null,
+      "code": "malformed",
+      "message": "malformed section: a line is not a link line or none"
+    },
+    {
+      "ticket": 9006,
+      "number": null,
+      "code": "malformed",
+      "message": "malformed section: a line is not a link line or none"
+    }
+  ]
+}

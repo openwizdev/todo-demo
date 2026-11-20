@@ -1,0 +1,95 @@
+WS6 failing-first run: python3 -I skills/review-ticket/scripts/test_review.py
+Helper: the argument-accepting skeleton (no behaviour). Synthetic fixtures only.
+
+FAIL: test_a_report_at_this_head_is_not_repeated 
+AssertionError: 0 != 1
+FAIL: test_a_verdict_from_anyone_else_is_ignored 
+AssertionError: '' != 'review full #7 at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
+FAIL: test_approval_never_carries_to_a_new_head 
+AssertionError: False is not true : 
+FAIL: test_draft_closed_and_ticketless_pull_requests_stop [draft]
+AssertionError: 0 != 1
+FAIL: test_draft_closed_and_ticketless_pull_requests_stop [closed]
+AssertionError: 0 != 1
+FAIL: test_draft_closed_and_ticketless_pull_requests_stop [merged]
+AssertionError: 0 != 1
+FAIL: test_draft_closed_and_ticketless_pull_requests_stop [no ticket]
+AssertionError: 0 != 1
+FAIL: test_first_review_pins_the_head_and_its_ticket 
+AssertionError: '' != 'review full #7 at bbbbbbbbbbbbbbbbbbbbbbb[54 chars]heck'
+FAIL: test_follow_up_is_filed_once_for_triage 
+AssertionError: Tuples differ: (0, '') != (0, 'filed #70')
+FAIL: test_follow_up_label_must_be_unique [none]
+AssertionError: 0 != 2
+FAIL: test_follow_up_label_must_be_unique [two]
+AssertionError: 0 != 2
+FAIL: test_fresh_round_leads_to_a_final_check_and_park_stops 
+AssertionError: False is not true : 
+FAIL: test_full_review_report_problems [wrong head]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [blocker without its line]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [polish without issue]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [approve with open blocker]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [next names wrong ids]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [unmarked ruling]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [unknown ruling]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [fresh at a full review]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [ids out of order]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [wrong second line]
+AssertionError: 0 != 1 : 
+FAIL: test_full_review_report_problems [no intent]
+AssertionError: 0 != 1 : 
+FAIL: test_logged_blocker_follow_up 
+AssertionError: Tuples differ: (0, '') != (0, 'filed #70')
+FAIL: test_lost_response_is_recovered_by_read_back 
+AssertionError: '' != 'posted 900'
+FAIL: test_missing_or_malformed_record_authors_trust_nobody [absent]
+AssertionError: 0 != 2
+FAIL: test_missing_or_malformed_record_authors_trust_nobody [empty]
+AssertionError: 0 != 2
+FAIL: test_missing_or_malformed_record_authors_trust_nobody [malformed]
+AssertionError: 0 != 2
+FAIL: test_post_refuses_a_failing_report_with_zero_writes 
+AssertionError: 0 != 1
+FAIL: test_post_writes_once_and_reads_back 
+AssertionError: Tuples differ: (0, '') != (0, 'posted 900')
+FAIL: test_private_material_is_refused [token]
+AssertionError: 'private material: a token or thread id' not found in []
+FAIL: test_private_material_is_refused [thread]
+AssertionError: 'private material: a token or thread id' not found in []
+FAIL: test_recheck_names_last_read_open_ids_and_next_id 
+AssertionError: '' != 'review re-check #7 at bbbbbbbbbbbbbbbbbbb[138 chars]d R4'
+FAIL: test_recheck_report_problems [user path left open]
+AssertionError: 0 != 1 : 
+FAIL: test_recheck_report_problems [risk logged]
+AssertionError: 0 != 1 : 
+FAIL: test_recheck_report_problems [earlier id dropped]
+AssertionError: 0 != 1 : 
+FAIL: test_recheck_report_problems [earlier id as new]
+AssertionError: 0 != 1 : 
+FAIL: test_recheck_report_problems [builder line at re-check]
+AssertionError: 0 != 1 : 
+FAIL: test_required_check_not_green_stops [pending]
+AssertionError: 0 != 1
+FAIL: test_required_check_not_green_stops [failed]
+AssertionError: 0 != 1
+FAIL: test_required_check_not_green_stops [missing]
+AssertionError: 0 != 1
+FAIL: test_required_check_not_green_stops [old head]
+AssertionError: 0 != 1
+FAIL: test_settings_come_from_the_base_branch 
+AssertionError: 0 != 1
+FAIL: test_unconfirmed_post_is_unknown 
+AssertionError: 0 != 1
+FAIL: test_valid_reports_pass 
+AssertionError: Tuples differ: (0, '') != (0, 'report ok')
+Ran 21 tests in 0.825s
+FAILED (failures=45)

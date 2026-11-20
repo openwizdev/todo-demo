@@ -1,0 +1,635 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:openwiz:schema:plan-links:v1",
+  "title": "openwiz.plan-links.v1",
+  "description": "Contract only (#1315). See plan-links.v1.md for the reading rules, the checker's interface, the measures' definitions and the cross-record rules. Fixtures prove no live behaviour.",
+  "$ref": "#/$defs/record",
+  "$defs": {
+    "record": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/graph"
+        },
+        {
+          "$ref": "#/$defs/report"
+        },
+        {
+          "$ref": "#/$defs/measures"
+        },
+        {
+          "$ref": "#/$defs/history"
+        }
+      ]
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "state": {
+      "enum": [
+        "OPEN",
+        "CLOSED"
+      ]
+    },
+    "repo": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-][A-Za-z0-9_.-]*/[A-Za-z0-9_.-][A-Za-z0-9_.-]*$"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z$"
+    },
+    "day": {
+      "type": "string",
+      "pattern": "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-][A-Za-z0-9_./-]*$"
+    },
+    "source": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "spec"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "spec"
+            },
+            "spec": {
+              "$ref": "#/$defs/number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "board"
+            }
+          }
+        }
+      ]
+    },
+    "blocker": {
+      "type": "object",
+      "required": [
+        "number",
+        "state"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "$ref": "#/$defs/number"
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        }
+      }
+    },
+    "ticket": {
+      "type": "object",
+      "required": [
+        "number",
+        "title",
+        "state",
+        "labels",
+        "milestone",
+        "parent",
+        "blocked_by",
+        "body",
+        "start_recorded",
+        "pull_requests"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "$ref": "#/$defs/number"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        },
+        "labels": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "milestone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "parent": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "blocked_by": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/blocker"
+          }
+        },
+        "body": {
+          "type": "string"
+        },
+        "start_recorded": {
+          "type": "boolean"
+        },
+        "pull_requests": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/number"
+          }
+        }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "repo",
+        "read_at",
+        "source",
+        "tickets"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.plan-links.v1"
+        },
+        "kind": {
+          "const": "graph"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "read_at": {
+          "$ref": "#/$defs/time"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ticket"
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "tickets",
+        "links",
+        "real",
+        "file",
+        "unlabelled",
+        "refusals"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tickets": {
+          "$ref": "#/$defs/count"
+        },
+        "links": {
+          "$ref": "#/$defs/count"
+        },
+        "real": {
+          "$ref": "#/$defs/count"
+        },
+        "file": {
+          "$ref": "#/$defs/count"
+        },
+        "unlabelled": {
+          "$ref": "#/$defs/count"
+        },
+        "refusals": {
+          "$ref": "#/$defs/count"
+        }
+      }
+    },
+    "link": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "ticket",
+            "blocker",
+            "blocker_state",
+            "kind",
+            "files"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {
+              "$ref": "#/$defs/number"
+            },
+            "blocker": {
+              "$ref": "#/$defs/number"
+            },
+            "blocker_state": {
+              "$ref": "#/$defs/state"
+            },
+            "kind": {
+              "enum": [
+                "real",
+                "unlabelled"
+              ]
+            },
+            "files": {
+              "const": []
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "ticket",
+            "blocker",
+            "blocker_state",
+            "kind",
+            "files"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {
+              "$ref": "#/$defs/number"
+            },
+            "blocker": {
+              "$ref": "#/$defs/number"
+            },
+            "blocker_state": {
+              "$ref": "#/$defs/state"
+            },
+            "kind": {
+              "const": "file"
+            },
+            "files": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/path"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "refusal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "ticket",
+            "number",
+            "code",
+            "message"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {
+              "$ref": "#/$defs/number"
+            },
+            "number": {
+              "$ref": "#/$defs/number"
+            },
+            "code": {
+              "enum": [
+                "no_reason",
+                "not_a_blocker",
+                "duplicate",
+                "real_without_behaviour",
+                "file_without_file"
+              ]
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "ticket",
+            "number",
+            "code",
+            "message"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ticket": {
+              "$ref": "#/$defs/number"
+            },
+            "number": {
+              "type": "null"
+            },
+            "code": {
+              "const": "malformed"
+            },
+            "message": {
+              "enum": [
+                "malformed section: more than one ## Links section",
+                "malformed section: no lines",
+                "malformed section: a line is not a link line or none",
+                "malformed section: none must be the only line"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "report": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "repo",
+        "source",
+        "result",
+        "counts",
+        "links",
+        "refusals"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.plan-links.v1"
+        },
+        "kind": {
+          "const": "report"
+        },
+        "repo": {
+          "$ref": "#/$defs/repo"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "refused"
+          ]
+        },
+        "counts": {
+          "$ref": "#/$defs/counts"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          }
+        },
+        "refusals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/refusal"
+          }
+        }
+      }
+    },
+    "measures": {
+      "type": "object",
+      "required": [
+        "schema",
+        "kind",
+        "open_approved",
+        "can_start",
+        "startable_percent",
+        "file_links",
+        "unlabelled_links",
+        "ready_stock",
+        "builders_running",
+        "fed_ratio",
+        "low_stock"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "openwiz.plan-links.v1"
+        },
+        "kind": {
+          "const": "measures"
+        },
+        "open_approved": {
+          "$ref": "#/$defs/count"
+        },
+        "can_start": {
+          "$ref": "#/$defs/count"
+        },
+        "startable_percent": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "file_links": {
+          "$ref": "#/$defs/count"
+        },
+        "unlabelled_links": {
+          "$ref": "#/$defs/count"
+        },
+        "ready_stock": {
+          "$ref": "#/$defs/count"
+        },
+        "builders_running": {
+          "$ref": "#/$defs/count"
+        },
+        "fed_ratio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "low_stock": {
+          "type": "boolean"
+        }
+      }
+    },
+    "history": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "schema",
+            "kind",
+            "sample",
+            "at",
+            "day",
+            "repo",
+            "open_approved",
+            "can_start",
+            "startable_percent",
+            "file_links",
+            "unlabelled_links",
+            "ready_stock",
+            "builders_running",
+            "fed_ratio",
+            "low_stock"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "schema": {
+              "const": "openwiz.plan-links.v1"
+            },
+            "kind": {
+              "const": "history"
+            },
+            "sample": {
+              "const": "run"
+            },
+            "at": {
+              "$ref": "#/$defs/time"
+            },
+            "day": {
+              "$ref": "#/$defs/day"
+            },
+            "repo": {
+              "$ref": "#/$defs/repo"
+            },
+            "open_approved": {
+              "$ref": "#/$defs/count"
+            },
+            "can_start": {
+              "$ref": "#/$defs/count"
+            },
+            "startable_percent": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "file_links": {
+              "$ref": "#/$defs/count"
+            },
+            "unlabelled_links": {
+              "$ref": "#/$defs/count"
+            },
+            "ready_stock": {
+              "$ref": "#/$defs/count"
+            },
+            "builders_running": {
+              "$ref": "#/$defs/count"
+            },
+            "fed_ratio": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "low_stock": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "schema",
+            "kind",
+            "sample",
+            "at",
+            "day",
+            "repo",
+            "open_approved",
+            "can_start",
+            "startable_percent",
+            "file_links",
+            "unlabelled_links",
+            "ready_stock",
+            "builders_running",
+            "fed_ratio",
+            "low_stock"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "schema": {
+              "const": "openwiz.plan-links.v1"
+            },
+            "kind": {
+              "const": "history"
+            },
+            "sample": {
+              "const": "baseline"
+            },
+            "at": {
+              "$ref": "#/$defs/time"
+            },
+            "day": {
+              "$ref": "#/$defs/day"
+            },
+            "repo": {
+              "$ref": "#/$defs/repo"
+            },
+            "open_approved": {
+              "$ref": "#/$defs/count"
+            },
+            "can_start": {
+              "$ref": "#/$defs/count"
+            },
+            "startable_percent": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "file_links": {
+              "type": "null"
+            },
+            "unlabelled_links": {
+              "type": "null"
+            },
+            "ready_stock": {
+              "type": "null"
+            },
+            "builders_running": {
+              "type": "null"
+            },
+            "fed_ratio": {
+              "type": "null"
+            },
+            "low_stock": {
+              "type": "null"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

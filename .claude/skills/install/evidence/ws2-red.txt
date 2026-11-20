@@ -1,0 +1,26 @@
+WS2 SK-A red at the parent commit.
+The existing OpenWiz RecordedJourney test was run with the skill lookup
+pointed at install and the step reader pointed at its First fleet branch.
+The journey fixture and all test assertions were unchanged.
+
+test_the_conversation_follows_the_packaged_skill (__main__.RecordedJourney.test_the_conversation_follows_the_packaged_skill) ... FAIL
+
+======================================================================
+FAIL: test_the_conversation_follows_the_packaged_skill (__main__.RecordedJourney.test_the_conversation_follows_the_packaged_skill)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<fixture replay>/test_journey.py", line 351, in test_the_conversation_follows_the_packaged_skill
+    self.assertEqual(steps, ['explain', 'project', 'connect', 'grill', 'agents', 'plan', 'launch', 'watch'])
+AssertionError: Lists differ: ['explain'] != ['explain', 'project', 'connect', 'grill', 'agents', 'plan', 'launch', 'watch']
+
+Second list contains 7 additional elements.
+First extra element 1:
+'project'
+
+- ['explain']
++ ['explain', 'project', 'connect', 'grill', 'agents', 'plan', 'launch', 'watch']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

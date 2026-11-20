@@ -1,0 +1,22 @@
+$ python3 -I skills/ask-wiz/test/test_routes.py
+F
+======================================================================
+FAIL: test_router_names_exactly_the_shipped_catalog (__main__.Routes.test_router_names_exactly_the_shipped_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/ask-wiz/test/test_routes.py", line 27, in test_router_names_exactly_the_shipped_catalog
+    self.assertEqual(sorted(shipped - names), [], 'shipped skills ask-wiz does not route')
+AssertionError: Lists differ: ['install'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'install'
+
+- ['install']
++ [] : shipped skills ask-wiz does not route
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+exit 1

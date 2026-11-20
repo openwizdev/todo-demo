@@ -1,0 +1,16 @@
+# FF2 #1332 R1-R3 red: the tick and setup tests before the fix (head a7163db). Synthetic values only.
+$ python3 -I skills/launch-fleet/scripts/test-route.py
+FAIL: test_the_webhook_address_never_touches_a_file_or_an_argument (__main__.Setup.test_the_webhook_address_never_touches_a_file_or_an_argument)
+AssertionError: True is not false : a setup step saves the address to a file
+FAIL: test_a_failed_lookup_or_wake_is_a_failure (__main__.Tick.test_a_failed_lookup_or_wake_is_a_failure)
+AssertionError: 'synthetic refusal' not found in 'route.py: usage: route.py refs OWNER/NAME N... | route.py loop FILE S\n'
+FAIL: test_a_group_with_no_project_ticket_ends_quietly (__main__.Tick.test_a_group_with_no_project_ticket_ends_quietly)
+AssertionError: Tuples differ: (2, '', 'route.py: usage: route.py refs OW[35 chars]S\n') != (0, '', '')
+FAIL: test_a_missing_handle_is_reported_privately_and_writes_nothing (__main__.Tick.test_a_missing_handle_is_reported_privately_and_writes_nothing)
+AssertionError: Tuples differ: (2, '', 'route.py: usage: route.py refs OW[35 chars]S\n') != (0, 'wake fleet #10: unresolved\n', '')
+FAIL: test_a_satellite_message_runs_its_spec_s_loop (__main__.Tick.test_a_satellite_message_runs_its_spec_s_loop)
+AssertionError: Tuples differ: (2, '', 'route.py: usage: route.py refs OW[35 chars]S\n') != (0, 'wake fleet #10: room-cli loop run 0f1[23 chars], '')
+FAIL: test_the_project_s_own_numbers_go_straight_to_wake (__main__.Tick.test_the_project_s_own_numbers_go_straight_to_wake)
+AssertionError: Tuples differ: (2, '', 'route.py: usage: route.py refs OW[35 chars]S\n') != (0, 'start #41: G1: gadget model (spec #40[63 chars], '')
+Ran 15 tests in 0.744s
+FAILED (failures=6)

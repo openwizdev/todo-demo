@@ -1,0 +1,54 @@
+{
+  "schema": "openwiz.plan-links.v1",
+  "kind": "report",
+  "repo": "synthetic-owner/synthetic-repo",
+  "source": {
+    "kind": "spec",
+    "spec": 9000
+  },
+  "result": "pass",
+  "counts": {
+    "tickets": 7,
+    "links": 4,
+    "real": 2,
+    "file": 2,
+    "unlabelled": 0,
+    "refusals": 0
+  },
+  "links": [
+    {
+      "ticket": 9003,
+      "blocker": 9001,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    },
+    {
+      "ticket": 9003,
+      "blocker": 9002,
+      "blocker_state": "OPEN",
+      "kind": "file",
+      "files": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    {
+      "ticket": 9004,
+      "blocker": 9002,
+      "blocker_state": "OPEN",
+      "kind": "file",
+      "files": [
+        "docs/agents/fleet.md",
+        "STATUS.md"
+      ]
+    },
+    {
+      "ticket": 9005,
+      "blocker": 9003,
+      "blocker_state": "OPEN",
+      "kind": "real",
+      "files": []
+    }
+  ],
+  "refusals": []
+}

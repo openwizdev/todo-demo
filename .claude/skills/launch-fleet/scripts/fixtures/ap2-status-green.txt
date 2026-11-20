@@ -1,0 +1,6 @@
+$ python3 -I skills/launch-fleet/scripts/test-status.py
+................
+----------------------------------------------------------------------
+Ran 16 tests in <time>
+
+OK

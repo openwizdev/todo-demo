@@ -1,0 +1,23 @@
+{
+  "commit": "784eb494ddf9f69e8f8e0bb362620580076d3238",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "diagnose.reproduce": {
+      "fragments": {
+        "skills/diagnose/SKILL.md": 1534
+      },
+      "loaded_path_tokens": 1534
+    },
+    "huntr.intake": {
+      "fragments": {
+        "skills/huntr/SKILL.md": 1893,
+        "skills/diagnose/SKILL.md": 1534
+      },
+      "loaded_path_tokens": 3427
+    }
+  }
+}

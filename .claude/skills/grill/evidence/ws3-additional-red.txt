@@ -1,0 +1,26 @@
+test_ambiguous_absent_response_never_issues_second_post (__main__.Records.test_ambiguous_absent_response_never_issues_second_post) ... FAIL
+test_simplified_question_keeps_id_and_context_with_a_new_request (__main__.Records.test_simplified_question_keeps_id_and_context_with_a_new_request) ... FAIL
+
+======================================================================
+FAIL: test_ambiguous_absent_response_never_issues_second_post (__main__.Records.test_ambiguous_absent_response_never_issues_second_post)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 233, in test_ambiguous_absent_response_never_issues_second_post
+    self.assertEqual(self.state()["writes"], 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_simplified_question_keeps_id_and_context_with_a_new_request (__main__.Records.test_simplified_question_keeps_id_and_context_with_a_new_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 251, in test_simplified_question_keeps_id_and_context_with_a_new_request
+    old = self.publish()
+          ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 106, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.035s
+
+FAILED (failures=2)

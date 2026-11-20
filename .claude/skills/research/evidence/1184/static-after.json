@@ -1,0 +1,16 @@
+{
+  "commit": "cbfe4bcf3d5a1aafecf081f6a192db752d314a71",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "research.synthesis": {
+      "fragments": {
+        "skills/research/SKILL.md": 1690
+      },
+      "loaded_path_tokens": 1690
+    }
+  }
+}

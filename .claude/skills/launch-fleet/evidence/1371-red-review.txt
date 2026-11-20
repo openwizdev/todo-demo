@@ -1,0 +1,62 @@
+$ python3 -I skills/launch-fleet/scripts/test-host.py   # R1, R3 of the review at 7716668, before the fix
+...F...F
+======================================================================
+FAIL: test_changing_the_setting_switches_the_driver_and_each_run_keeps_its_own (__main__.Host.test_changing_the_setting_switches_the_driver_and_each_run_keeps_its_own)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 101, in test_changing_the_setting_switches_the_driver_and_each_run_keeps_its_own
+    self.assertEqual(p.host('which'), (0, 'host: cloudroom', ''))
+AssertionError: Tuples differ: (0, 'host: local', '') != (0, 'host: cloudroom', '')
+
+First differing element 1:
+'host: local'
+'host: cloudroom'
+
+- (0, 'host: local', '')
+?              ^^^
+
++ (0, 'host: cloudroom', '')
+?            +  ^^^^^^
+
+
+======================================================================
+FAIL: test_unwritable_run_state_starts_nothing_and_a_lost_save_keeps_the_run (__main__.Host.test_unwritable_run_state_starts_nothing_and_a_lost_save_keeps_the_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-host.py", line 160, in test_unwritable_run_state_starts_nothing_and_a_lost_save_keeps_the_run
+    self.assertEqual((code, out), (2, ''))
+AssertionError: Tuples differ: (1, '') != (2, '')
+
+First differing element 0:
+1
+2
+
+- (1, '')
+?  ^
+
++ (2, '')
+?  ^
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.861s
+
+FAILED (failures=2)
+
+$ python3 -I skills/launch-fleet/scripts/test-records.py Fleet.test_builder_with_a_driver_run_is_told_through_its_driver   # R2
+F
+======================================================================
+FAIL: test_builder_with_a_driver_run_is_told_through_its_driver (__main__.Fleet.test_builder_with_a_driver_run_is_told_through_its_driver)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/launch-fleet/scripts/test-records.py", line 89, in test_builder_with_a_driver_run_is_told_through_its_driver
+    self.assertEqual(self.run_fleet('wake', '12'), 'look #12: the private run map LAUNCH_FLEET_RUNS was not '
+AssertionError: 'look #12: no thread matches builder:12\n' != 'look #12: the private run map LAUNCH_FLEET_RUNS was[34 chars]te\n'
+- look #12: no thread matches builder:12
++ look #12: the private run map LAUNCH_FLEET_RUNS was not restored from the private state
+
+
+----------------------------------------------------------------------
+Ran 1 test in 7.435s
+
+FAILED (failures=1)

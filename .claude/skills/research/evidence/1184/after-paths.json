@@ -1,0 +1,8 @@
+{
+  "commit": "cbfe4bcf3d5a1aafecf081f6a192db752d314a71",
+  "workflows": {
+    "research.synthesis": [
+      "skills/research/SKILL.md"
+    ]
+  }
+}

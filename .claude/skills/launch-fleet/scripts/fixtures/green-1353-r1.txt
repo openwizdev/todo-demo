@@ -1,0 +1,21 @@
+$ TEST_JOBS=4 sh skills/launch-fleet/scripts/test.sh, after merging main (F4 and F6 cases, and the summary)
+ok   F4: a self-grant record answers the question
+ok   F6 claim: no collider, go
+ok   F6 claim: a running ticket outside the spec on the same paths withdraws
+ok   F6 claim: a running ticket of another spec on the same paths withdraws
+ok   F6 claim: an older colliding claim wins
+ok   F6 claim: a newer colliding claim loses
+ok   F6: a ticket whose only open link is context starts
+ok   F6: an open hard blocker still holds a start
+ok   F6: a blocker with no link line is hard
+ok   F6: a path colliding with a running ticket holds a start
+ok   F6: shared or other-repository paths do not collide
+ok   F6: of two colliding ready tickets the lower starts first
+ok   F6: an empty file reason is unlabelled, so hard
+ok   F6: a malformed Links section labels nothing
+ok   F6: a file link whose blocker owns a relied-on input is hard
+ok   F6: a file link naming a relied-on input is hard
+ok   F6: a file link whose blocker owns no path it can read is hard
+ok   F6: a bracket or question-mark pattern collides as approval reads it
+ok   F6: a ticket held only by an unadmitted collider still starts
+860 cases, 0 failed

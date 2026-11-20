@@ -1,0 +1,14 @@
+.F.
+======================================================================
+FAIL: test_standalone_approval_template_has_decision_and_private_pointer (__main__.PublicTrackerInstructions.test_standalone_approval_template_has_decision_and_private_pointer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/triage/test/test_public_records.py", line 26, in test_standalone_approval_template_has_decision_and_private_pointer
+    self.assertEqual(i, 0, "public approval must be the first line")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : public approval must be the first line
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)

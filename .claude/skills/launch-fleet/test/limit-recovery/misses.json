@@ -1,0 +1,22 @@
+{
+  "comment": "Synthetic TL2 stage-bench rows (closedwiz.journey.stage-bench.v1 waits) and the ops agent's derived PR facts for TL3 (#2338). No real ticket, PR, head or comment.",
+  "misses": {
+    "fix": {"key": "fix_after_changes:p9101:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:c6202", "stage": "fix_after_changes", "tickets": [9001], "pull_request": 9101, "wait_minutes": null, "wait_range_minutes": [41.0, 41.0], "limit_minutes": 30, "result": "missed", "start": "s12", "end": null, "support": [], "folded": 0, "gaps": []},
+    "merge": {"key": "merge:p9101:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:c6301:2030-03-01T11:00:00Z", "stage": "merge", "tickets": [9001], "pull_request": 9101, "wait_minutes": null, "wait_range_minutes": [9.0, 9.0], "limit_minutes": 5, "result": "missed", "start": "s20", "end": null, "support": [], "folded": 0, "gaps": []},
+    "reviewer_start": {"key": "reviewer_start:p9101:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:2030-03-01T10:00:00Z", "stage": "reviewer_start", "tickets": [9001], "pull_request": 9101, "wait_minutes": null, "wait_range_minutes": [6.0, 6.0], "limit_minutes": 5, "result": "missed", "start": "s8", "end": null, "support": [], "folded": 0, "gaps": []},
+    "builder_start": {"key": "builder_start:t9001", "stage": "builder_start", "tickets": [9001], "pull_request": null, "wait_minutes": null, "wait_range_minutes": [12.0, 12.0], "limit_minutes": 10, "result": "missed", "start": "s1", "end": null, "support": [], "folded": 0, "gaps": []},
+    "builder_question_answer": {"key": "builder_question_answer:t9001:c6102", "stage": "builder_question_answer", "tickets": [9001], "pull_request": null, "wait_minutes": null, "wait_range_minutes": [16.0, 16.0], "limit_minutes": 15, "result": "missed", "start": "s3", "end": null, "support": [], "folded": 0, "gaps": []}
+  },
+  "facts": {
+    "complete": true,
+    "ticket": 9001,
+    "pull_request": 9101,
+    "pr_state": "open",
+    "head": "1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a",
+    "ci": "success",
+    "conflict": false,
+    "owner": "idle",
+    "family": "claude",
+    "labels": ["ready-for-agent"]
+  }
+}

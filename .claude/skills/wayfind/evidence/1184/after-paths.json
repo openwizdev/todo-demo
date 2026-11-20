@@ -1,0 +1,12 @@
+{
+  "commit": "cbfe4bcf3d5a1aafecf081f6a192db752d314a71",
+  "workflows": {
+    "wayfind.resume": [
+      "skills/wayfind/SKILL.md",
+      "skills/grill/SKILL.md",
+      "skills/grill/assets/grill.md",
+      "skills/grill/references/records.md",
+      "contracts/open-development.v1.md"
+    ]
+  }
+}

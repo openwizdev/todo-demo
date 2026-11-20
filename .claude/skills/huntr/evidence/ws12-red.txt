@@ -1,0 +1,154 @@
+# WS12 red run: node --test skills/huntr/scripts/controller.test.mjs (from check/fixtures/huntr-project), before switch, pace and publish exist
+✖ failing tests:
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ S1 switch: the newest huntr: first line decides, unknown commands are off, kind approvals are listed (39.05476ms)
+  AssertionError [ERR_ASSERTION]: huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>
+  
+  
+  2 !== 0
+  
+      at read (skills/huntr/scripts/controller.test.mjs:421:67)
+      at skills/huntr/scripts/controller.test.mjs:422:20
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ S2 switch: an unreadable switch issue is a refusal, never on (36.514647ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /switch issue read failed/. Input:
+  
+  'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n'
+  
+      at skills/huntr/scripts/controller.test.mjs:436:10
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n',
+    expected: /switch issue read failed/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ PC1 pace: two empty hunts pause until the next calendar day in the project timezone (37.938946ms)
+  SyntaxError [Error]: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at skills/huntr/scripts/controller.test.mjs:454:25
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ PC2 pace: an unknown timezone, streak or time asks instead of hunting (34.038474ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /unknown (timezone|empty-hunt streak|last empty hunt time): ask on the tracking issue/. Input:
+  
+  'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n'
+  
+      at skills/huntr/scripts/controller.test.mjs:468:12
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n',
+    expected: /unknown (timezone|empty-hunt streak|last empty hunt time): ask on the tracking issue/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ PB1 publish posts every numbered part, reads them back and writes the index that links them (40.440973ms)
+  AssertionError [ERR_ASSERTION]: huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>
+  
+  
+  2 !== 0
+  
+      at skills/huntr/scripts/controller.test.mjs:488:10
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ PB2 publish after a lost response reuses the part already posted, never a duplicate (90.848225ms)
+  AssertionError [ERR_ASSERTION]: huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>
+  
+  
+  2 !== 0
+  
+      at skills/huntr/scripts/controller.test.mjs:505:10
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../skills/huntr/scripts/controller.test.mjs:55:32
+✖ PB3 publish refuses another run's record and an unconfirmed post leaves no index (73.699317ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /rerun publish/. Input:
+  
+  'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n'
+  
+      at skills/huntr/scripts/controller.test.mjs:518:10
+      at TestContext.<anonymous> (skills/huntr/scripts/controller.test.mjs:55:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'huntr lease: usage: lease.mjs id | status | claim <run> | renew <run> <result-file> | release <run> <result-file> | due <run> scheduled|hunter | record <run> <index-file>\n',
+    expected: /rerun publish/,
+    operator: 'match',
+    diff: 'simple'
+  }
+ℹ tests 32
+ℹ pass 25
+ℹ fail 7

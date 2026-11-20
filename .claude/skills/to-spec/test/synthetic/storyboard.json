@@ -1,0 +1,12 @@
+[
+  {"say": "Widget export. Here's what changes, in the order we'll build it.",
+   "frame": {"type": "title", "kicker": "Spec 9100", "headline": "Widget export", "sub": "From the confirmed grill"}},
+  {"say": "First, one versioned export contract, that everything else writes.",
+   "frame": {"type": "codebase", "step": 1, "headline": "One export contract, first", "paths": ["contracts/export.v1.md"]}},
+  {"say": "Then you get an export button, that saves every widget to one file.",
+   "frame": {"type": "user", "step": 2, "headline": "An export button", "points": ["Saves every widget", "One file"]}},
+  {"say": "At the same time, the same export from the command line, for scripts.",
+   "frame": {"type": "codebase", "step": 2, "headline": "An export command", "paths": ["cli/export.py"]}},
+  {"say": "Last, an export page, that lists your past exports.",
+   "frame": {"type": "user", "step": 3, "headline": "An export page", "points": ["Lists past exports"]}}
+]

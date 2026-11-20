@@ -1,0 +1,35 @@
+FAIL steer: a stop on the video holds the fleet and asks to record it: unexpected output:
+    --- <tmp>/case-1/want.txt	<time>
+    +++ <tmp>/case-1/out	<time>
+    @@ -1 +1 @@
+    -hold #10: the owner said stop on the video in comment 1003; nothing under the spec starts until a new video
+    +start #13: W3: widget page (spec #10)
+FAIL steer: a recorded stop still holds the fleet: unexpected output:
+    --- <tmp>/case-2/want.txt	<time>
+    +++ <tmp>/case-2/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+FAIL steer: a reset asks a re-cut and holds the fleet: unexpected output:
+    --- <tmp>/case-3/want.txt	<time>
+    +++ <tmp>/case-3/out	<time>
+    @@ -1 +1 @@
+    -re-cut #10: the owner said reset on the video in comment 1003; re-cut the plan and make a new video
+    +start #13: W3: widget page (spec #10)
+FAIL steer: a recorded reset still holds until the new video: unexpected output:
+    --- <tmp>/case-4/want.txt	<time>
+    +++ <tmp>/case-4/out	<time>
+    @@ -0,0 +1 @@
+    +start #13: W3: widget page (spec #10)
+ok   steer: a new video ends the hold
+FAIL steer: anything else is a steer the fleet reads, and the fleet goes on: unexpected output:
+    --- <tmp>/case-6/want.txt	<time>
+    +++ <tmp>/case-6/out	<time>
+    @@ -1,2 +1 @@
+    -steer #10: the owner steered on the video in comment 1003; read it and act on it
+     start #13: W3: widget page (spec #10)
+ok   steer: a steer already read is not asked again
+ok   steer: a stop before the video steers nothing
+ok   steer: an outsider's stop holds nothing
+ok   steer: the fleet's own bold records are no steer
+ok   every gh call was one of fleet.sh's reads
+10 cases, 5 failed

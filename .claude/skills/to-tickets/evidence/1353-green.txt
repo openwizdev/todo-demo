@@ -1,0 +1,13 @@
+$ python3 -I skills/to-tickets/scripts/test_check_approval.py
+Ran 35 tests in 80.306s
+
+OK
+$ python3 -I skills/to-tickets/test/test_lead_time.py
+test_asked_specs_the_collector_could_not_read_stay_unknown (__main__.LeadTime.test_asked_specs_the_collector_could_not_read_stay_unknown) ... ok
+test_each_spec_gets_its_lead_time_or_why_it_is_unknown (__main__.LeadTime.test_each_spec_gets_its_lead_time_or_why_it_is_unknown) ... ok
+test_facts_that_disagree_or_cannot_be_read_are_refused (__main__.LeadTime.test_facts_that_disagree_or_cannot_be_read_are_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.188s
+
+OK

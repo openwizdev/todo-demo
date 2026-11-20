@@ -1,0 +1,17 @@
+{
+  "commit": "8efa7a7e7725010cdea6e238706ec21912409abe",
+  "tokenizer": {
+    "package": "js-tiktoken",
+    "version": "1.0.21",
+    "encoding": "o200k_base"
+  },
+  "workflows": {
+    "review-ticket.exact-head": {
+      "fragments": {
+        "skills/review-ticket/SKILL.md": 3098,
+        "contracts/open-development.v1.md": 10781
+      },
+      "loaded_path_tokens": 13879
+    }
+  }
+}

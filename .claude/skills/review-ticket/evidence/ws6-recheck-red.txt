@@ -1,0 +1,32 @@
+WS6 re-check round, failing-first run: python3 -I skills/review-ticket/scripts/test_review.py
+Helper: head 2e588fe plus an accepted, unenforced --head argument. Synthetic fixtures only.
+The 21 kept tests pass; each new test reproduces its finding (R1-R6).
+
+FAIL: test_additional_required_check_outside_the_table 
+AssertionError: Tuples differ: (0, 'review full #7 at bbbbbbbbbbbbbbbbbbb[56 chars] ci') != (1, 'stop: privacy is not green at bbbbbbb[30 chars]bbb')
+FAIL: test_an_earlier_blocker_cannot_be_closed_as_polish [polish status]
+AssertionError: 0 != 1 : posted 901
+FAIL: test_an_earlier_blocker_cannot_be_closed_as_polish [polish grade]
+AssertionError: 0 != 1 : posted 901
+FAIL: test_commands_are_bound_to_the_assigned_head 
+AssertionError: Tuples differ: (0, 'review full #7 at bbbbbbbbbbbbbbbbbbb[59 chars]eck') != (1, 'stop: the head is bbbbbbbbbbbbbbbbbbb[77 chars]ccc')
+FAIL: test_fix_once_more_decision_admits_a_check_of_the_new_head 
+AssertionError: 1 != 0 : stop: R3 is parked as a decision for Jake
+FAIL: test_identical_text_from_anyone_else_is_not_a_post 
+AssertionError: Tuples differ: (0, 'already posted 800') != (0, 'posted 901')
+FAIL: test_log_and_merge_decision_admits_one_same_head_polish_report 
+AssertionError: 1 != 0 : stop: R3 is parked as a decision for Jake
+FAIL: test_pin_reads_one_snapshot 
+AssertionError: 'review full #7 at cccccccccccccccccccccccccccccccccccccccc;[36 chars]heck' != 'review full #7 at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;[36 chars]heck'
+FAIL: test_post_repeats_admission_before_writing [draft]
+AssertionError: 0 != 1 : posted 900
+FAIL: test_post_repeats_admission_before_writing [failed check]
+AssertionError: 0 != 1 : posted 900
+FAIL: test_record_author_row_is_parsed_whole [missing comma]
+AssertionError: Tuples differ: (1, 'stop: already reported at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n') != (2, '')
+FAIL: test_record_author_row_is_parsed_whole [two rows]
+AssertionError: Tuples differ: (1, 'stop: already reported at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n') != (2, '')
+FAIL: test_v2_ruling_mark_refusals 
+AssertionError: 'R1: named by two overturned rulings' not found in ['report ok']
+Ran 32 tests in 7.514s
+FAILED (failures=13)

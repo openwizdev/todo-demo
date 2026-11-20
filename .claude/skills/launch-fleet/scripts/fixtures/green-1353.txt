@@ -1,0 +1,13 @@
+$ python3 -I skills/launch-fleet/scripts/test-post.py
+Ran 13 tests in 2.257s
+
+OK
+$ TEST_JOBS=4 sh skills/launch-fleet/scripts/test.sh (F4 and F6 cases, and the summary)
+ok   F4: a self-grant record answers the question
+ok   F6: a ticket whose only open link is context starts
+ok   F6: an open hard blocker still holds a start
+ok   F6: a blocker with no link line is hard
+ok   F6: a path colliding with a running ticket holds a start
+ok   F6: shared or other-repository paths do not collide
+ok   F6: of two colliding ready tickets the lower starts first
+823 cases, 0 failed

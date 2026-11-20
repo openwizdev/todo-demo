@@ -1,0 +1,34 @@
+# #2218 red run at aa170fa86 + the new cases: TEST_ONLY='OB7a:*' sh skills/launch-fleet/scripts/test.sh
+FAIL OB7a: a newer manual hold keeps an approved contract hold held: unexpected output:
+    --- $TMP/case-1/want.txt	<time>
+    +++ $TMP/case-1/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+FAIL OB7a: a wake offers no release under a newer manual hold: unexpected output:
+    --- $TMP/case-2/want.txt	<time>
+    +++ $TMP/case-2/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+FAIL OB7a: a person's ticket keeps a newer manual hold: unexpected output:
+    --- $TMP/case-3/want.txt	<time>
+    +++ $TMP/case-3/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+FAIL OB7a: a newer live hold keeps an approved contract hold held: unexpected output:
+    --- $TMP/case-4/want.txt	<time>
+    +++ $TMP/case-4/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+FAIL OB7a: a newer plain hold instruction keeps an approved contract hold held: unexpected output:
+    --- $TMP/case-5/want.txt	<time>
+    +++ $TMP/case-5/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+FAIL OB7a: a manual hold older than the approval stays unresolved: unexpected output:
+    --- $TMP/case-6/want.txt	<time>
+    +++ $TMP/case-6/out	<time>
+    @@ -0,0 +1 @@
+    +release #13: approved again since its hold; take the held label off
+ok   OB7a: a manual hold ended before the held label went on does not block
+ok   every gh call was one of fleet.sh's reads
+7 cases, 6 failed

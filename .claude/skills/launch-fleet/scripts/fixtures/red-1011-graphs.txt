@@ -1,0 +1,3 @@
+FAIL REST parallel: independent spec queries overlap after the allowance gate: fleet.sh: the GitHub query Spec failed: fake gh: independent reader barrier never filled
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

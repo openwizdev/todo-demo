@@ -1,0 +1,9 @@
+test_a_fingerprint_of_another_plan_gets_no_record (__main__.MachineApproval.test_a_fingerprint_of_another_plan_gets_no_record) ... ok
+test_a_plan_that_fails_any_check_gets_no_record (__main__.MachineApproval.test_a_plan_that_fails_any_check_gets_no_record) ... ok
+test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint (__main__.MachineApproval.test_a_plan_that_passes_every_check_gets_a_record_bound_to_its_fingerprint) ... ok
+test_revision_two_needs_what_changed (__main__.MachineApproval.test_revision_two_needs_what_changed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 18.261s
+
+OK

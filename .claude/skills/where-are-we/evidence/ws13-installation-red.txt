@@ -1,0 +1,16 @@
+$ python3 -I skills/where-are-we/test/test_read_github.py
+F...........
+======================================================================
+FAIL: test_a_configured_installation_still_reads_through_gh (__main__.NoInstallationRoute.test_a_configured_installation_still_reads_through_gh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/where-are-we/test/test_read_github.py", line 316, in test_a_configured_installation_still_reads_through_gh
+    self.assertEqual(result.returncode, 0, result.stdout)
+AssertionError: 2 != 0 : {"milestones":{"state":"unconfirmed","reason":"installation read refused: credential"},"issues":{"state":"unconfirmed","reason":"installation read refused: credential"},"pulls":{"state":"unconfirmed","reason":"installation read refused: credential"}}
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.264s
+
+FAILED (failures=1)
+exit 1

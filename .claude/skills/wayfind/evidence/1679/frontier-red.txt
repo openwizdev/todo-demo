@@ -1,0 +1,126 @@
+FFF..F....FFFF
+======================================================================
+FAIL: test_a_blocked_or_kindless_question_is_never_yours (__main__.FrontierTest.test_a_blocked_or_kindless_question_is_never_yours) [blocked by #8
+]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 207, in test_a_blocked_or_kindless_question_is_never_yours
+    self.assertEqual((result.returncode, result.stdout), (0, expected))
+AssertionError: Tuples differ: (0, 'yours\n') != (0, 'blocked by #8\n')
+
+First differing element 1:
+'yours\n'
+'blocked by #8\n'
+
+- (0, 'yours\n')
++ (0, 'blocked by #8\n')
+
+======================================================================
+FAIL: test_a_blocked_or_kindless_question_is_never_yours (__main__.FrontierTest.test_a_blocked_or_kindless_question_is_never_yours) [no kind label
+]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 207, in test_a_blocked_or_kindless_question_is_never_yours
+    self.assertEqual((result.returncode, result.stdout), (0, expected))
+AssertionError: Tuples differ: (0, 'yours\n') != (0, 'no kind label\n')
+
+First differing element 1:
+'yours\n'
+'no kind label\n'
+
+- (0, 'yours\n')
++ (0, 'no kind label\n')
+
+======================================================================
+FAIL: test_a_blocked_or_kindless_question_is_never_yours (__main__.FrontierTest.test_a_blocked_or_kindless_question_is_never_yours) [no kind label
+]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 207, in test_a_blocked_or_kindless_question_is_never_yours
+    self.assertEqual((result.returncode, result.stdout), (0, expected))
+AssertionError: Tuples differ: (0, 'yours\n') != (0, 'no kind label\n')
+
+First differing element 1:
+'yours\n'
+'no kind label\n'
+
+- (0, 'yours\n')
++ (0, 'no kind label\n')
+
+======================================================================
+FAIL: test_every_page_is_read_in_order (__main__.FrontierTest.test_every_page_is_read_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 219, in test_every_page_is_read_in_order
+    self.assertEqual((result.returncode, result.stderr), (0, ''))
+AssertionError: Tuples differ: (2, 'frontier: #9 has more comments than one read returns\n') != (0, '')
+
+First differing element 0:
+2
+0
+
+- (2, 'frontier: #9 has more comments than one read returns\n')
++ (0, '')
+
+======================================================================
+FAIL: test_only_record_authors_claim_or_release (__main__.FrontierTest.test_only_record_authors_claim_or_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 174, in test_only_record_authors_claim_or_release
+    self.assertEqual(self.run_script(fixture, 'holder', '9', '--mine', '102')[0].stdout,
+AssertionError: 'held by 99\n' != 'held by 100\n'
+- held by 99
+?         ^^
++ held by 100
+?         ^^^
+
+
+======================================================================
+FAIL: test_unreadable_record_authors_trust_nobody (__main__.FrontierTest.test_unreadable_record_authors_trust_nobody) [no fleet file]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 192, in test_unreadable_record_authors_trust_nobody
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, 'yours\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'yours\n')
++ (2, '')
+
+======================================================================
+FAIL: test_unreadable_record_authors_trust_nobody (__main__.FrontierTest.test_unreadable_record_authors_trust_nobody) [no row]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 192, in test_unreadable_record_authors_trust_nobody
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, 'yours\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'yours\n')
++ (2, '')
+
+======================================================================
+FAIL: test_unreadable_record_authors_trust_nobody (__main__.FrontierTest.test_unreadable_record_authors_trust_nobody) [malformed row]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "skills/wayfind/test/test_frontier.py", line 192, in test_unreadable_record_authors_trust_nobody
+    self.assertEqual((result.returncode, result.stdout), (2, ''))
+AssertionError: Tuples differ: (0, 'yours\n') != (2, '')
+
+First differing element 0:
+0
+2
+
+- (0, 'yours\n')
++ (2, '')
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.136s
+
+FAILED (failures=8)

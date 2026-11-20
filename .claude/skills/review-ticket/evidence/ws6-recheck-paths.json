@@ -1,0 +1,9 @@
+{
+  "commit": "23fa368f33211b8cc91300197c1fc2461f982e0a",
+  "workflows": {
+    "review-ticket.exact-head": [
+      "skills/review-ticket/SKILL.md",
+      "contracts/open-development.v1.md"
+    ]
+  }
+}

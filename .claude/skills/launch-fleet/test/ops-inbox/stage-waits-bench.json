@@ -1,0 +1,391 @@
+{
+  "schema": "closedwiz.journey.stage-bench.v1",
+  "settings": {
+    "schema": "closedwiz.factory-limits.v1",
+    "minutes": {
+      "builder_start": 10,
+      "reviewer_start": 5,
+      "merge": 5,
+      "fix_after_changes": 30,
+      "builder_question_answer": 15
+    }
+  },
+  "read_at": "2030-03-01T12:00:00Z",
+  "authority": "none",
+  "stages": [
+    {
+      "stage": "builder_start",
+      "limit_minutes": 10,
+      "intervals": 4,
+      "measured": 2,
+      "results": {
+        "missed": 0,
+        "not missed": 1,
+        "pending": 1,
+        "unknown": 2,
+        "gated": 0,
+        "stale": 0
+      }
+    },
+    {
+      "stage": "reviewer_start",
+      "limit_minutes": 5,
+      "intervals": 5,
+      "measured": 2,
+      "results": {
+        "missed": 1,
+        "not missed": 1,
+        "pending": 0,
+        "unknown": 1,
+        "gated": 1,
+        "stale": 1
+      }
+    },
+    {
+      "stage": "merge",
+      "limit_minutes": 5,
+      "intervals": 2,
+      "measured": 1,
+      "results": {
+        "missed": 0,
+        "not missed": 1,
+        "pending": 0,
+        "unknown": 0,
+        "gated": 0,
+        "stale": 1
+      }
+    },
+    {
+      "stage": "fix_after_changes",
+      "limit_minutes": 30,
+      "intervals": 1,
+      "measured": 1,
+      "results": {
+        "missed": 1,
+        "not missed": 0,
+        "pending": 0,
+        "unknown": 0,
+        "gated": 0,
+        "stale": 0
+      }
+    },
+    {
+      "stage": "builder_question_answer",
+      "limit_minutes": 15,
+      "intervals": 2,
+      "measured": 1,
+      "results": {
+        "missed": 1,
+        "not missed": 0,
+        "pending": 0,
+        "unknown": 1,
+        "gated": 0,
+        "stale": 0
+      }
+    }
+  ],
+  "waits": [
+    {
+      "key": "builder_start:t4301",
+      "stage": "builder_start",
+      "tickets": [
+        4301
+      ],
+      "pull_request": null,
+      "wait_minutes": 10.0,
+      "wait_range_minutes": [
+        10.0,
+        10.0
+      ],
+      "limit_minutes": 10,
+      "result": "not missed",
+      "start": "s1",
+      "end": "s2",
+      "support": [],
+      "folded": 1,
+      "gaps": []
+    },
+    {
+      "key": "builder_question_answer:t4301:c6102",
+      "stage": "builder_question_answer",
+      "tickets": [
+        4301
+      ],
+      "pull_request": null,
+      "wait_minutes": 16.0,
+      "wait_range_minutes": [
+        16.0,
+        16.0
+      ],
+      "limit_minutes": 15,
+      "result": "missed",
+      "start": "s3",
+      "end": "s4",
+      "support": [],
+      "folded": 1,
+      "gaps": []
+    },
+    {
+      "key": "builder_start:t4302",
+      "stage": "builder_start",
+      "tickets": [
+        4302
+      ],
+      "pull_request": null,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 10,
+      "result": "unknown",
+      "start": null,
+      "end": "s5",
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "start record outside its gate"
+      ]
+    },
+    {
+      "key": "builder_question_answer:t4302:c6302",
+      "stage": "builder_question_answer",
+      "tickets": [
+        4302
+      ],
+      "pull_request": null,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 15,
+      "result": "unknown",
+      "start": null,
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "edited record"
+      ]
+    },
+    {
+      "key": "builder_start:t4303",
+      "stage": "builder_start",
+      "tickets": [
+        4303
+      ],
+      "pull_request": null,
+      "wait_minutes": 5.0,
+      "wait_range_minutes": [
+        5.0,
+        5.0
+      ],
+      "limit_minutes": 10,
+      "result": "pending",
+      "start": "s6",
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": []
+    },
+    {
+      "key": "builder_start:t4304",
+      "stage": "builder_start",
+      "tickets": [
+        4304
+      ],
+      "pull_request": null,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 10,
+      "result": "unknown",
+      "start": null,
+      "end": "s7",
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "label history incomplete"
+      ]
+    },
+    {
+      "key": "reviewer_start:p4401:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:2030-03-01T10:00:00Z",
+      "stage": "reviewer_start",
+      "tickets": [
+        4301
+      ],
+      "pull_request": 4401,
+      "wait_minutes": 6.0,
+      "wait_range_minutes": [
+        6.0,
+        6.0
+      ],
+      "limit_minutes": 5,
+      "result": "missed",
+      "start": "s8",
+      "end": "s9",
+      "support": [],
+      "folded": 0,
+      "gaps": []
+    },
+    {
+      "key": "reviewer_start:p4401:2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b:2030-03-01T11:11:00Z",
+      "stage": "reviewer_start",
+      "tickets": [
+        4301
+      ],
+      "pull_request": 4401,
+      "wait_minutes": 4.0,
+      "wait_range_minutes": [
+        4.0,
+        4.0
+      ],
+      "limit_minutes": 5,
+      "result": "not missed",
+      "start": "s10",
+      "end": "s11",
+      "support": [],
+      "folded": 0,
+      "gaps": []
+    },
+    {
+      "key": "fix_after_changes:p4401:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:c6202",
+      "stage": "fix_after_changes",
+      "tickets": [
+        4301
+      ],
+      "pull_request": 4401,
+      "wait_minutes": 31.0,
+      "wait_range_minutes": [
+        31.0,
+        31.0
+      ],
+      "limit_minutes": 30,
+      "result": "missed",
+      "start": "s12",
+      "end": "s13",
+      "support": [
+        "s14"
+      ],
+      "folded": 0,
+      "gaps": []
+    },
+    {
+      "key": "merge:p4401:2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b:c6205:2030-03-01T11:31:00Z",
+      "stage": "merge",
+      "tickets": [
+        4301
+      ],
+      "pull_request": 4401,
+      "wait_minutes": 5.0,
+      "wait_range_minutes": [
+        5.0,
+        5.0
+      ],
+      "limit_minutes": 5,
+      "result": "not missed",
+      "start": "s15",
+      "end": "s16",
+      "support": [],
+      "folded": 0,
+      "gaps": []
+    },
+    {
+      "key": "reviewer_start:p4402:3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c:2030-03-01T08:20:00Z",
+      "stage": "reviewer_start",
+      "tickets": [
+        4302
+      ],
+      "pull_request": 4402,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 5,
+      "result": "unknown",
+      "start": "s17",
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "reviewer start unconfirmed"
+      ]
+    },
+    {
+      "key": "reviewer_start:p4402:5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e:2030-03-01T08:35:00Z",
+      "stage": "reviewer_start",
+      "tickets": [
+        4302
+      ],
+      "pull_request": 4402,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 5,
+      "result": "stale",
+      "start": "s18",
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "no longer current"
+      ]
+    },
+    {
+      "key": "reviewer_start:p4402:4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d:2030-03-01T08:50:00Z",
+      "stage": "reviewer_start",
+      "tickets": [
+        4302
+      ],
+      "pull_request": 4402,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 5,
+      "result": "gated",
+      "start": "s19",
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "held"
+      ]
+    },
+    {
+      "key": "merge:p4402:3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c:c6402:2030-03-01T08:23:00Z",
+      "stage": "merge",
+      "tickets": [
+        4302
+      ],
+      "pull_request": 4402,
+      "wait_minutes": null,
+      "wait_range_minutes": null,
+      "limit_minutes": 5,
+      "result": "stale",
+      "start": "s20",
+      "end": null,
+      "support": [],
+      "folded": 0,
+      "gaps": [
+        "no longer current"
+      ]
+    }
+  ],
+  "misses": [
+    "builder_question_answer:t4301:c6102",
+    "reviewer_start:p4401:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:2030-03-01T10:00:00Z",
+    "fix_after_changes:p4401:1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a:c6202"
+  ],
+  "sources": {
+    "s1": "https://github.com/example/factory/issues/4301",
+    "s2": "https://github.com/example/factory/issues/4301#issuecomment-6101",
+    "s3": "https://github.com/example/factory/issues/4301#issuecomment-6102",
+    "s4": "https://github.com/example/factory/issues/4301#issuecomment-6104",
+    "s5": "https://github.com/example/factory/issues/4302#issuecomment-6301",
+    "s6": "https://github.com/example/factory/issues/4303",
+    "s7": "https://github.com/example/factory/issues/4304#issuecomment-6501",
+    "s8": "https://github.com/example/factory/actions/runs/9001",
+    "s9": "https://github.com/example/factory/pull/4401#issuecomment-6201",
+    "s10": "https://github.com/example/factory/actions/runs/9002",
+    "s11": "https://github.com/example/factory/pull/4401#issuecomment-6204",
+    "s12": "https://github.com/example/factory/pull/4401#issuecomment-6202",
+    "s13": "https://github.com/example/factory/commit/2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b",
+    "s14": "https://github.com/example/factory/pull/4401#issuecomment-6203",
+    "s15": "https://github.com/example/factory/pull/4401#issuecomment-6205",
+    "s16": "https://github.com/example/factory/pull/4401",
+    "s17": "https://github.com/example/factory/actions/runs/9003",
+    "s18": "https://github.com/example/factory/actions/runs/9005",
+    "s19": "https://github.com/example/factory/actions/runs/9004",
+    "s20": "https://github.com/example/factory/pull/4402#issuecomment-6402"
+  }
+}

@@ -1,0 +1,21 @@
+F
+======================================================================
+FAIL: test_a_connected_repository_outlives_a_withdrawn_setup_after_an_absent_demo (__main__.Resume.test_a_connected_repository_outlives_a_withdrawn_setup_after_an_absent_demo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<wizskills>/skills/install/tests/test_first_fleet.py", line 1075, in test_a_connected_repository_outlives_a_withdrawn_setup_after_an_absent_demo
+    self.assertEqual(said.splitlines()[0], 'Next: connect.', said)
+AssertionError: 'Next: project.' != 'Next: connect.'
+- Next: project.
+?       ^^ ^
++ Next: connect.
+?       ^ ^^
+ : Next: project.
+Repository: synthetic-owner/synthetic-existing.
+Offer the ideas, then choose or create its one repository.
+
+
+----------------------------------------------------------------------
+Ran 1 test in <time>s
+
+FAILED (failures=1)

@@ -1,0 +1,17 @@
+test_context_follows_one_grill_even_if_answer_names_another (__main__.Records.test_context_follows_one_grill_even_if_answer_names_another) ... FAIL
+
+======================================================================
+FAIL: test_context_follows_one_grill_even_if_answer_names_another (__main__.Records.test_context_follows_one_grill_even_if_answer_names_another)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<checkout>/skills/grill/scripts/test_records.py", line 282, in test_context_follows_one_grill_even_if_answer_names_another
+    record = self.publish()
+             ^^^^^^^^^^^^^^
+  File "<checkout>/skills/grill/scripts/test_records.py", line 107, in publish
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 2 != 0 : b"/usr/bin/python3: can't open file '<checkout>/skills/grill/scripts/records.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.014s
+
+FAILED (failures=1)

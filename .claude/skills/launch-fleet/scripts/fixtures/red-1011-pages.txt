@@ -1,0 +1,33 @@
+FAIL REST parallel: archive pages share the bounded reader pool: fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fake gh: independent reader barrier never filled
+fleet.sh: can't read the issues outside specs
+ok   every gh call was one of fleet.sh's reads
+1 cases, 1 failed

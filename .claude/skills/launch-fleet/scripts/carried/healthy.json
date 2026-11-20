@@ -1,0 +1,23 @@
+{
+  "repository": "synthetic-owner/synthetic-repo",
+  "observed_at": 1800000000,
+  "complete": true,
+  "queue": {
+    "complete": true,
+    "jobs": []
+  },
+  "budgets": {
+    "rest": {
+      "remaining": 1000,
+      "limit": 1000,
+      "reset_at": 1800003600,
+      "retry_after": 0
+    },
+    "graphql": {
+      "remaining": 1000,
+      "limit": 1000,
+      "reset_at": 1800003600,
+      "retry_after": 0
+    }
+  }
+}
