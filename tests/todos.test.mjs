@@ -27,11 +27,13 @@ test('P1: addTask appends a trimmed, not-done task at the end', () => {
 });
 
 test('P1: addTask gives every task an id unique in the list', () => {
-  let tasks = [];
-  for (const text of ['one', 'two', 'three', 'four']) tasks = addTask(tasks, text);
-  // Ids that look like ones the list could generate must not be reused.
-  tasks = addTask([{ id: 't1', text: 'x', done: false }, { id: 't2', text: 'y', done: false }], 'z');
-  assert.equal(new Set(tasks.map((t) => t.id)).size, 3);
+  // Ids already in the list (say, loaded from storage) are never reused,
+  // even when they look like ones addTask itself would make.
+  for (const ids of [['t1', 't2'], ['t2', 't3'], ['t3', 't1'], ['x', 't3', 't4']]) {
+    const tasks = addTask(ids.map((id) => ({ id, text: id, done: false })), 'new');
+    assert.equal(new Set(tasks.map((t) => t.id)).size, ids.length + 1, ids.join(','));
+    assert.equal(typeof tasks.at(-1).id, 'string');
+  }
   let many = [];
   for (let i = 0; i < 50; i++) many = addTask(many, `task ${i}`);
   assert.equal(new Set(many.map((t) => t.id)).size, 50);
