@@ -101,3 +101,106 @@ test('the page body is exactly the page in docs/markup.md', async () => {
   assert.ok(body, 'the page has a body');
   assert.equal(squash(body[0]), squash(await contractPage()));
 });
+
+// R1: two tabs on one list. Both tabs share one origin, so one localStorage and
+// one lock manager. The storage stand-in can run another tab's change just
+// before this tab writes the list it read: the overlap a handler paused before
+// its save (as the review did with a breakpoint) gives in a browser.
+import { saveChange, afterOtherTabSaved } from '../app/main.js';
+import { STORAGE_KEY, loadTasks, saveTasks, addTask, toggleTask } from '../app/todos.js';
+
+function sharedStorage() {
+  const items = new Map();
+  let onWrite = null;
+  return {
+    getItem: (key) => (items.has(key) ? items.get(key) : null),
+    setItem(key, value) {
+      const hook = onWrite;
+      onWrite = null;
+      hook?.();
+      items.set(key, String(value));
+    },
+    // Runs once, just before the next write lands.
+    beforeNextWrite(hook) {
+      onWrite = hook;
+    },
+  };
+}
+
+// The Web Locks API's exclusive mode, for one origin: a request runs its
+// callback once every earlier request for the same name has settled, and
+// resolves with the callback's result.
+function lockManager() {
+  const tails = new Map();
+  return {
+    request(name, callback) {
+      const run = (tails.get(name) ?? Promise.resolve()).then(() => callback({ name, mode: 'exclusive' }));
+      tails.set(name, run.catch(() => {}));
+      return run;
+    },
+  };
+}
+
+const texts = (list) => list.map((t) => `${t.text}${t.done ? ' (done)' : ''}`);
+
+test('two tabs whose changes overlap both stay saved (Locks API)', async () => {
+  const storage = sharedStorage();
+  const locks = lockManager();
+  saveTasks(storage, [{ id: 't1', text: 'Buy milk', done: false }]);
+  let tabB;
+  // Tab A ticks Buy milk; just before A's write lands, tab B adds Pay rent.
+  storage.beforeNextWrite(() => {
+    tabB = saveChange(storage, locks, (list) => addTask(list, 'Pay rent'));
+  });
+  const tabA = await saveChange(storage, locks, (list) => toggleTask(list, 't1'));
+  const b = await tabB;
+  assert.deepEqual([tabA.saved, b.saved], [true, true]);
+  assert.deepEqual(texts(loadTasks(storage)), ['Buy milk (done)', 'Pay rent']);
+  assert.deepEqual(texts(b.tasks), ['Buy milk (done)', 'Pay rent'], 'tab B shows both');
+});
+
+test('without the Locks API, a task another tab overwrote is saved again by the tab that added it', async () => {
+  const storage = sharedStorage();
+  saveTasks(storage, [{ id: 't1', text: 'Buy milk', done: false }]);
+  let tabB;
+  storage.beforeNextWrite(() => {
+    tabB = saveChange(storage, undefined, (list) => addTask(list, 'Pay rent'));
+  });
+  await saveChange(storage, undefined, (list) => toggleTask(list, 't1'));
+  const b = await tabB;
+  // Tab A wrote its stale list over Pay rent; tab B hears of it as a storage event.
+  assert.deepEqual(texts(loadTasks(storage)), ['Buy milk (done)']);
+  const shown = await afterOtherTabSaved(storage, undefined, b.tasks);
+  assert.deepEqual(texts(loadTasks(storage)), ['Buy milk (done)', 'Pay rent']);
+  assert.deepEqual(texts(shown), ['Buy milk (done)', 'Pay rent']);
+});
+
+test('without the Locks API, a task that lost its id to another tab is saved again under a fresh id', async () => {
+  const storage = sharedStorage();
+  saveTasks(storage, [{ id: 't1', text: 'Buy milk', done: false }]);
+  // Both tabs add a task from the same list, so both pick id t2; A's write lands last.
+  saveTasks(storage, [{ id: 't1', text: 'Buy milk', done: false }, { id: 't2', text: 'Call the bank', done: false }]);
+  const shownInB = [{ id: 't1', text: 'Buy milk', done: false }, { id: 't2', text: 'Pay rent', done: true }];
+  const shown = await afterOtherTabSaved(storage, undefined, shownInB);
+  const saved = loadTasks(storage);
+  assert.deepEqual(texts(saved), ['Buy milk', 'Call the bank', 'Pay rent (done)']);
+  assert.equal(new Set(saved.map((t) => t.id)).size, 3, 'ids stay unique');
+  assert.deepEqual(shown, saved);
+});
+
+test('with the Locks API, another tab saving just shows its list, and writes nothing', async () => {
+  const storage = sharedStorage();
+  const list = [{ id: 't1', text: 'Buy milk', done: true }];
+  saveTasks(storage, list);
+  const raw = storage.getItem(STORAGE_KEY);
+  let writes = 0;
+  const setItem = storage.setItem;
+  storage.setItem = (...args) => {
+    writes += 1;
+    setItem(...args);
+  };
+  const shown = await afterOtherTabSaved(storage, lockManager(), [{ id: 't1', text: 'Buy milk', done: false }, { id: 't9', text: 'Old', done: false }]);
+  assert.deepEqual(shown, list);
+  assert.equal(writes, 0);
+  assert.equal(storage.getItem(STORAGE_KEY), raw);
+});

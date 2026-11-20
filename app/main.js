@@ -13,6 +13,39 @@ import { renderTasks } from './view.js';
 const NOT_SAVED = 'Your change was not saved: this browser’s storage is full or blocked.';
 const THIS_VISIT = 'Storage is blocked: tasks are kept for this visit only';
 
+// The latest saved list, or null when storage can't be read right now (never
+// mistaken for an empty list, which would then be saved over the real one).
+function latest(storage) {
+  try {
+    storage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+  return loadTasks(storage);
+}
+
+// Applies one action to the latest saved list and saves it. Resolves to
+// { saved, tasks }: saved is true once saved (or when nothing changed); tasks is
+// the list to show, or null when storage can't be read (show what is shown).
+export async function saveChange(storage, locks, action) {
+  const before = latest(storage);
+  if (before === null) return { saved: false, tasks: null };
+  const next = action(before);
+  if (next !== before) {
+    try {
+      saveTasks(storage, next);
+    } catch {
+      return { saved: false, tasks: before };
+    }
+  }
+  return { saved: true, tasks: next };
+}
+
+// Another tab saved. Resolves to the list to show, or null to keep what is shown.
+export async function afterOtherTabSaved(storage, locks, shown) {
+  return latest(storage);
+}
+
 // localStorage itself can throw (storage blocked, some private modes); the page
 // then still works, for this visit only, and says so.
 function browserStorage() {
@@ -29,102 +62,82 @@ function browserStorage() {
   };
 }
 
-const { storage, kept } = browserStorage();
-const form = document.querySelector('.todo-form');
-const field = document.querySelector('.todo-form-input');
-const container = document.querySelector('.todo-tasks');
+function start() {
+  const { storage, kept } = browserStorage();
+  const locks = navigator.locks;
+  const form = document.querySelector('.todo-form');
+  const field = document.querySelector('.todo-form-input');
+  const container = document.querySelector('.todo-tasks');
 
-// The messages use the fields' own validation messages, so the page needs no
-// markup beyond docs/markup.md; the form is submitted by script, not blocked by them.
-form.noValidate = true;
-if (!kept) field.placeholder = THIS_VISIT;
+  // The messages use the fields' own validation messages, so the page needs no
+  // markup beyond docs/markup.md; the form is submitted by script, not blocked by them.
+  form.noValidate = true;
+  if (!kept) field.placeholder = THIS_VISIT;
 
-// The latest saved list, or null when storage can't be read right now (never
-// mistaken for an empty list, which would then be saved over the real one).
-function latest() {
-  try {
-    storage.getItem(STORAGE_KEY);
-  } catch {
-    return null;
+  let tasks = latest(storage) ?? [];
+
+  function checkboxFor(id) {
+    return [...container.querySelectorAll('.todo-item-check')].find((box) => box.dataset.id === id) ?? null;
   }
-  return loadTasks(storage);
-}
 
-let tasks = latest() ?? [];
+  // Renders the tasks; a checkbox that had keyboard focus keeps it.
+  function render() {
+    const active = document.activeElement;
+    const focusedId = active instanceof HTMLInputElement && container.contains(active) ? active.dataset.id : null;
+    container.innerHTML = renderTasks(tasks);
+    if (focusedId !== null) checkboxFor(focusedId)?.focus();
+  }
 
-function checkboxFor(id) {
-  return [...container.querySelectorAll('.todo-item-check')].find((box) => box.dataset.id === id) ?? null;
-}
-
-// Renders the tasks; a checkbox that had keyboard focus keeps it.
-function render() {
-  const active = document.activeElement;
-  const focusedId = active instanceof HTMLInputElement && container.contains(active) ? active.dataset.id : null;
-  container.innerHTML = renderTasks(tasks);
-  if (focusedId !== null) checkboxFor(focusedId)?.focus();
-}
-
-// Applies one action to the latest saved list and saves it. Shows the result
-// and returns true once saved (or when nothing changed); otherwise shows the
-// saved list unchanged and returns false.
-function commit(action) {
-  const before = latest();
-  if (before === null) {
+  // Saves one change, then shows the result; resolves to whether it was saved.
+  async function commit(action) {
+    const { saved, tasks: shown } = await saveChange(storage, locks, action);
+    if (shown !== null) tasks = shown;
     render();
-    return false;
+    return saved;
   }
-  const next = action(before);
-  if (next !== before) {
-    try {
-      saveTasks(storage, next);
-    } catch {
-      tasks = before;
-      render();
-      return false;
+
+  function tell(element, message) {
+    element.setCustomValidity(message);
+    element.reportValidity();
+  }
+
+  field.addEventListener('input', () => field.setCustomValidity(''));
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    field.setCustomValidity('');
+    const text = field.value;
+    if (await commit((list) => addTask(list, text))) {
+      // Clear only the text that was added, not anything typed since.
+      if (text.trim() !== '' && field.value === text) field.value = '';
+      field.focus();
+    } else {
+      field.focus();
+      tell(field, NOT_SAVED);
     }
-  }
-  tasks = next;
+  });
+
+  container.addEventListener('change', async (event) => {
+    const box = event.target;
+    if (!(box instanceof HTMLInputElement) || !box.classList.contains('todo-item-check')) return;
+    const id = box.dataset.id;
+    const saved = await commit((list) => toggleTask(list, id));
+    const again = checkboxFor(id);
+    again?.focus();
+    if (!saved && again) tell(again, NOT_SAVED);
+  });
+
+  // Another tab saved: show its list.
+  window.addEventListener('storage', async (event) => {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    const list = await afterOtherTabSaved(storage, locks, tasks);
+    if (list === null) return;
+    tasks = list;
+    render();
+  });
+
   render();
-  return true;
 }
 
-function tell(element, message) {
-  element.setCustomValidity(message);
-  element.reportValidity();
-}
-
-field.addEventListener('input', () => field.setCustomValidity(''));
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  field.setCustomValidity('');
-  const text = field.value;
-  if (commit((list) => addTask(list, text))) {
-    if (text.trim() !== '') field.value = '';
-    field.focus();
-  } else {
-    field.focus();
-    tell(field, NOT_SAVED);
-  }
-});
-
-container.addEventListener('change', (event) => {
-  const box = event.target;
-  if (!(box instanceof HTMLInputElement) || !box.classList.contains('todo-item-check')) return;
-  const id = box.dataset.id;
-  const saved = commit((list) => toggleTask(list, id));
-  const again = checkboxFor(id);
-  again?.focus();
-  if (!saved && again) tell(again, NOT_SAVED);
-});
-
-// Another tab saved: show its list.
-window.addEventListener('storage', (event) => {
-  if (event.key !== STORAGE_KEY && event.key !== null) return;
-  const list = latest();
-  if (list === null) return;
-  tasks = list;
-  render();
-});
-
-render();
+// The page starts in a browser; the tests import the functions above in Node.
+if (typeof document !== 'undefined') start();
