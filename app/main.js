@@ -5,7 +5,9 @@
 //
 // Storage is the source of truth: each change is applied to the latest saved
 // list (another tab may have changed it), and the page shows a change only
-// once it is saved.
+// once it is saved. Tabs take turns: each read-change-write holds one lock
+// (the Web Locks API); a browser without it saves again a task another tab
+// wrote over.
 
 import { addTask, toggleTask, loadTasks, saveTasks, STORAGE_KEY } from './todos.js';
 import { renderTasks } from './view.js';
@@ -24,10 +26,16 @@ function latest(storage) {
   return loadTasks(storage);
 }
 
-// Applies one action to the latest saved list and saves it. Resolves to
-// { saved, tasks }: saved is true once saved (or when nothing changed); tasks is
-// the list to show, or null when storage can't be read (show what is shown).
-export async function saveChange(storage, locks, action) {
+// One lock for every read-change-write of the stored tasks, shared by the
+// origin's tabs (the Web Locks API), so two tabs' changes never interleave.
+const LOCK_NAME = 'todo-demo.tasks';
+
+function hasLocks(locks) {
+  return typeof locks?.request === 'function';
+}
+
+// Applies one action to the latest saved list and saves it, all at once.
+function applyToLatest(storage, action) {
   const before = latest(storage);
   if (before === null) return { saved: false, tasks: null };
   const next = action(before);
@@ -41,9 +49,48 @@ export async function saveChange(storage, locks, action) {
   return { saved: true, tasks: next };
 }
 
+// Applies one action to the latest saved list and saves it, holding the tabs'
+// lock from the read to the write when the browser has the Locks API. Resolves
+// to { saved, tasks }: saved is true once saved (or when nothing changed);
+// tasks is the list to show, or null when storage can't be read (show what is
+// shown).
+export async function saveChange(storage, locks, action) {
+  if (!hasLocks(locks)) return applyToLatest(storage, action);
+  let ran = false;
+  try {
+    return await locks.request(LOCK_NAME, () => {
+      ran = true;
+      return applyToLatest(storage, action);
+    });
+  } catch (error) {
+    // The lock itself was refused (some sandboxed pages): change without it.
+    if (ran) throw error;
+    return applyToLatest(storage, action);
+  }
+}
+
+// The list with every task of shown it lacks added back at the end, with its
+// done state. Tasks are never deleted, so a task this tab showed that is not
+// in the list (same id and text) was written over by another tab. One that
+// lost its id to another tab's task comes back under a fresh id.
+function withMissing(list, shown) {
+  let next = list;
+  for (const task of shown) {
+    if (next.some((t) => t.id === task.id && t.text === task.text)) continue;
+    const added = addTask(next, task.text);
+    if (added === next) continue;
+    next = task.done ? toggleTask(added, added[added.length - 1].id) : added;
+  }
+  return next;
+}
+
 // Another tab saved. Resolves to the list to show, or null to keep what is shown.
+// With the Locks API no tab writes over another's change, so this only reads.
+// Without it two tabs' saves can still overlap, so a task this tab showed that
+// the other tab wrote over is saved again.
 export async function afterOtherTabSaved(storage, locks, shown) {
-  return latest(storage);
+  if (hasLocks(locks)) return latest(storage);
+  return (await saveChange(storage, locks, (list) => withMissing(list, shown))).tasks;
 }
 
 // localStorage itself can throw (storage blocked, some private modes); the page
@@ -103,11 +150,23 @@ function start() {
 
   field.addEventListener('input', () => field.setCustomValidity(''));
 
+  // A save waits for the tabs' lock, so a second submit (a held Enter) can come
+  // before the first is saved; it would add the same text again, so it is ignored.
+  let adding = false;
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (adding) return;
+    adding = true;
     field.setCustomValidity('');
     const text = field.value;
-    if (await commit((list) => addTask(list, text))) {
+    let saved;
+    try {
+      saved = await commit((list) => addTask(list, text));
+    } finally {
+      adding = false;
+    }
+    if (saved) {
       // Clear only the text that was added, not anything typed since.
       if (text.trim() !== '' && field.value === text) field.value = '';
       field.focus();

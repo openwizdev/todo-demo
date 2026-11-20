@@ -112,8 +112,15 @@ import { STORAGE_KEY, loadTasks, saveTasks, addTask, toggleTask } from '../app/t
 function sharedStorage() {
   const items = new Map();
   let onWrite = null;
+  let onRead = null;
   return {
-    getItem: (key) => (items.has(key) ? items.get(key) : null),
+    getItem(key) {
+      const value = items.has(key) ? items.get(key) : null;
+      const hook = onRead;
+      onRead = null;
+      hook?.();
+      return value;
+    },
     setItem(key, value) {
       const hook = onWrite;
       onWrite = null;
@@ -123,6 +130,10 @@ function sharedStorage() {
     // Runs once, just before the next write lands.
     beforeNextWrite(hook) {
       onWrite = hook;
+    },
+    // Runs once, as the next read returns.
+    onNextRead(hook) {
+      onRead = hook;
     },
   };
 }
@@ -157,6 +168,20 @@ test('two tabs whose changes overlap both stay saved (Locks API)', async () => {
   assert.deepEqual([tabA.saved, b.saved], [true, true]);
   assert.deepEqual(texts(loadTasks(storage)), ['Buy milk (done)', 'Pay rent']);
   assert.deepEqual(texts(b.tasks), ['Buy milk (done)', 'Pay rent'], 'tab B shows both');
+});
+
+test('a tab reads the list only once it holds the lock (Locks API)', async () => {
+  const storage = sharedStorage();
+  const locks = lockManager();
+  saveTasks(storage, [{ id: 't1', text: 'Buy milk', done: false }]);
+  let tabB;
+  // Tab B asks to add Pay rent as soon as tab A first reads the list.
+  storage.onNextRead(() => {
+    tabB = saveChange(storage, locks, (list) => addTask(list, 'Pay rent'));
+  });
+  await saveChange(storage, locks, (list) => toggleTask(list, 't1'));
+  await tabB;
+  assert.deepEqual(texts(loadTasks(storage)), ['Buy milk (done)', 'Pay rent']);
 });
 
 test('without the Locks API, a task another tab overwrote is saved again by the tab that added it', async () => {
