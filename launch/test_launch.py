@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import selectors
 import subprocess
 import sys
 import tempfile
@@ -124,10 +125,17 @@ print(json.dumps(responses[field + ':' + number]))
         with subprocess.Popen(['/bin/sh', str(HERE / 'reset.sh'), REPO], env=self.env,
                               stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                               text=True) as reset:
-            plan = reset.stdout.readline()
-            self.assertIn(f'Create empty private GitHub repository {REPO}', plan)
-            self.assertEqual(self.calls(), [])
-            _, err = reset.communicate('yes\n', timeout=10)
+            try:
+                with selectors.DefaultSelector() as ready:
+                    ready.register(reset.stdout, selectors.EVENT_READ)
+                    self.assertTrue(ready.select(timeout=5), 'reset did not print its plan before reading stdin')
+                plan = reset.stdout.readline()
+                self.assertIn(f'Create empty private GitHub repository {REPO}', plan)
+                self.assertEqual(self.calls(), [])
+                _, err = reset.communicate('yes\n', timeout=10)
+            finally:
+                if reset.poll() is None:
+                    reset.kill()
         self.assertEqual(reset.returncode, 0, err)
         self.assertEqual(self.calls(), [['repo', 'create', REPO, '--private']])
 
